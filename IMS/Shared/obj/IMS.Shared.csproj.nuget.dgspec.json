@@ -14,6 +14,7 @@
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -57,12 +58,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

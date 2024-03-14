@@ -22,3 +22,4 @@
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net7.0/refint/IMS.Shared.dll
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net7.0/IMS.Shared.pdb
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net7.0/ref/IMS.Shared.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net7.0/IMS.Shared.sourcelink.json

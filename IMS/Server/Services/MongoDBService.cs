@@ -440,11 +440,11 @@ namespace IMS.Server.Services
         {
             if (projectid.Length > 0)
             {
-                return db.GetCollection<PRModel>("PurchaseRequest").Find(q => q.isactive.Equals(1) && q.projectid.Equals(projectid) && q.submitted.Equals(1)).ToList();
+                return db.GetCollection<PRModel>("PurchaseRequest").Find(q => q.isactive.Equals(1) && q.projectid.Equals(projectid)).ToList();
             }
             else
             {
-                return db.GetCollection<PRModel>("PurchaseRequest").Find(q => q.isactive.Equals(1) && q.submitted.Equals(1)).ToList();
+                return db.GetCollection<PRModel>("PurchaseRequest").Find(q => q.isactive.Equals(1)).ToList();
             }
             
         }

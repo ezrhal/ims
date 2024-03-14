@@ -14,6 +14,7 @@
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -62,6 +63,24 @@
               "target": "Package",
               "version": "[7.0.12, )"
             },
+            "Microsoft.NET.ILLink.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )",
+              "autoReferenced": true
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -88,8 +107,16 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.17, 7.0.17]"
+              "version": "[7.0.14, 7.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -97,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -116,6 +143,7 @@
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -124,7 +152,6 @@
         "sources": {
           "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
           "/usr/local/share/dotnet/library-packs": {},
-          "/usr/local/share/dotnet/sdk/7.0.314/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://nuget.telerik.com/v3/index.json": {}
         },
@@ -179,6 +206,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -187,7 +228,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -201,6 +242,7 @@
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -244,12 +286,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

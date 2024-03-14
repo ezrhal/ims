@@ -150,3 +150,4 @@
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/Debug/net7.0/IMS.Server.pdb
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/Debug/net7.0/IMS.Server.genruntimeconfig.cache
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/Debug/net7.0/ref/IMS.Server.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/Debug/net7.0/IMS.Server.sourcelink.json

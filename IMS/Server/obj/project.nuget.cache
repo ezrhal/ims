@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2j3r/Yw2QFhQEc5d6qIKdDf2K6lNitAitOX/8F6LZW1B9Ad7/IMaR4V6UGv8IADQaVPkKK6UsW6KodopWSefqw==",
+  "dgSpecHash": "u+X+4rRQiENkApPs3rofYkXxFDIApJZ4S/Bw0ZbqmRAwGgOOkuzOl1jEewe/zzNrAO1D5f30QoGmATqSqiq1ZQ==",
   "success": true,
   "projectFilePath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/IMS.Server.csproj",
   "expectedPackageFiles": [
@@ -54,7 +54,10 @@
     "/Users/israeldeguzman/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/telerik.reportviewer.blazor/16.1.22.622/telerik.reportviewer.blazor.16.1.22.622.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512"
+    "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.14/microsoft.netcore.app.host.osx-arm64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }

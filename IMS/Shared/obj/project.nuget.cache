@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "14jZhGHNqIqM/kBZXOBMC6EfrkI30t4QxxWUsOnq/k7yT5Iph64M3c3bj1kEPfC5z3tJ1ibnbM7nSW2fXljefQ==",
+  "dgSpecHash": "U6yaLFdxqM692rhnyvbYmzgk1GUdQYSz0IrGFXtKNEuWRNHrYqIb3F1UgNHVxvQJy/BxDNUbPZ3ESWZd+oR3sg==",
   "success": true,
   "projectFilePath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj",
   "expectedPackageFiles": [
@@ -21,7 +21,9 @@
     "/Users/israeldeguzman/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512"
+    "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }

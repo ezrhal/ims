@@ -4,12 +4,12 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="IMS/Client/Pages/PO/EditQuantity.razor.cs">
     <Files>
       <File FileName="IMS/Client/Pages/PO/EditQuantity.razor.cs" Line="6" Column="1" />
-      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor" Line="1" Column="1" />
+      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="IMS" selected="True">
+          <Node name="IMS" expanded="True">
             <Node name="IMS.Client" expanded="True">
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
