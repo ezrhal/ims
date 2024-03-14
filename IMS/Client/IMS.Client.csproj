@@ -24,6 +24,7 @@
     <PackageReference Include="Radzen.Blazor" Version="4.19.0" />
     <PackageReference Include="Telerik.ReportViewer.Blazor" Version="16.1.22.622" />
     <PackageReference Include="BlazorPro.BlazorSize" Version="6.2.2" />
+    <PackageReference Include="Toolbelt.Blazor.PWA.Updater" Version="2.1.0.1" />
   </ItemGroup>
 <ItemGroup>
      <Reference Include="Telerik.ReportServer.HttpClient">

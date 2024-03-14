@@ -92,6 +92,10 @@
             "Telerik.ReportViewer.Blazor": {
               "target": "Package",
               "version": "[16.1.22.622, )"
+            },
+            "Toolbelt.Blazor.PWA.Updater": {
+              "target": "Package",
+              "version": "[2.1.0.1, )"
             }
           },
           "imports": [

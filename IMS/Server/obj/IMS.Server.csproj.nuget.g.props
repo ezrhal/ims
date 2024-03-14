@@ -13,6 +13,8 @@
     <SourceRoot Include="/Users/israeldeguzman/.nuget/packages/" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)toolbelt.blazor.pwa.updater.service/2.0.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.Service.props" Condition="Exists('$(NuGetPackageRoot)toolbelt.blazor.pwa.updater.service/2.0.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.Service.props')" />
+    <Import Project="$(NuGetPackageRoot)toolbelt.blazor.pwa.updater/2.1.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.props" Condition="Exists('$(NuGetPackageRoot)toolbelt.blazor.pwa.updater/2.1.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.props')" />
     <Import Project="$(NuGetPackageRoot)telerik.reportviewer.blazor/16.1.22.622/buildTransitive/Telerik.ReportViewer.Blazor.props" Condition="Exists('$(NuGetPackageRoot)telerik.reportviewer.blazor/16.1.22.622/buildTransitive/Telerik.ReportViewer.Blazor.props')" />
     <Import Project="$(NuGetPackageRoot)radzen.blazor/4.19.0/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.19.0/buildTransitive/Radzen.Blazor.props')" />
     <Import Project="$(NuGetPackageRoot)blazorpro.blazorsize/6.2.2/buildTransitive/BlazorPro.BlazorSize.props" Condition="Exists('$(NuGetPackageRoot)blazorpro.blazorsize/6.2.2/buildTransitive/BlazorPro.BlazorSize.props')" />

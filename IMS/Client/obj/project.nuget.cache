@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QAQ44QEN1V2UmovLIbnzljgrx0twjYtncOZ2s+ILrfBRxKXP2l1Z95auOZMw2xxuultkX4ZQFoDbBHrMJtvGsA==",
+  "dgSpecHash": "lo5QsnhgCeZunUrdtVga4SuyqyGxPyy7JfofOk7wxERl6Q9ZATUPqAX+fzNdurnAXvDOIZ/MJeL1c+8ApZzN8g==",
   "success": true,
   "projectFilePath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj",
   "expectedPackageFiles": [
@@ -57,10 +57,12 @@
     "/Users/israeldeguzman/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/telerik.reportviewer.blazor/16.1.22.622/telerik.reportviewer.blazor.16.1.22.622.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/toolbelt.blazor.pwa.updater/2.1.0.1/toolbelt.blazor.pwa.updater.2.1.0.1.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/toolbelt.blazor.pwa.updater.service/2.0.0.1/toolbelt.blazor.pwa.updater.service.2.0.0.1.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/7.0.14/microsoft.netcore.app.runtime.mono.browser-wasm.7.0.14.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/7.0.14/microsoft.netcore.app.runtime.mono.browser-wasm.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }

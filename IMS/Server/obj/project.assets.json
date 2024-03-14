@@ -863,6 +863,50 @@
           "buildMultiTargeting/Telerik.ReportViewer.Blazor.props": {}
         }
       },
+      "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Toolbelt.Blazor.PWA.Updater.Service": "2.0.0.1"
+        },
+        "compile": {
+          "lib/net6.0/Toolbelt.Blazor.PWA.Updater.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Toolbelt.Blazor.PWA.Updater.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Toolbelt.Blazor.PWA.Updater.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Toolbelt.Blazor.PWA.Updater.props": {}
+        }
+      },
+      "Toolbelt.Blazor.PWA.Updater.Service/2.0.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Toolbelt.Blazor.PWA.Updater.Service.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Toolbelt.Blazor.PWA.Updater.Service.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Toolbelt.Blazor.PWA.Updater.Service.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Toolbelt.Blazor.PWA.Updater.Service.props": {}
+        }
+      },
       "ZstdSharp.Port/0.7.3": {
         "type": "package",
         "compile": {
@@ -882,7 +926,8 @@
           "Microsoft.AspNetCore.Components.WebAssembly": "7.0.12",
           "Newtonsoft.Json": "13.0.3",
           "Radzen.Blazor": "4.19.0",
-          "Telerik.ReportViewer.Blazor": "16.1.22.622"
+          "Telerik.ReportViewer.Blazor": "16.1.22.622",
+          "Toolbelt.Blazor.PWA.Updater": "2.1.0.1"
         },
         "compile": {
           "bin/placeholder/IMS.Client.dll": {}
@@ -2335,6 +2380,46 @@
         "staticwebassets/interop.js",
         "telerik.reportviewer.blazor.16.1.22.622.nupkg.sha512",
         "telerik.reportviewer.blazor.nuspec"
+      ]
+    },
+    "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
+      "sha512": "m5AbdhYBH/KpjqcBDLQ+snA4Q/tkptpzA3GvnMZh4J/RH+rU2lUxWkprugkSCjEFIRemYOJiNO5V39PcRmwblw==",
+      "type": "package",
+      "path": "toolbelt.blazor.pwa.updater/2.1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Toolbelt.Blazor.PWA.Updater.props",
+        "buildMultiTargeting/Toolbelt.Blazor.PWA.Updater.props",
+        "buildTransitive/Toolbelt.Blazor.PWA.Updater.props",
+        "lib/net6.0/Toolbelt.Blazor.PWA.Updater.dll",
+        "lib/net6.0/Toolbelt.Blazor.PWA.Updater.xml",
+        "nupkg-icon.png",
+        "staticwebassets/Toolbelt.Blazor.PWA.Updater.bundle.scp.css",
+        "toolbelt.blazor.pwa.updater.2.1.0.1.nupkg.sha512",
+        "toolbelt.blazor.pwa.updater.nuspec"
+      ]
+    },
+    "Toolbelt.Blazor.PWA.Updater.Service/2.0.0.1": {
+      "sha512": "6VEvKXab/ZGFw24mO427T/2cenXWCdOSDXZ3dlkO9ViwQxrvYwGh5K58A8Tj7ZkkcCh08JxshrfNYJnjMxXoUg==",
+      "type": "package",
+      "path": "toolbelt.blazor.pwa.updater.service/2.0.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Toolbelt.Blazor.PWA.Updater.Service.props",
+        "buildMultiTargeting/Toolbelt.Blazor.PWA.Updater.Service.props",
+        "buildTransitive/Toolbelt.Blazor.PWA.Updater.Service.props",
+        "lib/net6.0/Toolbelt.Blazor.PWA.Updater.Service.dll",
+        "lib/net6.0/Toolbelt.Blazor.PWA.Updater.Service.xml",
+        "nupkg-icon.png",
+        "staticwebassets/script.min.js",
+        "toolbelt.blazor.pwa.updater.service.2.0.0.1.nupkg.sha512",
+        "toolbelt.blazor.pwa.updater.service.nuspec"
       ]
     },
     "ZstdSharp.Port/0.7.3": {
