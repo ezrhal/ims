@@ -14,7 +14,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.12" />
     <PackageReference Include="MongoDB.Driver" Version="2.23.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Telerik.ReportViewer.Blazor" Version="16.1.22.622" />
   </ItemGroup>
 
   <ItemGroup>

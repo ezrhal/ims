@@ -2373,8 +2373,7 @@
       "IMS.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly.Server >= 7.0.12",
       "MongoDB.Driver >= 2.23.2",
-      "Newtonsoft.Json >= 13.0.3",
-      "Telerik.ReportViewer.Blazor >= 16.1.22.622"
+      "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
@@ -2398,7 +2397,8 @@
       "sources": {
         "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
         "/usr/local/share/dotnet/library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
@@ -2438,10 +2438,6 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
-          },
-          "Telerik.ReportViewer.Blazor": {
-            "target": "Package",
-            "version": "[16.1.22.622, )"
           }
         },
         "imports": [
