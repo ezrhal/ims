@@ -1,0 +1,26 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+@using Telerik.ReportServer.Services.Models;
+
+@page "/ReportViewer/Index"
+
+<RadzenButton Text="Get" Click="@Getreport"></RadzenButton>
+
+<RadzenDataGrid Data="@reports" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+        TItem="ReportInfo" Density="Density.Compact" Context="workitem" @ref="reportGrid" LoadData="@LoadData"
+        SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false">
+
+    <Columns>
+        <RadzenDataGridColumn TItem="ReportInfo" Property="Name" Title="Report Title" Frozen="false" Width="100px" />
+        <RadzenDataGridColumn TItem="ReportInfo" Property="Description" Title="Description" Frozen="false" Width="100px" />
+        <RadzenDataGridColumn TItem="ReportInfo" Property="LastMofiedDate" Title="Last Modified" Frozen="false" Width="100px" />
+        <RadzenDataGridColumn TItem="ReportInfo" Context="Id" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+            <Template Context="data">
+                
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(() => OpenReport(data.Name))" Size="ButtonSize.Small" class="my-1 ms-1">
+                </RadzenButton>
+            </Template>
+        </RadzenDataGridColumn>
+
+    </Columns>
+</RadzenDataGrid> 

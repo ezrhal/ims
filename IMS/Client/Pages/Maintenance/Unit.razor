@@ -1,0 +1,59 @@
+﻿@using IMS.Shared.Models
+@inject HttpClient httpClient
+@inject DialogService DialogService
+@inject NotificationService NotificationService
+@*<style>
+
+        .rz-dialog-titlebar {
+            background-color: red !important;
+        }
+
+    </style>*@
+
+
+<RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
+        <RadzenButton Icon="add" Text="Add Unit" Click=@NewUnit />
+        <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
+    </RadzenStack>
+    <RadzenRow>
+        <RadzenDataGrid @ref="grid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                        Data="@filteredunits" TItem="UnitModel" Density="Density.Compact"
+                        SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedUnits" Style="width: 500px">
+
+            <Columns>
+                <RadzenDataGridColumn TItem="UnitModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                    <HeaderTemplate>
+                        <RadzenCheckBox TriState="false" TValue="bool?"
+                                        Value="@(selectedUnits == null || selectedUnits?.Any() != true ? false : !filteredunits.All(i => selectedUnits.Contains(i)) ? null : filteredunits.Any(i => selectedUnits.Contains(i)))"
+                                        Change="@(args => selectedUnits = args == true ? filteredunits.ToList() : null)" />
+                    </HeaderTemplate>
+                    <Template Context="data">
+                        <RadzenCheckBox TriState="false" Value="@(selectedUnits != null && selectedUnits.Contains(data))"
+                                        TValue="bool" Change=@(args => grid.SelectRow(data)) />
+                    </Template>
+                    @*<FooterTemplate>
+                            <RadzenButton Icon="add" Text="Add Material" Click=@NewMaterial />
+                        </FooterTemplate>*@
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="UnitModel" Width="55px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        <RadzenButton Icon="edit" Click="@(() => EditUnit(data.Id))" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Outlined" Size="ButtonSize.ExtraSmall" />
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="UnitModel" Property="unit" Title="Unit" Frozen="false" />
+
+            </Columns>
+        </RadzenDataGrid>
+    </RadzenRow>
+    <RadzenRow>
+        <RadzenButton Icon="delete" Text="Delete" Click=@DeleteItems ButtonStyle="ButtonStyle.Danger" />
+    </RadzenRow>
+
+</RadzenStack>
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+﻿@using IMS.Shared.Models
+@inject Radzen.DialogService dialog
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+
+
+<RadzenTemplateForm Data="@equipment" Submit="@(async (EquipmentModel args) => { await SaveEquipment(args); })">
+    <RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+
+                <RadzenDropDown Data=@items TextProperty="item" ValueProperty="Id" TValue="string" @bind-Value="@equipment.itemid" Class="rz-background-color-white" Placeholder="Select Equipment" Name="equipmnt" />
+                <RadzenRequiredValidator Component="equipmnt" Text="Equipment is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+                <RadzenNumeric @bind-Value="@equipment.quantity" Name="unitcost" Class="rz-background-color-white" Placeholder="Quantity" />
+                <RadzenNumericRangeValidator Component="unitcost" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+                <RadzenNumeric @bind-Value="@equipment.hours" Name="hours" Class="rz-background-color-white" Placeholder="Hours" />
+                <RadzenNumericRangeValidator Component="hours" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenTemplateForm>

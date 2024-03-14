@@ -1,0 +1,223 @@
+﻿
+@page "/PR/POList"
+@inject HttpClient httpClient
+@inject DialogService DialogService
+@inject NotificationService NotificationService
+@using IMS.Shared.Models
+@inject NavigationManager navigationManager
+
+
+
+<style>
+    a:link {
+        text-decoration: none;
+    }
+</style>
+
+@{
+    if (!projectviewpo)
+    {
+        <div class="col-md-12 col-lg-12 mb-3">
+            <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+                <RadzenBreadCrumb>
+                    <RadzenBreadCrumbItem Icon="home" Path="/" Text="Home" />
+                    <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Purchase Order" />
+                    <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Index" />
+                </RadzenBreadCrumb>
+            </RadzenCard>
+        </div>
+    }
+}
+
+
+<div class="col-md-12 col-lg-12">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            <RadzenRow>
+
+                <RadzenTabs>
+                    <Tabs>
+                        <RadzenTabsItem Text="Prepared">
+                            <RadzenStack class="mb-2" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
+                                <RadzenButton Icon="add" Text="New PO" Click=@AddPO />
+                                <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
+                            </RadzenStack>
+                            <RadzenDataGrid @ref="poGrid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                                Data="@filteredPO" TItem="POModel" Density="Density.Compact"
+                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedPO">
+
+                                <Columns>
+                                    <RadzenDataGridColumn Width="60px" TItem="POModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                                        <Template Context="data">
+                                            @(filteredPO.IndexOf(data) + 1)
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="POModel" Property="pono" Title="PO No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
+                                        <Template Context="data">
+                                            <div>
+                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
+                                            </div>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="POModel" Property="prno" Title="PR No." Width="150px" TextAlign="TextAlign.Center" />
+                                    <RadzenDataGridColumn TItem="POModel" Property="dateprepared" Title="Date" Width="130px" TextAlign="TextAlign.Center">
+                                        <Template Context="data">
+                                            <div>
+                                                @{
+                                                    if (data.dateprepared != null)
+                                                    {
+                                                        @string.Format("{0:MMMM dd, yyyy}", data.dateprepared)
+                                                    }
+                                                }
+                                                
+                                            </div>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="POModel" Property="supplier" Title="Supplier" />
+
+                                    <RadzenDataGridColumn TItem="POModel" TextAlign="TextAlign.Center" Property="amount" Title="Amount" Width="170px">
+                                        <Template Context="detail">
+                                            <div style="text-align: right; font-size: 15px">
+                                                @{
+                                                    if (detail.items != null)
+                                                    {
+                                                        @String.Format("{0:n2}", detail.items.Sum(q => q.quantity * q.price))
+                                                    }
+                                                    else
+                                                    {
+                                                        @String.Format("{0:n2}", 0)
+                                                    }
+                                                }
+                                                
+                                            </div>
+                                        </Template>
+                                        <FooterTemplate>
+                                            @{
+                                                if (filteredPO != null)
+                                                {
+                                                    <div style="text-align: right; font-size: 15px; font-weight: bold">
+                                                        @string.Format("₱ {0:n2}", filteredPO.Sum(q => q.amount))
+                                                    </div>
+                                                }
+                                            }
+                                                
+                                        </FooterTemplate>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                        <Template Context="data">
+                                            <div style="margin-left: -5px">
+                                                <RadzenButton Click="@(() => DeletePR(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                            </div>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+
+
+                                </Columns>
+                            </RadzenDataGrid>
+                        </RadzenTabsItem>
+                        <RadzenTabsItem Text="Submitted" Selected="true">
+                            <RadzenStack class="mb-2" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End">
+                                
+                                <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
+                            </RadzenStack>
+                            <RadzenDataGrid @ref="poGrid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                                Data="@filteredPOSubmitted" TItem="POModel" Density="Density.Compact"
+                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedPO">
+
+                                <Columns>
+                                    <RadzenDataGridColumn Width="60px" TItem="POModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                                        <Template Context="data">
+                                            @(filteredPOSubmitted.IndexOf(data) + 1)
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="POModel" Property="transactionno" Title="PR No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
+                                        <Template Context="data">
+                                            <div>
+                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
+                                            </div>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="POModel" Property="dateprepared" Title="Date">
+                                        <Template Context="data">
+                                            <div>
+                                                @{
+                                                    if (data.dateprepared != null)
+                                                    {
+                                                        @string.Format("{0:MMMM dd, yyyy}", data.dateprepared)
+                                                    }
+                                                }
+                                                
+                                            </div>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+                                   
+                                    <RadzenDataGridColumn TItem="POModel" Property="Id" Title="FirstItem">
+                                        <Template Context="data">
+                                            <div>
+                                                @{
+                                                    if (data.items != null)
+                                                    {
+                                                        @(data.items.FirstOrDefault()?.item + " " + data.items.FirstOrDefault()?.description)
+                                                    }
+                                                }
+                                            </div>
+                                        </Template>
+                                        <FooterTemplate>
+                                                <div style="text-align:right">
+                                                    <b>TOTAL :</b>
+                                                </div>
+                                        </FooterTemplate>
+                                    </RadzenDataGridColumn>
+
+                                    <RadzenDataGridColumn TItem="POModel" TextAlign="TextAlign.Center" Property="amount" Title="Amount" Width="170px">
+                                        <Template Context="detail">
+                                            <div style="text-align: right; font-size: 15px">
+                                                @{
+                                                    if (detail.items != null)
+                                                    {
+                                                        @String.Format("{0:n2}", detail.items.Sum(q => q.quantity * q.price))
+                                                    }
+                                                    else
+                                                    {
+                                                        @String.Format("{0:n2}", 0)
+                                                    }
+                                                }
+                                                
+                                            </div>
+                                        </Template>
+                                        <FooterTemplate>
+                                            @{
+                                                if (filteredPOSubmitted != null)
+                                                {
+                                                    <div style="text-align: right; font-size: 15px; font-weight: bold">
+                                                        @string.Format("₱ {0:n2}", filteredPOSubmitted.Sum(q => q.amount))
+                                                    </div>
+                                                }
+                                            }
+                                                
+                                        </FooterTemplate>
+                                    </RadzenDataGridColumn>
+                                    <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                        <Template Context="data">
+                                            <div style="margin-left: -5px">
+                                                <RadzenButton Click="@(() => DeletePR(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                            </div>
+                                        </Template>
+                                    </RadzenDataGridColumn>
+
+
+                                </Columns>
+                            </RadzenDataGrid>
+                        </RadzenTabsItem>
+                    </Tabs>
+                </RadzenTabs>
+
+                
+            </RadzenRow>
+            @* <RadzenRow JustifyContent="JustifyContent.Right">
+                <RadzenButton Icon="delete" Text="Delete" ButtonStyle="ButtonStyle.Danger" />
+            </RadzenRow> *@
+
+        </RadzenStack>
+    </RadzenCard>
+</div>

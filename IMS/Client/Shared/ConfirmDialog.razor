@@ -1,0 +1,40 @@
+﻿@inject Radzen.DialogService dialog
+@inject HttpClient httpClient
+
+<style>
+    .rz-dialog-titlebar {
+        background-color: var(--rz-primary-dark) !important;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        
+    }
+
+    .rz-dialog-title {
+        color: var(--rz-white) !important;
+    }
+
+    .rz-dialog-titlebar-close .rzi-times {
+        color: var(--rz-white) !important;
+    }
+
+</style>
+
+<RadzenStack Orientation="Orientation.Vertical" Gap="1rem">
+
+    <RadzenRow JustifyContent="JustifyContent.Center" >
+        <RadzenText TextAlign="TextAlign.Center">
+            @message
+        </RadzenText>
+    </RadzenRow>
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Center" Gap="1rem">
+        <RadzenButton Text="Yes" ButtonStyle="ButtonStyle.Primary" Click="@ConfirmSubmit" Size="ButtonSize.Medium" Style="width:120px" />
+        <RadzenButton Text="No" Click="@(() => dialog.Close(false))" ButtonStyle="ButtonStyle.Secondary" Style="width:120px" />
+    </RadzenStack>
+   
+</RadzenStack>

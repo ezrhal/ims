@@ -1,0 +1,137 @@
+﻿@inherits LayoutComponentBase
+
+    <RadzenComponents />
+
+<style>
+
+    .bdy {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+
+     main {
+            padding: 1em;
+            flex: 1;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .floating-menu {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu-item {
+            text-align: center;
+            padding: 0.5em;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+
+</style>
+
+<MediaQueryList>
+    
+    @{
+       
+        if (!IsSmall)
+        {
+            <RadzenLayout Style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body'">
+                <RadzenHeader>
+                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+                        <RadzenSidebarToggle Click="@ToggleMenu" />
+                        <RadzenLabel Text="Construction Management System" />
+                    </RadzenStack>
+                </RadzenHeader>
+                <RadzenSidebar @bind-Expanded="@sidebar2Expanded">
+                <NavigationMenu />
+                </RadzenSidebar>
+                <RadzenBody>
+                    <div class="rz-p-4" style="width:100%">
+                        @Body
+                    </div>
+                </RadzenBody>
+            </RadzenLayout>
+            
+            isSmallInit = true;
+        }
+        else
+        {
+            if (isSmallInit)
+            {
+                sidebar2Expanded = false;
+                isSmallInit = false;
+            }
+
+            <RadzenLayout style="position: relative">
+                <RadzenHeader>
+                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+                        <RadzenSidebarToggle Click="@(() => sidebar2Expanded = !sidebar2Expanded)" />
+                        <RadzenLabel Text="Construction Management System" />
+                    </RadzenStack>
+                </RadzenHeader>
+                <RadzenSidebar Responsive="false" @bind-Expanded="@sidebar2Expanded" style="position: absolute">
+                    <RadzenPanelMenu>
+                         <NavigationMenu />
+                    </RadzenPanelMenu>
+                </RadzenSidebar>
+                <RadzenBody>
+                    <div class="rz-p-4">
+                       @Body
+                    </div>
+                </RadzenBody>
+            </RadzenLayout>
+        }
+    }
+
+    
+    
+<MediaQuery Media="@Breakpoints.OnlyMedium" @bind-Matches="IsMedium" />
+<MediaQuery Media="@Breakpoints.SmallDown" @bind-Matches="IsSmall" />
+
+</MediaQueryList>
+
+
+
+@code {
+
+    bool IsMedium = false;
+    bool IsSmall = false;
+    bool sidebar2Expanded = true;
+    public string txt = "";
+    bool isSmallInit = false;
+
+    public bool ShowFooter { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine(sidebar2Expanded);
+    }
+
+    void ToggleMenu()
+    {
+        if (sidebar2Expanded == true)
+        {
+            sidebar2Expanded = false;
+        }
+        else
+        {
+            sidebar2Expanded = true;
+        }
+        Console.WriteLine(sidebar2Expanded);
+    }
+}

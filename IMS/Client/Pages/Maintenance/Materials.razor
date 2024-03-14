@@ -1,0 +1,75 @@
+﻿@using IMS.Shared.Models
+@inject HttpClient httpClient
+@inject DialogService DialogService
+@inject NotificationService NotificationService
+
+@*<style>
+
+        .rz-dialog-titlebar {
+            background-color: red !important;
+        }
+
+    </style>*@
+
+<RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
+        <RadzenButton Icon="add" Text="@ButtonLabel" Click=@NewMaterial />
+        <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
+    </RadzenStack>
+    <RadzenRow>
+        <RadzenDataGrid @ref="grid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                        Data="@filteredmaterials" TItem="ItemModel" Density="Density.Compact"
+                        SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItems">
+
+            <Columns>
+                <RadzenDataGridColumn Width="50px" TItem="ItemModel" Title="#" Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                    <Template Context="data">
+                        @(filteredmaterials.IndexOf(data) + 1)
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="ItemModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center" Visible="false">
+                    <HeaderTemplate>
+                        <RadzenCheckBox TriState="false" TValue="bool?"
+                                        Value="@(selectedItems == null || selectedItems?.Any() != true ? false : !filteredmaterials.All(i => selectedItems.Contains(i)) ? null : filteredmaterials.Any(i => selectedItems.Contains(i)))"
+                                        Change="@(args => selectedItems = args == true ? filteredmaterials.ToList() : null)" />
+                    </HeaderTemplate>
+                    <Template Context="data">
+                        <RadzenCheckBox TriState="false" Value="@(selectedItems != null && selectedItems.Contains(data))"
+                                        TValue="bool" Change=@(args => grid.SelectRow(data)) />
+                    </Template>
+                    @*<FooterTemplate>
+                            <RadzenButton Icon="add" Text="Add Material" Click=@NewMaterial />
+                        </FooterTemplate>*@
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="ItemModel" Width="55px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center" Visible="false">
+                    <Template Context="data">
+                        <RadzenButton Icon="edit" Click="@(() => EditMaterial(data.Id))" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Outlined" Size="ButtonSize.ExtraSmall" />
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="ItemModel" Property="item" Title="Item" Frozen="false" />
+                <RadzenDataGridColumn TItem="ItemModel" Property="description" Title="Description" />
+                <RadzenDataGridColumn TItem="ItemModel" Property="unit" Title="Unit" Width="120px" />
+                <RadzenDataGridColumn TItem="ItemModel" Property="unitcost" Title="Unit Cost" Width="160px" TextAlign="TextAlign.Right" />
+        
+                 <RadzenDataGridColumn TItem="ItemModel" Context="order" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                    <Template Context="data">
+                        <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" Click="@(() => EditMaterial(data.Id))">
+                        </RadzenButton>
+                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(() => DeleteItem(data.Id))" Size="ButtonSize.Small" class="my-1 ms-1">
+                        </RadzenButton>
+                    </Template>
+                </RadzenDataGridColumn>
+
+            </Columns>
+        </RadzenDataGrid>
+    </RadzenRow>
+    <RadzenRow>
+        <RadzenButton Icon="delete" Text="Delete" Click=@DeleteItems ButtonStyle="ButtonStyle.Danger" Visible="false" />
+    </RadzenRow>
+
+</RadzenStack>
+
+
+
+
+

@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'hotreloadprofile' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BlazorGoogleMaps" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.12" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Radzen.Blazor" Version="4.19.0" />
+    <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
+    <PackageReference Include="Telerik.ReportViewer.Blazor" Version="16.1.22.622" />
+    <PackageReference Include="BlazorPro.BlazorSize" Version="6.2.2" />
+  </ItemGroup>
+<ItemGroup>
+     <Reference Include="Telerik.ReportServer.HttpClient">
+      	<HintPath>bin\Debug\net7.0\Telerik.ReportServer.HttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportServer.Services.Models">    
+ 	    <HintPath>bin\Debug\net7.0\Telerik.ReportServer.Services.Models.dll</HintPath>
+    </Reference>
+</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\IMS.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Maintenance\" />
+    <None Remove="Pages\Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Maintenance\" />
+    <Folder Include="Pages\Project\" />
+  </ItemGroup>
+</Project>

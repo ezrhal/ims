@@ -1,0 +1,89 @@
+﻿
+@page "/Project/Index"
+@inject HttpClient httpClient
+@inject DialogService DialogService
+@inject NotificationService NotificationService
+@using IMS.Shared.Models
+
+
+<style>
+    a:link {
+        text-decoration: none;
+    }
+</style>
+
+<div class="col-md-12 col-lg-12 mb-3">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenBreadCrumb>
+            <RadzenBreadCrumbItem Icon="home" Path="/" Text="Home" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/" Text="Project" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/Project/Index" Text="Index" />
+        </RadzenBreadCrumb>
+    </RadzenCard>
+</div>
+
+<div class="col-md-12 col-lg-12">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
+                <RadzenButton Icon="add" Text="New Project" Click=@AddProject />
+                <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
+            </RadzenStack>
+            <RadzenRow>
+                <RadzenDataGrid @ref="grid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                                Data="@filteredprojects" TItem="ProjectModel" 
+                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItems">
+
+                    <Columns>
+                        @* <RadzenDataGridColumn TItem="ProjectModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                             <HeaderTemplate>
+                                <RadzenCheckBox TriState="false" TValue="bool?"
+                                                Value="@(selectedItems == null || selectedItems?.Any() != true ? false : !filteredprojects.All(i => selectedItems.Contains(i)) ? null : filteredprojects.Any(i => selectedItems.Contains(i)))"
+                                                Change="@(args => selectedItems = args == true ? filteredprojects.ToList() : null)" />
+                            </HeaderTemplate>
+                            <Template Context="data">
+                                <RadzenCheckBox TriState="false" Value="@(selectedItems != null && selectedItems.Contains(data))"
+                                                TValue="bool" Change=@(args => grid.SelectRow(data)) />
+                            </Template> 
+                            <FooterTemplate>
+                                    <RadzenButton Icon="add" Text="Add Material" Click=@NewMaterial />
+                                </FooterTemplate>
+                        </RadzenDataGridColumn> *@
+                        <RadzenDataGridColumn TItem="ProjectModel" Property="Id" Title="No." Frozen="false" Width="50px" TextAlign="TextAlign.Center">
+                            <Template Context="data">
+                                @(filteredprojects.IndexOf(data) + 1)
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="ProjectModel" Property="projectname" Title="Project Title" Frozen="false" >
+                            <Template Context="data">
+                                <div><a href="/project/details?projectid=@data.Id">@data.projectname</a></div>
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="ProjectModel" Property="geodata.address" Title="Location" Width="700px" />
+                        <RadzenDataGridColumn TItem="ProjectModel" Property="projectcost" Title="Project Cost" Width="170px">
+                            <Template Context="detail">
+                                <div style="text-align: right; font-size: 15px">
+                                    @String.Format("{0:n2}", detail.projectcost)
+                                </div>
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="ProjectModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                            <Template Context="data">
+                                 <div style="margin-left: -5px">
+                                    <RadzenButton Click="@(() => UpdateProject(data.Id))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
+                                    <RadzenButton Click="@(() => RemoveProject(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                </div>
+                            </Template>
+                        </RadzenDataGridColumn>
+
+
+                    </Columns>
+                </RadzenDataGrid>
+            </RadzenRow>
+            @* <RadzenRow JustifyContent="JustifyContent.Right">
+                <RadzenButton Icon="delete" Text="Delete" ButtonStyle="ButtonStyle.Danger" />
+            </RadzenRow> *@
+
+        </RadzenStack>
+    </RadzenCard>
+</div>

@@ -1,0 +1,25 @@
+﻿
+@using IMS.Shared.Models
+@inject Radzen.DialogService dialog
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+
+<RadzenTemplateForm Data="@poitem" Submit="@(async (POItemModel args) => { await SaveQuantity(args); })">
+    <RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                
+                <RadzenNumeric @bind-Value="@poitem.quantity" Name="quantity" Class="rz-background-color-white" Placeholder="Quantity" />
+                <RadzenNumericRangeValidator Component="quantity" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+
+                <RadzenNumeric @bind-Value="@poitem.price" Name="price" Class="rz-background-color-white" Placeholder="Price" />
+                <RadzenNumericRangeValidator Component="price" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenTemplateForm>

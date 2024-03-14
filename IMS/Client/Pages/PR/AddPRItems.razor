@@ -1,0 +1,84 @@
+﻿@using IMS.Shared.Models
+@inject Radzen.DialogService dialog
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+
+
+<RadzenTemplateForm Data="@prItems" Submit="@(async (PRItemModel args) => { await SavePRItem(args); })">
+    <RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+
+                @* <RadzenDataGrid Data="@balancematerials" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                            TItem="BalanceMaterialModel" Density="Density.Compact" Context="workitem" LoadData="@LoadData"
+                            SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false">
+
+                    <Columns>  
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="Id" Title="#" Frozen="false" Width="50px" TextAlign="TextAlign.Center">
+                            <Template Context="data">
+                                @(balancematerials.IndexOf(data) + 1)
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="item" Title="Item" Frozen="false" Width="400px" />
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="description" Title="Description" Frozen="false" />
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Frozen="false" Width="120px" />
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Frozen="false" Width="120px" >
+                                <Template Context="detail">
+                                <div style="text-align: right">
+                                    @String.Format("{0:n2}", detail.unitcost)
+                                </div>
+                            </Template>
+                        </RadzenDataGridColumn>  
+                    </Columns>
+                </RadzenDataGrid>  *@
+
+                <RadzenDropDown Data=@items TextProperty="item" ValueProperty="itemid" TValue="string" @bind-Value="@prItems.itemid" Class="rz-background-color-white" Placeholder="Select Item" Name="item"
+                Change="@SelectItem" />
+                <RadzenRequiredValidator Component="item" Text="Item is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+                <RadzenRow>
+                    <RadzenCard Variant="Variant.Outlined" style="width:100%">
+                         <RadzenRow class="rz-text-align-center mb-1" Gap="0.5rem">
+                            <RadzenColumn class="mt-2">
+                                <RadzenText TextAlign="TextAlign.Right">&nbsp; Total Quantity :</RadzenText>
+                            </RadzenColumn>
+                            <RadzenColumn>
+                                <div class="rz-textbox" style="width: 80px; text-align:left">
+                                    @totalprocured.totalquantity
+                                </div>
+                            </RadzenColumn>
+                        </RadzenRow>
+                        <RadzenRow class="rz-text-align-center mb-1" Gap="0.5rem" RowGap="0.5rem">
+                            <RadzenColumn class="mt-2">
+                                <RadzenText TextAlign="TextAlign.Right">&nbsp; Total Procured :</RadzenText>
+                            </RadzenColumn>
+                            <RadzenColumn>
+                                <div class="rz-textbox" style="width: 80px; text-align:left">
+                                    @totalprocured.totalprocured
+                                </div>
+                            </RadzenColumn>
+                        </RadzenRow>
+                        <RadzenRow class="rz-text-align-center" Gap="0.5rem" RowGap="0.5rem">
+                            <RadzenColumn class="mt-2">
+                                <div style="color: @(remainingquantity < 1 ? "red" : "black"); text-align:right">
+                                    &nbsp; @remainingtext : 
+                                </div>
+                            </RadzenColumn>
+                            <RadzenColumn>
+                                 <div class="rz-textbox" style="color: @(remainingquantity < 1 ? "red" : "black"); width: 80px; text-align:left">
+                                    @remainingquantity
+                                </div>
+                            </RadzenColumn>
+                        </RadzenRow>
+                    </RadzenCard>
+                </RadzenRow>
+               
+                <RadzenNumeric @bind-Value="@prItems.quantity" Name="unitcost" Class="rz-background-color-white" Placeholder="Quantity" />
+                <RadzenNumericRangeValidator Component="unitcost" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenTemplateForm>

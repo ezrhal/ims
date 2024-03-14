@@ -1,0 +1,47 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+
+
+<div class="row col-md-12 col-lg-12">
+    <RadzenCard Variant="Variant.Outlined">
+        <RadzenBreadCrumb>
+            <RadzenBreadCrumbItem Icon="home" Path="/" Text=" Home" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/Maintenance/Index" Text="Maintenance" />
+        </RadzenBreadCrumb>
+
+    </RadzenCard>
+</div>
+
+<div class="row col-md-12 col-lg-12">
+    <RadzenRow class="rz-text-align-left" Gap="2rem">
+        <RadzenColumn>
+            <RadzenCard Variant="Variant.Filled" Class="rz-my-12 rz-mx-auto" Style="max-width: 420px">
+                <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
+                    <RadzenImage Style="width: 100px; height: 100px; border-radius: 50%;" />
+                    <RadzenStack Gap="0">
+                        <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">Employee</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>Israel De Guzman</b></RadzenText>
+                        <RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-4 rz-mb-0">Company</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>Pimo</b></RadzenText>
+                    </RadzenStack>
+                </RadzenStack>
+            </RadzenCard>
+        </RadzenColumn>
+        <RadzenColumn class="rz-background-color-info-lighter rz-color-on-info-lighter rz-p-5">
+            Column 2 of 4
+        </RadzenColumn>
+        <RadzenColumn class="rz-background-color-info-lighter rz-color-on-info-lighter rz-p-5">
+            Column 3 of 4
+        </RadzenColumn>
+    </RadzenRow>
+    
+</div>

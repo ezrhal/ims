@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ia2lYimSJzTg+yapa03p4VrM8jhaXVuBTYP8oRJTsP0uKkN/V3FV9JVwFbyHVaPMhKpNs7u3Dn+Mj87ujzBvvA==",
+  "success": true,
+  "projectFilePath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj",
+  "expectedPackageFiles": [
+    "/Users/israeldeguzman/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.extensions.logging.abstractions/2.0.0/microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/mongodb.bson/2.22.0/mongodb.bson.2.22.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/mongodb.driver/2.22.0/mongodb.driver.2.22.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/mongodb.driver.core/2.22.0/mongodb.driver.core.2.22.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/mongodb.libmongocrypt/1.8.0/mongodb.libmongocrypt.1.8.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/sharpcompress/0.30.1/sharpcompress.0.30.1.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/snappier/1.0.0/snappier.1.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/israeldeguzman/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

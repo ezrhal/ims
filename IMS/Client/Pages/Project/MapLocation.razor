@@ -1,0 +1,65 @@
+﻿@inject Radzen.DialogService mapDialogService
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<style>
+    .rz-dialog-side-content{
+        padding-left: 0;
+        padding: 0;
+    }
+
+ #map{
+   width: 100%;
+   
+   background-color: grey;
+    position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+ }
+
+.rz-form-field-content{
+    margin: 0;
+}
+
+.proj-loc {
+  background-color: #4285F4;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 13px;
+  padding: 10px 15px;
+  position: relative;
+  width: 150px;
+  text-align: center;
+}
+
+.proj-loc::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #4285F4;
+}
+
+</style>
+
+    <div style="background-color: #fff; margin-left: 5px; margin-right: 5px">
+        <RadzenRow class="col-md-12" style="display:flex; justify-content: space-around; padding-top:0; ">
+            <RadzenFormField AllowFloatingLabel="false" Text="" style="width: 100%;" >
+                <ChildContent>
+                    <RadzenTextBox id="pac-search" style="width:100%;" Placeholder="Search address" />
+                </ChildContent>
+                <End>
+                    <RadzenIcon Icon="search" />
+                </End>
+            </RadzenFormField>
+        </RadzenRow>
+    </div>
+    
+    
+    <div id="map" style="margin-top: 100px !important" ></div>

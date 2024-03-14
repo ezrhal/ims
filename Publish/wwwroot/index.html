@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>IMS</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="IMS.Client.styles.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <!--\<link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">-->
+    <link rel="stylesheet" href="/css/material3-base.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+
+    <script src="js/map_picker_1.3.js"></script>
+    <script src="js/reportserver_util.1.0.js"></script>
+    <script src="_content/BlazorGoogleMaps/js/objectManager.js"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+</head>
+<style>
+    .rz-dialog{border-radius: 15px;}
+    .rz-dialog-content{padding: 20px;}
+    .rz-dialog-side{border-radius: 15px;}
+    .rz-dialog-side-titlebar{ padding: 15px 10px 5px 10px;}
+    .rz-grid-border-radius {border-radius: 5px;}
+    
+
+</style>
+
+<body>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+   
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrSKatMXf_UVFyJqfyI1O6QZ6Ws2_2P-0&libraries=places"></script>
+  
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+
+</body>
+
+</html>
+

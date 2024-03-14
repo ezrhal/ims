@@ -1,0 +1,28 @@
+@using IMS.Shared.Models
+@inject Radzen.DialogService dialog
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+
+<RadzenTemplateForm Data="@workItem" Submit="@(async (WorkItemModel args) => { await SaveWorkItem(args); })">
+    <RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+
+                <RadzenDropDown Data=@workCategory TextProperty="workcategory" ValueProperty="workcategory" TValue="string" @bind-Value="@workItem.partno" Class="rz-background-color-white" Placeholder="Category" Name="category" />
+                <RadzenRequiredValidator Component="category" Text="Category is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+
+                <RadzenTextBox @bind-Value="@workItem.itemno" Name="item" Placeholder="Item" Class="rz-background-color-white" Style="display:block" />
+                <RadzenRequiredValidator Component="item" Text="Item is required" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+
+                <RadzenTextBox @bind-Value="@workItem.description" Name="description" Placeholder="Description" Class="rz-background-color-white" Style="display:block" />
+                <RadzenRequiredValidator Component="item" Text="Description is required" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+            
+
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenTemplateForm>

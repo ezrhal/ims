@@ -1,0 +1,57 @@
+﻿@using IMS.Shared.Models
+@inject Radzen.DialogService dialog
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+
+<RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+
+                <RadzenDataGrid Data="@filteredItems" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                            TItem="PRItemModel" Density="Density.Compact" Context="workitem" LoadData="@LoadData" @ref="grid"
+                            SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItems">
+
+                    <Columns>  
+                        <RadzenDataGridColumn TItem="PRItemModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                            <HeaderTemplate>
+                                <RadzenCheckBox TriState="false" TValue="bool?"
+                                                Value="@(selectedItems == null || selectedItems?.Any() != true ? false : !filteredItems.All(i => selectedItems.Contains(i)) ? null : filteredItems.Any(i => selectedItems.Contains(i)))"
+                                                Change="@(args => selectedItems = args == true ? filteredItems.ToList() : null)" />
+                            </HeaderTemplate>
+                            <Template Context="data">
+                                <RadzenCheckBox TriState="false" Value="@(selectedItems != null && selectedItems.Contains(data))"
+                                                TValue="bool" Change=@(args => grid.SelectRow(data)) />
+                            </Template>
+                         
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PRItemModel" Property="item" Title="Item" Frozen="false" Width="400px">
+                            <Template Context="data">
+                                <div>
+                                    @(data.item + " " + data.description)
+                                </div>
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PRItemModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Frozen="false" Width="120px" />
+                        <RadzenDataGridColumn TItem="PRItemModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Frozen="false" Width="120px" >
+                                <Template Context="detail">
+                                <div style="text-align: right">
+                                    @String.Format("{0:n2}", detail.unitcost)
+                                </div>
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PRItemModel" Context="order" Filterable="false" Width="0px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                            <Template Context="data">
+                                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" class="my-1 ms-1" />
+                            </Template>
+                        </RadzenDataGridColumn>  
+                    </Columns>
+                </RadzenDataGrid> 
+
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Left" Gap="0.5rem">
+                <RadzenButton Click="@(() => SavePOItems())" ButtonType="ButtonType.Submit" Icon="save" Text="Add" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+

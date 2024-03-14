@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMS.Server", "Server\IMS.Server.csproj", "{4ABDACD1-034B-438F-9AB7-FB0883ABA521}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMS.Shared", "Shared\IMS.Shared.csproj", "{CF928A28-BD77-4D1D-8990-1DDF54E37D3E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMS.Client", "Client\IMS.Client.csproj", "{725F3A26-A211-4880-B0D6-A2201B428B52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ABDACD1-034B-438F-9AB7-FB0883ABA521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABDACD1-034B-438F-9AB7-FB0883ABA521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABDACD1-034B-438F-9AB7-FB0883ABA521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABDACD1-034B-438F-9AB7-FB0883ABA521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF928A28-BD77-4D1D-8990-1DDF54E37D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF928A28-BD77-4D1D-8990-1DDF54E37D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF928A28-BD77-4D1D-8990-1DDF54E37D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF928A28-BD77-4D1D-8990-1DDF54E37D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725F3A26-A211-4880-B0D6-A2201B428B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725F3A26-A211-4880-B0D6-A2201B428B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725F3A26-A211-4880-B0D6-A2201B428B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725F3A26-A211-4880-B0D6-A2201B428B52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC86EE05-F7ED-4096-9947-E736106AC378}
+	EndGlobalSection
+EndGlobal
