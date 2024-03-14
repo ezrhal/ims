@@ -438,6 +438,7 @@ namespace IMS.Server.Services
 
         public async Task<List<PRModel>> GetPRs(string projectid)
         {
+            //remove submitted filter
             if (projectid.Length > 0)
             {
                 return db.GetCollection<PRModel>("PurchaseRequest").Find(q => q.isactive.Equals(1) && q.projectid.Equals(projectid)).ToList();
