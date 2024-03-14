@@ -22,9 +22,6 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
           
-      - name: Add Telerik NuGet feed
-        run: nuget Sources Add -Name "telerik1.com" -Source "https://nuget.telerik.com/v3/index.json" -UserName "mail@agusandelsur.gov.ph" -Password "pimo@123" -StorePasswordInClearText
-
       - name: Restore distinct layers
         env:
           DOTNET_CLI_TELEMETRY_OPTOUT: true
