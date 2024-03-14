@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj": {}
+    "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj": {}
   },
   "projects": {
-    "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj": {
+    "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj",
+        "projectUniqueName": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj",
         "projectName": "IMS.Shared",
-        "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj",
+        "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj",
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
-        "outputPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/obj/",
+        "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ia2lYimSJzTg+yapa03p4VrM8jhaXVuBTYP8oRJTsP0uKkN/V3FV9JVwFbyHVaPMhKpNs7u3Dn+Mj87ujzBvvA==",
+  "dgSpecHash": "xJLpcyFuYwUnhftMk/t4JYLMsHl+Lf+ip5wX8/ptV6Jo5/jXgMU+Nup4W/UXfIhSXY28JEwMII+9KFjpwZW4nQ==",
   "success": true,
-  "projectFilePath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj",
+  "projectFilePath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj",
   "expectedPackageFiles": [
     "/Users/israeldeguzman/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",

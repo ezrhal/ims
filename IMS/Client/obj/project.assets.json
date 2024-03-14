@@ -750,41 +750,6 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "System.Net.Http/2.0.20126.16343": {
-        "type": "package",
-        "compile": {
-          "lib/net40/System.Net.Http.WebRequest.dll": {
-            "related": ".xml"
-          },
-          "lib/net40/System.Net.Http.dll": {
-            "related": ".WebRequest.xml;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/System.Net.Http.WebRequest.dll": {
-            "related": ".xml"
-          },
-          "lib/net40/System.Net.Http.dll": {
-            "related": ".WebRequest.xml;.xml"
-          }
-        }
-      },
-      "System.Net.Http.Formatting.Extension/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Net.Http": "(, )"
-        },
-        "compile": {
-          "lib/System.Net.Http.Extensions.dll": {},
-          "lib/System.Net.Http.Formatting.dll": {},
-          "lib/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/System.Net.Http.Extensions.dll": {},
-          "lib/System.Net.Http.Formatting.dll": {},
-          "lib/System.Net.Http.Primitives.dll": {}
-        }
-      },
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
         "type": "package",
         "compile": {
@@ -1654,41 +1619,6 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
-        }
-      },
-      "System.Net.Http/2.0.20126.16343": {
-        "type": "package",
-        "compile": {
-          "lib/net40/System.Net.Http.WebRequest.dll": {
-            "related": ".xml"
-          },
-          "lib/net40/System.Net.Http.dll": {
-            "related": ".WebRequest.xml;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/System.Net.Http.WebRequest.dll": {
-            "related": ".xml"
-          },
-          "lib/net40/System.Net.Http.dll": {
-            "related": ".WebRequest.xml;.xml"
-          }
-        }
-      },
-      "System.Net.Http.Formatting.Extension/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Net.Http": "(, )"
-        },
-        "compile": {
-          "lib/System.Net.Http.Extensions.dll": {},
-          "lib/System.Net.Http.Formatting.dll": {},
-          "lib/System.Net.Http.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/System.Net.Http.Extensions.dll": {},
-          "lib/System.Net.Http.Formatting.dll": {},
-          "lib/System.Net.Http.Primitives.dll": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
@@ -3216,35 +3146,6 @@
         "version.txt"
       ]
     },
-    "System.Net.Http/2.0.20126.16343": {
-      "sha512": "d/7SOttVRBIMJPpdZ8XIMthRNvYcBmRHzV54+z0LTp/W+h2ZIfxnMefECZSQsNtclcBoUbpFVWdpr45DwUC9FA==",
-      "type": "package",
-      "path": "system.net.http/2.0.20126.16343",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/System.Net.Http.WebRequest.dll",
-        "lib/net40/System.Net.Http.WebRequest.xml",
-        "lib/net40/System.Net.Http.dll",
-        "lib/net40/System.Net.Http.xml",
-        "system.net.http.2.0.20126.16343.nupkg.sha512",
-        "system.net.http.nuspec"
-      ]
-    },
-    "System.Net.Http.Formatting.Extension/5.2.3": {
-      "sha512": "BlYwj3Mbgc2i+NqtBZ+bea3LiN9WuGpE8PCylBvhxV0wBs0XTkXJmDuzkNnUyPhDBqKMBwDK0ZCnwJ8LpQ0aEg==",
-      "type": "package",
-      "path": "system.net.http.formatting.extension/5.2.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/System.Net.Http.Extensions.dll",
-        "lib/System.Net.Http.Formatting.dll",
-        "lib/System.Net.Http.Primitives.dll",
-        "system.net.http.formatting.extension.5.2.3.nupkg.sha512",
-        "system.net.http.formatting.extension.nuspec"
-      ]
-    },
     "System.Runtime.CompilerServices.Unsafe/5.0.0": {
       "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "type": "package",
@@ -3535,7 +3436,6 @@
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "Radzen.Blazor >= 4.19.0",
-      "System.Net.Http.Formatting.Extension >= 5.2.3",
       "Telerik.ReportViewer.Blazor >= 16.1.22.622"
     ]
   },
@@ -3545,11 +3445,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj",
+      "projectUniqueName": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj",
       "projectName": "IMS.Client",
-      "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj",
+      "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj",
       "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
-      "outputPath": "/Users/israeldeguzman/Projects/IMS/IMS/Client/obj/",
+      "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -3566,8 +3466,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj": {
-              "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj"
+            "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj": {
+              "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj"
             }
           }
         }
@@ -3625,10 +3525,6 @@
             "target": "Package",
             "version": "[4.19.0, )"
           },
-          "System.Net.Http.Formatting.Extension": {
-            "target": "Package",
-            "version": "[5.2.3, )"
-          },
           "Telerik.ReportViewer.Blazor": {
             "target": "Package",
             "version": "[16.1.22.622, )"
@@ -3672,38 +3568,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1602",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "System.Net.Http.Formatting.Extension 5.2.3 does not provide an inclusive lower bound for dependency System.Net.Http. An approximate best match of System.Net.Http 2.0.20126.16343 was resolved.",
-      "libraryId": "System.Net.Http",
-      "targetGraphs": [
-        "net7.0",
-        "net7.0/browser-wasm"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Net.Http 2.0.20126.16343' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Net.Http",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Net.Http.Formatting.Extension 5.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Net.Http.Formatting.Extension",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }

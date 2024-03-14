@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/israeldeguzman/Projects/IMS/IMS/Server/IMS.Server.csproj": {}
+    "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/IMS.Server.csproj": {}
   },
   "projects": {
-    "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj": {
+    "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj",
+        "projectUniqueName": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj",
         "projectName": "IMS.Client",
-        "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj",
+        "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj",
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
-        "outputPath": "/Users/israeldeguzman/Projects/IMS/IMS/Client/obj/",
+        "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj": {
-                "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj"
+              "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj": {
+                "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj"
               }
             }
           }
@@ -87,10 +87,6 @@
               "target": "Package",
               "version": "[4.19.0, )"
             },
-            "System.Net.Http.Formatting.Extension": {
-              "target": "Package",
-              "version": "[5.2.3, )"
-            },
             "Telerik.ReportViewer.Blazor": {
               "target": "Package",
               "version": "[16.1.22.622, )"
@@ -135,14 +131,14 @@
         }
       }
     },
-    "/Users/israeldeguzman/Projects/IMS/IMS/Server/IMS.Server.csproj": {
+    "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/IMS.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/israeldeguzman/Projects/IMS/IMS/Server/IMS.Server.csproj",
+        "projectUniqueName": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/IMS.Server.csproj",
         "projectName": "IMS.Server",
-        "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Server/IMS.Server.csproj",
+        "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/IMS.Server.csproj",
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
-        "outputPath": "/Users/israeldeguzman/Projects/IMS/IMS/Server/obj/",
+        "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -159,11 +155,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj": {
-                "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Client/IMS.Client.csproj"
+              "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj": {
+                "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj"
               },
-              "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj": {
-                "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj"
+              "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj": {
+                "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj"
               }
             }
           }
@@ -236,14 +232,14 @@
         }
       }
     },
-    "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj": {
+    "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj",
+        "projectUniqueName": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj",
         "projectName": "IMS.Shared",
-        "projectPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/IMS.Shared.csproj",
+        "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/IMS.Shared.csproj",
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
-        "outputPath": "/Users/israeldeguzman/Projects/IMS/IMS/Shared/obj/",
+        "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"

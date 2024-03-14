@@ -9,15 +9,15 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = IMS.Server
 build_property.RootNamespace = IMS.Server
-build_property.ProjectDir = /Users/israeldeguzman/Projects/IMS/IMS/Server/
+build_property.ProjectDir = /Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/israeldeguzman/Projects/IMS/IMS/Server
+build_property.MSBuildProjectDirectory = /Users/israeldeguzman/Documents/GitHub/ims/IMS/Server
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/israeldeguzman/Projects/IMS/IMS/Server/Pages/Error.cshtml]
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
