@@ -20,6 +20,7 @@ namespace IMS.Client.Pages.PO
         {
             prs = await httpClient.GetFromJsonAsync<List<PRModel>>("purchaserequest/getprs?projectid=" + projectid);
             suppliers = await httpClient.GetFromJsonAsync<List<SupplierModel>>("purchaseorder/getsuppliers");
+            prs.RemoveAll(q => q.submitted.Equals(0));
         }
 
         public async Task SavePO(POModel args)

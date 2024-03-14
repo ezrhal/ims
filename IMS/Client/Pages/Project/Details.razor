@@ -370,13 +370,13 @@
                                   <RadzenTabsItem Icon="inventory_2" Text="Voucher">
                                     <CascadingValue Value="@poview" Name="POViewKey">
                                          @{
-                                            if (!dvview.opendv)
+                                            if (!cvview.opencv)
                                             {
-                                                <VoucherList projectid="@project.Id" projectviewpo="true" OnDetailsViewPO="@OnDetailsViewPOFromChild"  />
+                                                <VoucherList projectid="@project.Id" projectviewcv="true" OnDetailsViewCV="@OnDetailsViewCVFromChild"  />
                                             }
                                             else
                                             {
-                                                <PODetails projectviewpo="true" poid="@poview.poid" OnDetailsViewPO="@OnDetailsViewPOFromChild"  />
+                                                <PODetails projectviewcv="true" poid="@poview.poid" OnDetailsViewCV="@OnDetailsViewCVFromChild"  />
                                             }
                                         }
                                     </CascadingValue>

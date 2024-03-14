@@ -14,9 +14,9 @@ public class POViewModel
     public bool projectviewpo { get; set; } = false;
 }
 
-public class DVViewModel
+public class CVViewModel
 {
-    public bool opendv { get; set; } = false;
-    public string dvid { get; set; } = "";
+    public bool opencv { get; set; } = false;
+    public string cvid { get; set; } = "";
     public bool projectviewdv { get; set; } = false;
 }

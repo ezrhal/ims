@@ -13,7 +13,7 @@ namespace IMS.Client.Pages.Project
     {
         PRViewModel prview = new();
         POViewModel poview = new();
-        DVViewModel dvview = new();
+        CVViewModel cvview = new();
         public string prid { get; set; } = "";
         public ProjectModel project = new();
         RadzenDataGrid<WorkItemModel> workitemGrid;
@@ -242,6 +242,8 @@ namespace IMS.Client.Pages.Project
 
         void OnDetailsViewFromChild(PRViewModel _prview) => prview = _prview;
         void OnDetailsViewPOFromChild(POViewModel _poview) => poview = _poview;
+
+         void OnDetailsViewCVFromChild(CVViewModel _cvview) => cvview = _cvview;
         
     }
 }

@@ -1,4 +1,4 @@
-﻿@* @page "/voucher/index"
+﻿@page "/voucher/index"
 @inject HttpClient httpClient
 @inject DialogService DialogService
 @inject NotificationService NotificationService
@@ -7,7 +7,7 @@
 
 
 @{
-    if (!projectviewpo)
+    if (!projectviewcv)
     {
         <div class="col-md-12 col-lg-12 mb-3">
             <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
@@ -31,34 +31,35 @@
                     <Tabs>
                         <RadzenTabsItem Text="Prepared">
                             <RadzenStack class="mb-2" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
-                                <RadzenButton Icon="add" Text="New PO" Click=@AddPO />
+                                <RadzenButton Icon="add" Text="New PO" Click=@AddCV />
                                 <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
                             </RadzenStack>
-                            <RadzenDataGrid @ref="poGrid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
-                                Data="@filteredPO" TItem="POModel" Density="Density.Compact"
-                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedPO">
+
+                            <RadzenDataGrid @ref="cvGrid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                                Data="@filteredCV" TItem="POModel" Density="Density.Compact"
+                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedCV">
 
                                 <Columns>
                                     <RadzenDataGridColumn Width="60px" TItem="POModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
                                         <Template Context="data">
-                                            @(filteredPO.IndexOf(data) + 1)
+                                            @(filteredCV.IndexOf(data) + 1)
                                         </Template>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="POModel" Property="pono" Title="PO No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
+                                    <RadzenDataGridColumn TItem="POModel" Property="cvno" Title="CV No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
                                         <Template Context="data">
                                             <div>
-                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
+                                                <RadzenButton Text="@data.cvno" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenCVDetails(data.Id))" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="POModel" Property="prno" Title="PR No." Width="150px" TextAlign="TextAlign.Center" />
-                                    <RadzenDataGridColumn TItem="POModel" Property="dateprepared" Title="Date" Width="130px" TextAlign="TextAlign.Center">
+                                    <RadzenDataGridColumn TItem="POModel" Property="pono" Title="PR No." Width="150px" TextAlign="TextAlign.Center" />
+                                    <RadzenDataGridColumn TItem="POModel" Property="cvdate" Title="Date" Width="130px" TextAlign="TextAlign.Center">
                                         <Template Context="data">
                                             <div>
                                                 @{
                                                     if (data.dateprepared != null)
                                                     {
-                                                        @string.Format("{0:MMMM dd, yyyy}", data.dateprepared)
+                                                        @string.Format("{0:MMMM dd, yyyy}", data.cvdate)
                                                     }
                                                 }
                                                 
@@ -85,10 +86,10 @@
                                         </Template>
                                         <FooterTemplate>
                                             @{
-                                                if (filteredPO != null)
+                                                if (filteredCV != null)
                                                 {
                                                     <div style="text-align: right; font-size: 15px; font-weight: bold">
-                                                        @string.Format("₱ {0:n2}", filteredPO.Sum(q => q.amount))
+                                                        @string.Format("₱ {0:n2}", filteredCV.Sum(q => q.amount))
                                                     </div>
                                                 }
                                             }
@@ -98,7 +99,7 @@
                                     <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">
                                             <div style="margin-left: -5px">
-                                                <RadzenButton Click="@(() => DeletePR(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                                <RadzenButton Click="@(() => DeleteCV(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>
@@ -112,20 +113,20 @@
                                 
                                 <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
                             </RadzenStack>
-                            <RadzenDataGrid @ref="poGrid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
-                                Data="@filteredPOSubmitted" TItem="POModel" Density="Density.Compact"
-                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedPO">
+                            <RadzenDataGrid @ref="cvSubmittedGrid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                                Data="@filteredCVSubmitted" TItem="POModel" Density="Density.Compact"
+                                SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false">
 
                                 <Columns>
                                     <RadzenDataGridColumn Width="60px" TItem="POModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
                                         <Template Context="data">
-                                            @(filteredPOSubmitted.IndexOf(data) + 1)
+                                            @(filteredCVSubmitted.IndexOf(data) + 1)
                                         </Template>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="POModel" Property="transactionno" Title="PR No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
+                                    <RadzenDataGridColumn TItem="POModel" Property="cvno" Title="CV No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
                                         <Template Context="data">
                                             <div>
-                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
+                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenCVDetails(data.Id))" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>
@@ -179,10 +180,10 @@
                                         </Template>
                                         <FooterTemplate>
                                             @{
-                                                if (filteredPOSubmitted != null)
+                                                if (filteredCVSubmitted != null)
                                                 {
                                                     <div style="text-align: right; font-size: 15px; font-weight: bold">
-                                                        @string.Format("₱ {0:n2}", filteredPOSubmitted.Sum(q => q.amount))
+                                                        @string.Format("₱ {0:n2}", filteredCVSubmitted.Sum(q => q.amount))
                                                     </div>
                                                 }
                                             }
@@ -192,7 +193,7 @@
                                     <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">
                                             <div style="margin-left: -5px">
-                                                <RadzenButton Click="@(() => DeletePR(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                                <RadzenButton Click="@(() => DeleteCV(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>
@@ -206,8 +207,7 @@
 
                 
             </RadzenRow>
-          
 
         </RadzenStack>
     </RadzenCard>
-</div> *@
+</div>

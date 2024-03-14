@@ -89,6 +89,12 @@ public class POModel
     public double amount { get; set; }
     public int submitted { get; set; }
     public List<POItemModel> items { get; set; }
+    public string? cvno { get; set; }
+    public string? checkno { get; set; }
+    public DateTime? cvdate { get; set; }
+    public string? payee { get; set; }
+    public string? payeeaddress { get; set; }
+    public int? isrecieved { get; set; }
 
     public POModel()
     {
