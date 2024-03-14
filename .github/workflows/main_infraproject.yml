@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
           
       - name: Add Telerik NuGet feed
-        run: nuget Sources Add -Name "telerik.com" -Source "https://nuget.telerik.com/v3/index.json" -UserName "mail@agusandelsur.gov.ph" -Password "pimo@123" -StorePasswordInClearText
+        run: nuget Sources Add -Name "telerik1.com" -Source "https://nuget.telerik.com/v3/index.json" -UserName "mail@agusandelsur.gov.ph" -Password "pimo@123" -StorePasswordInClearText
 
       - name: Restore distinct layers
         env:
