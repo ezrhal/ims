@@ -1,21 +1,30 @@
 ﻿<Properties StartupConfiguration="{AB1CD4D5-3BDC-46C3-AAB8-C0C42BA57EB0}|https">
   <MonoDevelop.Ide.ItemProperties.IMS.Server PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="IMS/Client/Pages/PO/EditQuantity.razor.cs">
+    <Files>
+      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor.cs" Line="6" Column="1" />
+      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="IMS">
-            <Node name="IMS.Client">
+          <Node name="IMS" selected="True">
+            <Node name="IMS.Client" expanded="True">
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="PO" expanded="True">
+                  <Node name="EditQuantity.razor" expanded="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="IMS.Server" expanded="True">
               <Node name="Dependencies" expanded="True" />
             </Node>
             <Node name="IMS.Shared" expanded="True">
-              <Node name="Dependencies" expanded="True" selected="True">
+              <Node name="Dependencies" expanded="True">
                 <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>

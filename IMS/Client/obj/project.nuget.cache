@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4ZOumk11yytn+Y9FmSPzQ1lAgQmoFcewRNanzgAxj0A/DmEgTuAv4d5GiSSUxD7LnOkMfKff+ECa6q+B4nwWzw==",
+  "dgSpecHash": "2LXb16Ahew8xwTPQYfiU3mvg3hbCyuUVH1NbasEkW15xDrjn0QMfHqszEk718l06FE0ImpVohBJOkE0D3j1Nvw==",
   "success": true,
   "projectFilePath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/IMS.Client.csproj",
   "expectedPackageFiles": [
@@ -34,9 +34,6 @@
     "/Users/israeldeguzman/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/microsoft.jsinterop/7.0.12/microsoft.jsinterop.7.0.12.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/microsoft.jsinterop.webassembly/7.0.12/microsoft.jsinterop.webassembly.7.0.12.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.net.illink.analyzers/7.0.100-1.23211.1/microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.net.illink.tasks/7.0.100-1.23211.1/microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.net.sdk.webassembly.pack/8.0.0/microsoft.net.sdk.webassembly.pack.8.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/mongodb.bson/2.22.0/mongodb.bson.2.22.0.nupkg.sha512",
@@ -58,9 +55,7 @@
     "/Users/israeldeguzman/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/telerik.reportviewer.blazor/16.1.22.622/telerik.reportviewer.blazor.16.1.22.622.nupkg.sha512",
     "/Users/israeldeguzman/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/7.0.14/microsoft.netcore.app.runtime.mono.browser-wasm.7.0.14.nupkg.sha512",
-    "/Users/israeldeguzman/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
+    "/Users/israeldeguzman/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/7.0.17/microsoft.netcore.app.runtime.mono.browser-wasm.7.0.17.nupkg.sha512"
   ],
   "logs": []
 }
