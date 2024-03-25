@@ -60,7 +60,7 @@
                     </RadzenStack>
                     <RadzenRow class="mt-3">
 
-                        <RadzenTabs>
+                        <RadzenTabs Style="width:100%">
                             <Tabs>
                                 <RadzenTabsItem Icon="construction" Text="Work Items">
                                     <RadzenStack Orientation="Orientation.Vertical" Gap="0.75rem" JustifyContent="JustifyContent.Left">
@@ -368,7 +368,7 @@
                                     </CascadingValue>
                                 </RadzenTabsItem>
                                   <RadzenTabsItem Icon="receipt" Text="Voucher">
-                                    <CascadingValue Value="@poview" Name="POViewKey">
+                                    <CascadingValue Value="@cvview" Name="CVViewKey">
                                          @{
                                             if (!cvview.opencv)
                                             {
@@ -376,7 +376,7 @@
                                             }
                                             else
                                             {
-                                                <PODetails projectviewcv="true" poid="@poview.poid" OnDetailsViewCV="@OnDetailsViewCVFromChild"  />
+                                                <CVDetails projectviewcv="true" poid="@cvview.cvid" OnDetailsViewCV="@OnDetailsViewCVFromChild"  />
                                             }
                                         }
                                     </CascadingValue>

@@ -9,6 +9,7 @@ using System.Data.Common;
 using System.Diagnostics.Metrics;
 using IMS.Shared;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
 
 namespace IMS.Server.Services
@@ -20,8 +21,8 @@ namespace IMS.Server.Services
 
         public MongoDBService(IConfiguration configuration)
         {
-            //var client = new MongoClient(configuration.GetConnectionString("MongoConnection"));
-            var client = new MongoClient(configuration.GetConnectionString("AtlasMongoDB"));
+            var client = new MongoClient(configuration.GetConnectionString("MongoConnection"));
+            //var client = new MongoClient(configuration.GetConnectionString("AtlasMongoDB"));
             db = client.GetDatabase("IMS");
             _collection = db.GetCollection<ItemModel>("Items");
         }
@@ -506,37 +507,115 @@ namespace IMS.Server.Services
             
         }
 
-        public async Task<string> SavePRItem(string id, PRItemModel pritem, string isempty)
+        public async Task<string> SavePRItem(string id, List<BalanceMaterialModel> items, List<PRItemModel> existingitms)
         {
+            var startDict = items.GroupBy(r => new { r.itemid }).ToDictionary(g => g.Key, g => g.First());
+            var endDict = existingitms.GroupBy(r => new { r.itemid }).ToDictionary(g => g.Key, g => g.First());
+            List<string> itemids = new();
+
+            foreach (var key in startDict.Keys.Union(endDict.Keys))
+            {
+                var hasStart = startDict.TryGetValue(key, out var start);
+                var hasEnd = endDict.TryGetValue(key, out var end);
+
+                if (hasStart)
+                {
+                    BalanceMaterialModel item = items.First(q => q.itemid.Equals(key.itemid));
+
+                    if (hasEnd)
+                    {
+                        double currentquantity = (double)existingitms.First(q => q.itemid.Equals(key.itemid)).quantity;
+
+
+                        double addquantity = 0;
+
+                        if (item.balancequantity > 0)
+                            addquantity = item.balancequantity;
+
+                        existingitms.First(q => q.itemid.Equals(key.itemid)).quantity = currentquantity + addquantity;
+                        itemids.Add(key.itemid);
+                        items.First(q => q.itemid.Equals(key.itemid)).Id = "";
+                    }
+                    else
+                    {
+                        if (item.balancequantity > 0)
+                        {
+                            item.quantity = item.balancequantity;
+                        }
+                        else
+                        {
+                            item.quantity = 0;
+                        }
+
+                        items.First(q => q.itemid.Equals(key.itemid)).Id = ObjectId.GenerateNewId().ToString();
+                    }
+
+                }
+            }
+
+            items.RemoveAll(q => q.Id.Equals(""));
+
             BsonDocument filter = new BsonDocument();
             filter = filter.Set("_id", new BsonObjectId(new ObjectId(id)));
 
-            BsonDocument updateQry = new BsonDocument();
-            
-            if (isempty == "0")
-            {
-                
-               // List<BsonDocument> itemArray = new();
-               // itemArray.Add(pritem.ToBsonDocument());
-                //materialArray.Select(i => i.ToBsonDocument())
-                 List<BsonDocument> itemArray = new();
-                itemArray.Add(pritem.ToBsonDocument());
+            var update = Builders<PRItemModel>.Update.PushEach("items", items);
 
-                updateQry = updateQry.Set("items", new BsonArray(itemArray.Select(i => i.ToBsonDocument())));
-            }
-            else
-            {
-                updateQry = updateQry.Set("items", pritem.ToBsonDocument());
-            }
-            
-            var update = new BsonDocument((isempty == "0" ? "$set" : "$push"), updateQry);
-            var result = await db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+            var result = db.GetCollection<PRItemModel>("PurchaseRequest").UpdateOne(filter, update);
 
-            if (result.ModifiedCount > 0)
+            foreach (PRItemModel existingitem in existingitms)
             {
-                var x = 0;
+                if (itemids.Contains(existingitem.itemid))
+                {
+                    BsonDocument updateQry = new BsonDocument();
+                    updateQry = updateQry.Set("items.$[material].quantity", existingitem.quantity);
+                    var updt = new BsonDocument("$set", updateQry);
 
+                    var arrayFilters = new List<ArrayFilterDefinition>
+                    {
+                        new BsonDocumentArrayFilterDefinition<BsonDocument>(
+                            new BsonDocument("material._id", new BsonObjectId(new ObjectId(existingitem.Id)))
+                        )
+                    };
+
+                    var updateOptions = new UpdateOptions()
+                    {
+                        ArrayFilters = arrayFilters
+                    };
+
+                    result = await db.GetCollection<POItemModel>("PurchaseRequest").UpdateOneAsync(filter, updt, updateOptions);
+
+                }
             }
+
+            //BsonDocument filter = new BsonDocument();
+            //filter = filter.Set("_id", new BsonObjectId(new ObjectId(id)));
+
+            //BsonDocument updateQry = new BsonDocument();
+
+            //if (isempty == "0")
+            //{
+
+            //   // List<BsonDocument> itemArray = new();
+            //   // itemArray.Add(pritem.ToBsonDocument());
+            //    //materialArray.Select(i => i.ToBsonDocument())
+            //     List<BsonDocument> itemArray = new();
+            //    itemArray.Add(pritem.ToBsonDocument());
+
+            //    updateQry = updateQry.Set("items", new BsonArray(itemArray.Select(i => i.ToBsonDocument())));
+            //}
+            //else
+            //{
+            //    updateQry = updateQry.Set("items", pritem.ToBsonDocument());
+            //}
+
+            //var update = new BsonDocument((isempty == "0" ? "$set" : "$push"), updateQry);
+            //var result = await db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+
+            //if (result.ModifiedCount > 0)
+            //{
+            //    var x = 0;
+
+            //}
 
             return "0";
         }
@@ -620,6 +699,11 @@ namespace IMS.Server.Services
             var result = db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
 
             return "0";
+        }
+
+        public async Task<List<WorkItemInfoModel>> GetWorkItemsInfo(string projectid)
+        {
+            return db.GetCollection<WorkItemInfoModel>("WorkItemsInfo").Find(q => q.projectid.Equals(projectid)).ToList();
         }
 
         #endregion
@@ -845,6 +929,38 @@ namespace IMS.Server.Services
             return "0";
         }
 
+        public async Task<string> DeletePO(string prid, string poid)
+        {
+            BsonDocument filter = new BsonDocument();
+            filter = filter.Set("_id", new BsonObjectId(new ObjectId(prid)));
+            filter = filter.Set("PO._id", new BsonObjectId(new ObjectId(poid)));
+
+            BsonDocument updateQry = new BsonDocument();
+
+            updateQry = updateQry.Set("PO.$.isactive", 0);
+            var update = new BsonDocument("$set", updateQry);
+            var result = db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+
+            return "0";
+        }
+
+        public async Task<string> EditPO(POModel po)
+        {
+            BsonDocument filter = new BsonDocument();
+            filter = filter.Set("_id", new BsonObjectId(new ObjectId(po.prid)));
+            filter = filter.Set("PO._id", new BsonObjectId(new ObjectId(po.Id)));
+
+            BsonDocument updateQry = new BsonDocument();
+
+            updateQry = updateQry.Set("PO.$.supplier", po.supplier);
+            updateQry = updateQry.Set("PO.$.supplieraddress", po.supplieraddress);
+
+            var update = new BsonDocument("$set", updateQry);
+            var result = db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+
+            return "0";
+        }
+
         #endregion
 
         #region FUNCTIONS
@@ -871,29 +987,135 @@ namespace IMS.Server.Services
         }
 
 
-        public async Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid)
+        public async Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid, string workitemid)
         {
-            List<BalanceMaterialModel> materials =  db.GetCollection<BalanceMaterialModel>("MaterialsQuantity").Find(q => q.projectid.Equals(projectid)).ToList();
-            List<TotalProcuredModel> totalp = db.GetCollection<TotalProcuredModel>("ItemTotalProcured").Find(q => q.projectid.Equals(projectid)).ToList();
+            List<BalanceMaterialModel> materials =  db.GetCollection<BalanceMaterialModel>("MaterialsQuantity").Find(q => q.projectid.Equals(projectid) && q.workitemid.Equals(workitemid)).ToList();
+            List<TotalProcuredModel> totalp = db.GetCollection<TotalProcuredModel>("ItemTotalProcured").Find(q => q.projectid.Equals(projectid) && q.workitemid.Equals(workitemid)).ToList();
 
-            var startDict = materials.GroupBy(r => new {r.projectid, r.itemid}).ToDictionary(g => g.Key, g => g.First());
-            var endDict = totalp.GroupBy(r => new {r.projectid, r.itemid}).ToDictionary(g => g.Key, g => g.First());
+            if (totalp != null)
+            {
+                var startDict = materials.GroupBy(r => new { r.projectid, r.itemid }).ToDictionary(g => g.Key, g => g.First());
+                var endDict = totalp.GroupBy(r => new { r.projectid, r.itemid }).ToDictionary(g => g.Key, g => g.First());
 
-            foreach (var key in startDict.Keys.Union(endDict.Keys)) {
-                var hasStart = startDict.TryGetValue(key, out var start);
-                var hasEnd = endDict.TryGetValue(key, out var end);
-                if (hasStart && hasEnd) {
-                    double totalquantity = materials.First(q => q.projectid.Equals(key.projectid) && q.itemid.Equals(key.itemid)).quantity;
-                    double totalpr = totalp.First(q => q.projectid.Equals(key.projectid) && q.itemid.Equals(key.itemid)).totalprocured;
+                foreach (var key in startDict.Keys.Union(endDict.Keys))
+                {
+                    var hasStart = startDict.TryGetValue(key, out var start);
+                    var hasEnd = endDict.TryGetValue(key, out var end);
+                    BalanceMaterialModel balanceMaterial = materials.First(q => q.projectid.Equals(key.projectid) && q.itemid.Equals(key.itemid));
 
-                    totalquantity = totalquantity - totalpr;
+                    if (hasStart && hasEnd)
+                    {
 
-                    materials.First(q => q.projectid.Equals(key.projectid) && q.itemid.Equals(key.itemid)).quantity = totalquantity;
-                } 
+                        balanceMaterial.prquantity = totalp.First(q => q.projectid.Equals(key.projectid) && q.itemid.Equals(key.itemid)).totalprocured;
+                        balanceMaterial.balancequantity = balanceMaterial.quantity - balanceMaterial.prquantity;
+                        
+                    }
+                    else if (hasStart && !hasEnd)
+                    {
+                        balanceMaterial.prquantity = 0;
+                        balanceMaterial.balancequantity = balanceMaterial.quantity;
+                    }
+                }
             }
+
 
             return materials;
 
+        }
+
+        #endregion
+
+        #region USER
+
+        public async Task<bool> CheckUserCredential(string Username, string Password)
+        {
+            LoginModel login = db.GetCollection<LoginModel>("Mongos").Find(q => q.Username.ToLower().Equals(Username.ToLower()) && q.Password.Equals(Password)).FirstOrDefault();
+
+            if (login != null)
+                return true;
+
+            return false;
+
+        }
+
+        #endregion
+
+        #region VOUCHER
+
+        public async Task<List<POModel>> GetPOSDetails(string projectid)
+        {
+            return db.GetCollection<POModel>("PODetails").Find(q => q.projectid.Equals(projectid)
+               && q.submitted.Equals(1) && q.cvno.Equals(null)).ToList();
+        }
+
+        public async Task<List<POModel>> GetCVs(string projectid)
+        {
+            return db.GetCollection<POModel>("PODetails").Find(q => q.projectid.Equals(projectid)
+               && q.submitted.Equals(1) && q.cvno != BsonNull.Value).ToList();
+        }
+
+        public async Task<POModel> GetCV(string poid)
+        {
+            return db.GetCollection<POModel>("PODetails").Find(q => q.Id.Equals(poid)).FirstOrDefault();
+        }
+
+        public async Task<string> SaveCV(POModel cv)
+        {
+            cv.cvno = GenerateTransactionNo("CV");
+            BsonDocument filter = new BsonDocument();
+            filter = filter.Set("_id", new BsonObjectId(new ObjectId(cv.prid)));
+            filter = filter.Set("PO._id", new BsonObjectId(new ObjectId(cv.Id)));
+
+            BsonDocument updateQry = new BsonDocument();
+
+            updateQry = updateQry.Set("PO.$.payee", cv.payee);
+            updateQry = updateQry.Set("PO.$.payeeaddress", cv.payeeaddress);
+            updateQry = updateQry.Set("PO.$.checkno", cv.checkno);
+            updateQry = updateQry.Set("PO.$.cvno", cv.cvno);
+            updateQry = updateQry.Set("PO.$.cvdate", DateTime.Now);
+
+            var update = new BsonDocument("$set", updateQry);
+            var result = db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+
+            return cv.cvno;
+        }
+
+        public async Task<string> DeleteCV(POModel cv)
+        {
+            BsonDocument filter = new BsonDocument();
+            filter = filter.Set("_id", new BsonObjectId(new ObjectId(cv.prid)));
+            filter = filter.Set("PO._id", new BsonObjectId(new ObjectId(cv.Id)));
+
+            BsonDocument updateQry = new BsonDocument();
+
+            updateQry = updateQry.Set("PO.$.payee", BsonNull.Value);
+            updateQry = updateQry.Set("PO.$.payeeaddress", BsonNull.Value);
+            updateQry = updateQry.Set("PO.$.checkno", BsonNull.Value);
+            updateQry = updateQry.Set("PO.$.cvno", BsonNull.Value);
+            updateQry = updateQry.Set("PO.$.cvdate", BsonNull.Value);
+
+            var update = new BsonDocument("$set", updateQry);
+            var result = db.GetCollection<PRModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+
+            return "0";
+        }
+
+        public async Task<string> SubmitCV(string prid, string poid, int action)
+        {
+            BsonDocument filter = new BsonDocument();
+            filter = filter.Set("_id", new BsonObjectId(new ObjectId(prid)));
+            filter = filter.Set("PO._id", new BsonObjectId(new ObjectId(poid)));
+
+
+            BsonDocument updateQry = new BsonDocument();
+
+            updateQry = updateQry.Set("PO.$.cvsubmitted", action);
+
+            var update = new BsonDocument("$set", updateQry);
+
+            var result = db.GetCollection<POModel>("PurchaseRequest").UpdateOneAsync(filter, update);
+
+            return "0";
         }
 
         #endregion

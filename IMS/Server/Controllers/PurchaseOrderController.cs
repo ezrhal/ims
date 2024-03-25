@@ -95,4 +95,20 @@ public class PurchaseOrderController : Controller
        
         return await _db.SubmitPO(prid, poid);
     }
+
+    [HttpPost("deletepo")]
+    public async Task<string> DeletePO(List<string> paramList)
+    {
+        string prid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[0].ToString());
+        string poid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[1].ToString());
+
+        return await _db.DeletePO(prid, poid);
+    }
+
+    [HttpPost("editpo")]
+    public async Task<string> EditPO(List<string> paramList)
+    {
+        POModel po = Newtonsoft.Json.JsonConvert.DeserializeObject<POModel>(paramList[0].ToString());
+        return await _db.EditPO(po);
+    }
 }

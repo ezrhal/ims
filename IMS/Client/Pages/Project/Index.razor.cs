@@ -9,11 +9,17 @@ using IMS.Client.Pages.Maintenance;
 using System;
 using System.Net.Http;
 using System.Text.Json.Nodes;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace IMS.Client.Pages.Project
 {
-	partial class Index
+
+    [Authorize]
+    partial class Index
     {
+        //[CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+
         List<ProjectModel> projects;
         List<ProjectModel> filteredprojects;
 
@@ -24,6 +30,18 @@ namespace IMS.Client.Pages.Project
 
         protected override async Task OnInitializedAsync()
         {
+            //var authState = await authenticationStateTask;
+            //var user = authState.User;
+
+            //if (user.Identity.IsAuthenticated)
+            //{
+            //    Console.WriteLine($"User {user.Identity.Name} is authenticated.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("User is NOT authenticated.");
+            //}
+
             projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("project/getprojects");
 
             foreach(ProjectModel proj in projects)

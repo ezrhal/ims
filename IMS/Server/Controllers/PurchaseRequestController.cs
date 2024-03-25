@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -54,14 +54,20 @@ namespace IMS.Server.Controllers
             return await _db.GetMaterialsQuantity(projectid, itemid);
         }
 
-        [HttpPost("savepritem")]
+        [HttpPost("savepritems")]
         public async Task<string> SavePRItem(List<string> paramList)
         {
             string prid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[0].ToString());
-            PRItemModel pritem = Newtonsoft.Json.JsonConvert.DeserializeObject<PRItemModel>(paramList[1].ToString());
-            string isempty = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[2].ToString());
+            List<BalanceMaterialModel> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BalanceMaterialModel>>(paramList[1].ToString());
+            List<PRItemModel> existing = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PRItemModel>>(paramList[2].ToString());
 
-            return await _db.SavePRItem(prid, pritem, isempty);
+            return await _db.SavePRItem(prid, items, existing);
+
+            //string prid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[0].ToString());
+            //PRItemModel pritem = Newtonsoft.Json.JsonConvert.DeserializeObject<PRItemModel>(paramList[1].ToString());
+            //string isempty = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[2].ToString());
+
+            //return await _db.SavePRItem(prid, pritem, isempty);
         }
 
         [HttpPost("removepritem")]
@@ -112,10 +118,17 @@ namespace IMS.Server.Controllers
         } 
 
         [HttpGet("getbalancematerials")]
-        public async Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid)
+        public async Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid, string workitemid)
         {
-            return await _db.GetBalanceMaterials(projectid);
+            return await _db.GetBalanceMaterials(projectid, workitemid);
         }
+
+        [HttpGet("getworkitemsinfo")]
+        public async Task<List<WorkItemInfoModel>> GetWorkitems(string projectid)
+        {
+            return await _db.GetWorkItemsInfo(projectid);
+        }
+
         
     }
 

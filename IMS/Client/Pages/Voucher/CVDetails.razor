@@ -1,0 +1,130 @@
+﻿
+
+
+@page "/voucher/Details"
+@inject HttpClient httpClient
+@inject DialogService DialogService
+@using IMS.Shared.Models
+@inject NotificationService NotificationService
+@inject NavigationManager navigationManager
+
+@{
+    if (!projectviewcv)
+    {
+        <div class="col-md-12 col-lg-12 mb-3" style="width:100%">
+            <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+                <RadzenBreadCrumb>
+                    <RadzenBreadCrumbItem Icon="home" Text="Home" />
+                    <RadzenBreadCrumbItem Icon="settings" Text="Purchase Order" />
+                    <RadzenBreadCrumbItem Icon="settings" Text="Details" />
+                </RadzenBreadCrumb>
+            </RadzenCard>
+        </div>
+    }
+}
+
+@{
+    if (cv != null)
+    {
+
+        <div class="col-md-12 col-lg-12">
+            <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white col-md-12 col-lg-12 p-4">
+                <RadzenRow Orientation="Orientation.Horizontal">
+                    <RadzenColumn Size="1" Style="flex-basis: 25px !important">
+                        <RadzenButton Icon="arrow_back_ios_new" ButtonStyle="ButtonStyle.Info" Size="ButtonSize.Small" Click="@ButtonBackClick" />
+                    </RadzenColumn>
+                    <RadzenColumn>
+                        <RadzenText class="mb-3"><h5>Check Voucher Details</h5></RadzenText>
+                    </RadzenColumn>
+
+
+                </RadzenRow>
+                <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Style="width:100%">
+                        <RadzenCard Variant="Variant.Outlined" class="col-md-6 p-4">
+
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="CV No." />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@cv.cvno" />
+
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="Check No." />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@cv.checkno" />
+
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="PO No." />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@cv.pono" />
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="Payee" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@cv.payee" />
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="Date" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@string.Format("{0:MMMM dd, yyyy}", cv.cvdate)" />
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="Total Amount" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@string.Format("₱ {0:n2}", cv.amount)" />
+                                </RadzenColumn>
+                            </RadzenRow>
+                            @{
+                                if (cv.cvsubmitted == 0)
+                                {
+                                    <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
+                                        <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                            <RadzenLabel Text="" />
+                                        </RadzenColumn>
+                                        <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                            <RadzenButton Icon="arrow_outward" Text="Submit" Click="@(() => SubmitCV(cv.Id))" />
+                                        </RadzenColumn>
+                                    </RadzenRow>
+                                }
+                            }
+
+                        </RadzenCard>
+
+                    </RadzenStack>
+                    @* <RadzenStack Orientation="Orientation.Horizontal">
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%">
+                                <RadzenColumn Size="12" SizeMD="2" SizeLG="2">
+                                    <RadzenLabel Text="Location" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="10" SizeLG="10">
+                                    <RadzenLabel Text="@project.geodata.address" />
+                                </RadzenColumn>
+                            </RadzenRow>
+                        </RadzenStack> *@
+                   
+                </RadzenStack>
+            </RadzenCard>
+
+        </div>
+    }
+}
+

@@ -55,7 +55,7 @@ namespace IMS.Client.Pages.PO
                         Duration = 3000
                     });
 
-                //NavigationManager.NavigateTo("/purchaserequest/Details?id=" + result);
+                NavigationManager.NavigateTo("/PO/Details?poid=" + result);
                 
             }
 

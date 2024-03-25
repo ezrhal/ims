@@ -13,7 +13,7 @@
             <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
                 <RadzenBreadCrumb>
                     <RadzenBreadCrumbItem Icon="home" Path="/" Text="Home" />
-                    <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Purchase Order" />
+                    <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Check Voucher" />
                     <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Index" />
                 </RadzenBreadCrumb>
             </RadzenCard>
@@ -31,7 +31,7 @@
                     <Tabs>
                         <RadzenTabsItem Text="Prepared">
                             <RadzenStack class="mb-2" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
-                                <RadzenButton Icon="add" Text="New PO" Click=@AddCV />
+                                <RadzenButton Icon="add" Text="New CV" Click=@AddCV />
                                 <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
                             </RadzenStack>
 
@@ -69,19 +69,9 @@
                                     <RadzenDataGridColumn TItem="POModel" Property="supplier" Title="Supplier" />
 
                                     <RadzenDataGridColumn TItem="POModel" TextAlign="TextAlign.Center" Property="amount" Title="Amount" Width="170px">
-                                        <Template Context="detail">
+                                        <Template Context="data">
                                             <div style="text-align: right; font-size: 15px">
-                                                @{
-                                                    if (detail.items != null)
-                                                    {
-                                                        @String.Format("{0:n2}", detail.items.Sum(q => q.quantity * q.price))
-                                                    }
-                                                    else
-                                                    {
-                                                        @String.Format("{0:n2}", 0)
-                                                    }
-                                                }
-                                                
+                                                @String.Format("{0:n2}", data.amount)
                                             </div>
                                         </Template>
                                         <FooterTemplate>
@@ -96,7 +86,7 @@
                                                 
                                         </FooterTemplate>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                    <RadzenDataGridColumn TItem="POModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">
                                             <div style="margin-left: -5px">
                                                 <RadzenButton Click="@(() => DeleteCV(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
@@ -190,10 +180,10 @@
                                                 
                                         </FooterTemplate>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                    <RadzenDataGridColumn TItem="POModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">
                                             <div style="margin-left: -5px">
-                                                <RadzenButton Click="@(() => DeleteCV(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                                <RadzenButton Click="@(() => ReturnCV(data.Id))" ButtonStyle="ButtonStyle.Light" Icon="reply" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>

@@ -5,6 +5,8 @@
 @inject NavigationManager navigationManager
 @layout ReportLayout
 
+
+
 <style>
     #rv1 {
         position: relative;
@@ -13,7 +15,7 @@
     }
 </style>
 
-<ReportViewer ViewerId="rv1"
+@*<ReportViewer ViewerId="rv1"
     ReportServer="@(new ReportServerOptions {  Url = "http://10.0.1.74:83/", Username = "reportserver", Password = "pimo@123" })"
     ReportSource="@(new ReportSourceOptions()
                 {
@@ -26,5 +28,18 @@
                     
                 })"
     ScaleMode="@(ScaleMode.Specific)"
-    Scale="1.0" />
+    Scale="1.0" />*@
+
+<ReportViewer ViewerId="rv1"
+              ServiceUrl="/api/reports"
+              ReportSource="@(new ReportSourceOptions()
+                              {
+                                  Report = "workitem.trdp",
+                                  Parameters = new Dictionary<string, object>
+                                    {
+                                        { "projectid", @projectid },
+                                        { "workitemid", @workitemid }
+                                    } 
+                              })"
+              ScaleMode="@ScaleMode.FitPageWidth" />
 

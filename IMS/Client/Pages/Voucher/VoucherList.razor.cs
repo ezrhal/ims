@@ -18,12 +18,22 @@ namespace IMS.Client.Pages.Voucher
         [CascadingParameter(Name = "CVViewKey")]
         private CVViewModel cvview {get; set;}
         RadzenDataGrid<POModel> cvGrid;
-         RadzenDataGrid<POModel> cvSubmittedGrid;
+        RadzenDataGrid<POModel> cvSubmittedGrid;
         List<POModel> CVs;
         List<POModel> CVSubmitted;
         List<POModel> filteredCV;
         List<POModel> filteredCVSubmitted;
         IList<POModel> selectedCV;
+
+        protected override async Task OnInitializedAsync()
+        {
+            CVs = await httpClient.GetFromJsonAsync<List<POModel>>("voucher/getcvs?projectid=" + projectid);
+            
+            filteredCVSubmitted = CVs.Where(q => q.cvsubmitted.Equals(1)).ToList();
+            CVs.RemoveAll(q => q.cvsubmitted.Equals(1));
+            filteredCV = CVs;
+            cvview = new();
+        }
 
         void OnSearch(string Value)
         {
@@ -40,7 +50,7 @@ namespace IMS.Client.Pages.Voucher
         public async Task AddCV()
         {
             var result = await DialogService.OpenAsync<AddCV>("Add new Voucher",
-                   new Dictionary<string, object>() { { "CVs", CVs }, {"projectid", projectid}},
+                   new Dictionary<string, object>() { { "CVs", CVs }, {"cvGrid", cvGrid }, {"projectid", projectid}},
                    new DialogOptions() { Width = "500px", Resizable = false, Draggable = true });
         
         }
@@ -53,19 +63,23 @@ namespace IMS.Client.Pages.Voucher
 
             if (result)
             {
-                await httpClient.PostAsJsonAsync("purchaserequest/deletepr", Id);
+                POModel cv = CVs.First(q => q.Id.Equals(Id));
+
+                string data = Newtonsoft.Json.JsonConvert.SerializeObject(cv);
+
+                await httpClient.PostAsJsonAsync("voucher/deletecv", data);
 
                 NotificationService.Notify(
                     new NotificationMessage
                     {
                         Severity = NotificationSeverity.Success,
                         Summary = "Success",
-                        Detail = "PR Item has been removed",
+                        Detail = "CV Item has been removed",
                         Duration = 3000
                     }
                 );
 
-                CVs.Remove(CVs.First(q => q.Id.Equals(Id)));
+                CVs.Remove(cv);
                 cvGrid.Reload();
                 //filteredPR = PRs;
             }
@@ -82,10 +96,45 @@ namespace IMS.Client.Pages.Voucher
                 cvview.opencv = true;
                 cvview.cvid = Id;
                 await OnDetailsViewCV.InvokeAsync(cvview);
-                Console.WriteLine(Id);
+                
             }
 
-            
+        }
+
+        async Task ReturnCV(string id)
+        {
+            Console.WriteLine(id);
+            var result = await DialogService.OpenAsync<ConfirmDialog>("Confirm Return",
+                   new Dictionary<string, object>() { { "message", "Are you sure you want to return this CV?" } },
+                   new DialogOptions() { Width = "400px", Resizable = false, Draggable = true });
+
+            if (result)
+            {
+                POModel cv = filteredCVSubmitted.First(q => q.Id.Equals(id));
+
+                List<string> paramList = new();
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(cv.prid));
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(cv.Id));
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(0));
+
+                await httpClient.PostAsJsonAsync("voucher/submitcv", paramList);
+                cv.cvsubmitted = 0;
+                filteredCVSubmitted.Remove(cv);
+                filteredCV.Add(cv);
+
+                NotificationService.Notify(
+                    new NotificationMessage
+                    {
+                        Severity = NotificationSeverity.Success,
+                        Summary = "Success",
+                        Detail = "CV has been returned",
+                        Duration = 3000
+                    }
+                );
+                cvSubmittedGrid.Reload();
+                cvGrid.Reload();
+            }
+
         }
     }
 }

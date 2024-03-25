@@ -17,6 +17,7 @@ namespace IMS.Client.Pages.PO
 
         [CascadingParameter(Name = "POViewKey")]
         private POViewModel poview {get; set;}
+
         RadzenDataGrid<POModel> poGrid;
         List<POModel> POs;
         List<POModel> POSubmitted;
@@ -69,28 +70,33 @@ namespace IMS.Client.Pages.PO
 
         public async Task AddPO()
         {
-            var result = await DialogService.OpenAsync<AddPO>("Add new PR",
+            var result = await DialogService.OpenAsync<AddPO>("Add new PO",
                    new Dictionary<string, object>() { { "POs", POs }, {"projectid", projectid}},
                    new DialogOptions() { Width = "500px", Resizable = false, Draggable = true });
         
         }
 
-        public async Task DeletePR(string Id)
+        public async Task DeletePO(string Id, string prid)
         {
             var result = await DialogService.OpenAsync<ConfirmDialog>("Confirm Delete",
-                   new Dictionary<string, object>() {{"message", "Are you sure you want to delete this PR?"}},
+                   new Dictionary<string, object>() {{"message", "Are you sure you want to delete this PO?"}},
                    new DialogOptions() { Width = "400px", Resizable = false, Draggable = true });
 
             if (result)
             {
-                await httpClient.PostAsJsonAsync("purchaserequest/deletepr", Id);
+                List<string> paramList = new();
+
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(prid));
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(Id));
+
+                await httpClient.PostAsJsonAsync("purchaseorder/deletepo", paramList);
 
                 NotificationService.Notify(
                     new NotificationMessage
                     {
                         Severity = NotificationSeverity.Success,
                         Summary = "Success",
-                        Detail = "PR Item has been removed",
+                        Detail = "PO Item has been removed",
                         Duration = 3000
                     }
                 );
@@ -100,22 +106,31 @@ namespace IMS.Client.Pages.PO
                 //filteredPR = PRs;
             }
         }
+        public async Task EditPO(string id)
+        {
+            POModel po = POs.First(q => q.Id.Equals(id));
 
-        public async Task OpenPODetails(string Id)
+            var result = await DialogService.OpenAsync<EditPO>("Edit PO",
+                  new Dictionary<string, object>() { { "po", po }, { "poGrid", poGrid } },
+                  new DialogOptions() { Width = "500px", Resizable = false, Draggable = true });
+        }
+
+        public async Task OpenPODetails(string id)
         {
             if (!projectviewpo)
             {
-                navigationManager.NavigateTo("/purchaseorder/details?poid=" + Id);
+                navigationManager.NavigateTo("/purchaseorder/details?poid=" + id);
             }
             else
             {
                 poview.openpo = true;
-                poview.poid = Id;
+                poview.poid = id;
                 await OnDetailsViewPO.InvokeAsync(poview);
-                Console.WriteLine(Id);
+                Console.WriteLine(id);
             }
 
             
         }
+
     }
 }

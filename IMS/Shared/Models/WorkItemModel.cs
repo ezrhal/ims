@@ -53,5 +53,14 @@ namespace IMS.Shared.Models
         public string itemno { get; set; }
         public string description { get; set; }
     }
+
+    [BsonIgnoreExtraElements]
+    public class WorkItemInfoModel
+    {
+        public string projectid { get; set; }
+        public string workitemid { get; set; }
+        public string workitem { get; set; }
+
+    }
 	
 }

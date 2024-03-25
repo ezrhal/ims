@@ -1,0 +1,85 @@
+﻿@layout LoginLayout
+@page "/login"
+
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+@inject ILocalStorageService _localStorage
+@inject AuthenticationStateProvider _authenticationStateProvider;
+
+<style>
+    .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+    }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+</style>
+
+<RadzenMediaQuery Query="(max-width: 600px)" Change="@OnChange" />
+
+
+
+<RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" class="rz-border-info-light" Style="height: 100vh; width: 100%">
+    @{
+        if (IsSmall)
+        {
+            <RadzenCard Variant="Variant.Outlined" Style="width: 350px; height: 380px">
+                <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="height:100%">
+                    <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="height: 100%; width:100%;display:inlin-block">
+                        <div style="display:flex; flex-direction: column; justify-content: space-between; height: 315px; width:100%">
+                            <div style="width:100%; text-align:center">
+                                <img src="/image/cs.png" width="150px" />
+                            </div>
+                            <div style="width:100%; text-align:center">
+                                <RadzenLabel><h3>Login</h3></RadzenLabel>
+                            </div>
+                            <div style="width:100%; text-align:center">
+                                <RadzenText>Enter your credential to continue</RadzenText>
+                            </div>
+                            <RadzenTextBox @bind-Value="@login.Username" Placeholder="Username" Style="width:100%" Name="username" />
+
+                            <RadzenPassword @bind-Value="@login.Password" Placeholder="Password" Style="width:100%" />
+                            <RadzenButton Text="Submit" Click="@(() => AuthUser())" />
+                        </div>
+                    </RadzenRow>
+                </RadzenRow>
+            </RadzenCard>
+        }
+        else
+        {
+            <RadzenCard Variant="Variant.Outlined" Style="width: 700px; height: 350px">
+                <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="height:100%">
+                    <RadzenColumn Size="5" class="rz-text-align-center rz-p-2">
+                        <img src="/image/cs.png" width="200px" />
+                    </RadzenColumn>
+                    <RadzenColumn Size="6" class="rz-text-align-center rz-p-2" style="height: 100%;text-align: left; display:inline-block">
+                        <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="height: 100%; width:100%;display:inlin-block">
+                            <div style="display:flex; flex-direction: column; justify-content: space-between; height: 220px; width:100%">
+                                <div style="width:100%; text-align:center">
+                                    <RadzenLabel><h3>Login</h3></RadzenLabel>
+                                </div>
+                                <div style="width:100%; text-align:center">
+                                    <RadzenText>Enter your credential to continue</RadzenText>
+                                </div>
+                                <RadzenTextBox @bind-Value="@login.Username" Placeholder="Username" Style="width:100%" Name="username" />
+
+                                <RadzenPassword @bind-Value="@login.Password" Placeholder="Password" Style="width:100%" />
+                                <RadzenButton Text="Submit" Click="@(() => AuthUser())" />
+                            </div>
+                        </RadzenRow>
+                    </RadzenColumn>
+                </RadzenRow>
+            </RadzenCard>
+        }
+    }
+
+</RadzenRow>
+

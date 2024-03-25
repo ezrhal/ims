@@ -52,7 +52,7 @@
                                             @(filteredPO.IndexOf(data) + 1)
                                         </Template>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="POModel" Property="pono" Title="PO No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
+                                    <RadzenDataGridColumn TItem="POModel" Property="pono" Title="PO No." Frozen="false" Width="150px" TextAlign="TextAlign.Center">
                                         <Template Context="data">
                                             <div>
                                                 <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
@@ -69,7 +69,7 @@
                                                         @string.Format("{0:MMMM dd, yyyy}", data.dateprepared)
                                                     }
                                                 }
-                                                
+
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>
@@ -88,7 +88,7 @@
                                                         @String.Format("{0:n2}", 0)
                                                     }
                                                 }
-                                                
+
                                             </div>
                                         </Template>
                                         <FooterTemplate>
@@ -100,14 +100,13 @@
                                                     </div>
                                                 }
                                             }
-                                                
+
                                         </FooterTemplate>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                    <RadzenDataGridColumn TItem="POModel" Context="order" Filterable="false" Width="100px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">
-                                            <div style="margin-left: -5px">
-                                                <RadzenButton Click="@(() => DeletePR(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
-                                            </div>
+                                            <RadzenButton ButtonStyle="ButtonStyle.Secondary" Icon="edit" Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(() => EditPO(data.Id))" Size="ButtonSize.Small" class="my-1 ms-1" />
+                                            <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(() => DeletePO(data.Id, data.prid))" Size="ButtonSize.Small" class="my-1 ms-1" />
                                         </Template>
                                     </RadzenDataGridColumn>
 
@@ -197,10 +196,10 @@
                                                 
                                         </FooterTemplate>
                                     </RadzenDataGridColumn>
-                                    <RadzenDataGridColumn TItem="PRModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                    <RadzenDataGridColumn TItem="POModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">
                                             <div style="margin-left: -5px">
-                                                <RadzenButton Click="@(() => DeletePR(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                                <RadzenButton Click="@(() => DeletePO(data.Id, data.prid))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>

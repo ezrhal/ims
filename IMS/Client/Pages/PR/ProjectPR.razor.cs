@@ -71,33 +71,37 @@ namespace IMS.Client.Pages.PR
         {
             if (projectview)
             {
-                PRModel pr = new();
-                pr.projectid = projectid;
-                pr.projectname = projectname;
+                var result = await DialogService.OpenAsync<AddPR>("Add new PR",
+                   new Dictionary<string, object>() { { "PRs", PRs }, {"projectview", projectview }, {"projectid", projectid } },
+                   new DialogOptions() { Width = "500px", Resizable = false, Draggable = true });
 
-                var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepr", pr);
-                string result = await ret.Content.ReadAsStringAsync();
+                //PRModel pr = new();
+                //pr.projectid = projectid;
+                //pr.projectname = projectname;
 
-                if (result != "")
-                {
-                    pr.Id = result;
-                    PRs.Add(pr);
+                //var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepr", pr);
+                //string result = await ret.Content.ReadAsStringAsync();
 
-                    NotificationService.Notify(
-                        new NotificationMessage
-                        {
-                            Severity = NotificationSeverity.Success,
-                            Summary = "Success",
-                            Detail = "PR has been save",
-                            Duration = 3000
-                        });
+                //if (result != "")
+                //{
+                //    pr.Id = result;
+                //    PRs.Add(pr);
 
-                    prview.openpr = true;
-                    prview.prid = result;
-                    await OnDetailsView.InvokeAsync(prview);
+                //    NotificationService.Notify(
+                //        new NotificationMessage
+                //        {
+                //            Severity = NotificationSeverity.Success,
+                //            Summary = "Success",
+                //            Detail = "PR has been save",
+                //            Duration = 3000
+                //        });
 
-                    
-                }
+                //    prview.openpr = true;
+                //    prview.prid = result;
+                //    await OnDetailsView.InvokeAsync(prview);
+
+
+                //}
             }
             else
             {

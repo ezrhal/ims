@@ -1,42 +1,93 @@
-﻿<Properties StartupConfiguration="{AB1CD4D5-3BDC-46C3-AAB8-C0C42BA57EB0}|https">
-  <MonoDevelop.Ide.ItemProperties.IMS.Server PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+﻿<Properties StartupConfiguration="{AB1CD4D5-3BDC-46C3-AAB8-C0C42BA57EB0}|hotreloadprofile">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IMS/Client/Pages/PO/EditQuantity.razor.cs">
-    <Files>
-      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor.cs" Line="6" Column="1" />
-      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="IMS" expanded="True">
-            <Node name="IMS.Client" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Pages" expanded="True">
-                <Node name="PO" expanded="True">
-                  <Node name="EditQuantity.razor" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-            <Node name="IMS.Server" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-            </Node>
-            <Node name="IMS.Shared" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="FrameworkReferences" expanded="True" />
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.IMS.Server PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IMS/Server/Program.cs">
+    <Files>
+      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor.cs" />
+      <File FileName="IMS/Client/Pages/PO/EditQuantity.razor" />
+      <File FileName="IMS/Server/Program.cs" Line="42" Column="3" />
+      <File FileName="IMS/Server/appsettings.json" />
+      <File FileName="IMS/Server/Properties/launchSettings.json" />
+      <File FileName="IMS/Server/appsettings.Development.json" />
+      <File FileName="IMS/Server/Services/MongoDBService.cs" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/8.0.100/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Sdk.FrameworkReferenceResolution.targets" />
+      <File FileName="IMS/Client/Program.cs" Line="20" Column="1" />
+      <File FileName="IMS/Client/AppSettings.cs" />
+      <File FileName="IMS/Client/App.razor" />
+      <File FileName="IMS/Client/wwwroot/index.html" />
+      <File FileName="IMS/Client/Pages/Project/Index.razor" />
+      <File FileName="IMS/Client/Pages/Project/Index.razor.cs" />
+      <File FileName="IMS/Shared/Models/RegisterViewModel.cs" />
+      <File FileName="IMS/Server/Controllers/AccountController.cs" />
+      <File FileName="IMS/Client/ApiAuthenticationStateProvider.cs" />
+      <File FileName="IMS/Server/Controllers/LookupController.cs" />
+      <File FileName="IMS/Server/Services/ApplicationRole.cs" />
+      <File FileName="IMS/Server/Interfaces/IMongoDBService.cs" />
+      <File FileName="IMS/Server/Controllers/ProjectController.cs" />
+      <File FileName="IMS/Shared/Models/LoginModel.cs" />
+      <File FileName="IMS/Shared/Models/LoginResult.cs" />
+      <File FileName="IMS/Client/Pages/Index.razor" />
+      <File FileName="IMS/Client/Pages/Login.razor" />
+      <File FileName="IMS/Client/Pages/Login.razor.cs" />
+      <File FileName="IMS/Client/LoginRedirect.razor" />
+      <File FileName="IMS/Client/Shared/ReportLayout.razor" />
+      <File FileName="IMS/Client/Pages/Viewer.razor" Line="34" Column="39" />
+      <File FileName="IMS/Client/Shared/LoginLayout.razor" />
+      <File FileName="IMS/Client/Pages/PO/AddPO.razor" />
+      <File FileName="IMS/Client/Pages/PO/AddPO.razor.cs" />
+      <File FileName="IMS/Client/Shared/MainLayout.razor" />
+      <File FileName="IMS/Client/Pages/PO/POList.razor.cs" />
+      <File FileName="IMS/Client/Pages/Project/Details.razor.cs" />
+      <File FileName="IMS/Client/Pages/Project/Details.razor" />
+      <File FileName="IMS/Client/Pages/Voucher/VoucherList.razor" />
+      <File FileName="IMS/Shared/Models/PRModel.cs" />
+      <File FileName="IMS/Client/Pages/Voucher/VoucherList.razor.cs" />
+      <File FileName="IMS/Client/Pages/Voucher/AddCV.razor" />
+      <File FileName="IMS/Client/Pages/Project/AddLabor.razor" />
+      <File FileName="IMS/Client/Pages/Voucher/AddCV.razor.cs" />
+      <File FileName="IMS/Client/Pages/PO/AddPOItems.razor.cs" />
+      <File FileName="IMS/Client/Pages/PR/EditQuantity.razor" />
+      <File FileName="IMS/Client/Pages/PR/AddPRItems.razor.cs" />
+      <File FileName="IMS/Server/Controllers/VoucherController.cs" />
+      <File FileName="IMS/Server/Controllers/WeatherForecastController.cs" />
+      <File FileName="IMS/Client/Pages/PR/ProjectPR.razor" />
+      <File FileName="IMS/Client/Pages/PR/PRDetails.razor" />
+      <File FileName="IMS/Client/Pages/PO/POList.razor" />
+      <File FileName="IMS/Server/Controllers/PurchaseOrderController.cs" />
+      <File FileName="IMS/Client/Pages/PR/AddPR.razor.cs" />
+      <File FileName="IMS/Client/Pages/PO/PODetails.razor" />
+      <File FileName="IMS/Client/Pages/PO/PODetails.razor.cs" />
+      <File FileName="IMS/Client/Pages/PO/EditPO.razor" />
+      <File FileName="IMS/Client/Pages/PO/EditPO.razor.cs" />
+      <File FileName="IMS/Client/Pages/PO/AddPOItems.razor" />
+      <File FileName="IMS/Client/Pages/PR/AddPRItems.razor" />
+      <File FileName="IMS/Client/Pages/Voucher/CVDetails.razor" />
+      <File FileName="IMS/Client/Pages/Voucher/CVDetails.razor.cs" />
+      <File FileName="IMS/Server/Controllers/PurchaseRequestController.cs" />
+      <File FileName="IMS/Client/Shared/PRViewModel.cs" />
+      <File FileName="IMS/Client/Pages/MedalTally.razor" />
+      <File FileName="IMS/Client/Pages/MedalTally.razor.cs" />
+      <File FileName="IMS/Client/Pages/PR/ProjectPR.razor.cs" />
+      <File FileName="IMS/Client/Pages/PR/AddPR.razor" />
+      <File FileName="IMS/Shared/Models/WorkItemModel.cs" />
+      <File FileName="IMS/Shared/Models/ProjectModel.cs" />
+      <File FileName="IMS/Shared/Models/BalanceMaterialModel.cs" />
+      <File FileName="IMS/Shared/Models/TotalProcuredModel.cs" />
+      <File FileName="IMS/Client/Pages/PR/PRDetails.razor.cs" />
+      <File FileName="IMS/Client/Pages/Viewer.razor.cs" Line="1" Column="1" />
+      <File FileName="IMS/Server/Controllers/ReportsController.cs" Line="23" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IMS" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

@@ -20,57 +20,71 @@ namespace IMS.Client.Pages.PR
         PRItemModel prItems = new();
         string remainingtext = "Remaining Quantity";
         double remainingquantity = 0;
+        IList<BalanceMaterialModel> selectedItems;
+        RadzenDataGrid<BalanceMaterialModel> grid;
 
         List<MaterialsModel> items;
         List<BalanceMaterialModel> balancematerials;
         protected override async Task OnInitializedAsync()
         {
             items = await httpClient.GetFromJsonAsync<List<MaterialsModel>>("purchaserequest/getmaterialsquantity?projectid=" + pr.projectid + "&itemid=");
-            balancematerials = await httpClient.GetFromJsonAsync<List<BalanceMaterialModel>>("purchaserequest/getbalancematerials?projectid=" + pr.projectid);
+            balancematerials = await httpClient.GetFromJsonAsync<List<BalanceMaterialModel>>("purchaserequest/getbalancematerials?projectid=" + pr.projectid + "&workitemid=" + pr.workitemid);
+
+            
 
         }
 
         public async Task SavePRItem(PRItemModel args)
         {
+            List<string> paramList = new();
 
-            PRItemModel pritem = pr.items.Find(q => q.itemid.Equals(prItems.itemid));
+            paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.Id));
+            paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(selectedItems));
+            paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.items));
 
-            if (pritem == null)
-            {
-                MaterialsModel item = items.First(q => q.itemid.Equals(prItems.itemid));
-                prItems.item = item.item;
-                prItems.description = item.description;
-                prItems.unit = item.unit;
-                prItems.unitcost = item.unitcost;
+            var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepritems", paramList);
 
-                isempty = pr.items == null ? 0 : pr.items.Count;
 
-                List<string> paramList = new List<string>();
+            //PRItemModel pritem = pr.items.Find(q => q.itemid.Equals(prItems.itemid));
 
-                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.Id));
-                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(prItems));
-                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(isempty));
-                var res = await httpClient.PostAsJsonAsync("purchaserequest/savepritem", paramList);
-                 pr.items.Add(prItems);
-            }
-            else
-            {
+            //if (pritem == null)
+            //{
+            //    MaterialsModel item = items.First(q => q.itemid.Equals(prItems.itemid));
+            //    prItems.item = item.item;
+            //    prItems.description = item.description;
+            //    prItems.unit = item.unit;
+            //    prItems.unitcost = item.unitcost;
 
-                double qty = (double)pr.items.Find(q => q.itemid.Equals(prItems.itemid)).quantity;
-                qty += (double)prItems.quantity;
-                pr.items.Find(q => q.itemid.Equals(prItems.itemid)).quantity = qty;
+            //    isempty = pr.items == null ? 0 : pr.items.Count;
 
-                List<string> paramList = new();
+            //    List<string> paramList = new List<string>();
 
-                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.Id));
-                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pritem.Id));
-                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(qty));
+            //    paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.Id));
+            //    paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(prItems));
+            //    paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(isempty));
+            //    var res = await httpClient.PostAsJsonAsync("purchaserequest/savepritem", paramList);
+            //     pr.items.Add(prItems);
+            //}
+            //else
+            //{
 
-                await httpClient.PostAsJsonAsync("purchaserequest/updatepritem", paramList);
-            }
+            //    double qty = (double)pr.items.Find(q => q.itemid.Equals(prItems.itemid)).quantity;
+            //    qty += (double)prItems.quantity;
+            //    pr.items.Find(q => q.itemid.Equals(prItems.itemid)).quantity = qty;
 
-           
+            //    List<string> paramList = new();
+
+            //    paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.Id));
+            //    paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pritem.Id));
+            //    paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(qty));
+
+            //    await httpClient.PostAsJsonAsync("purchaserequest/updatepritem", paramList);
+            //}
+
+            PRModel  newpr = await httpClient.GetFromJsonAsync<PRModel>("purchaserequest/getpr?id=" + pr.Id);
+            pr.items = newpr.items;
             prItemsGrid.Reload();
+            newpr = null;
 
              NotificationService.Notify(
                    new NotificationMessage
@@ -81,7 +95,7 @@ namespace IMS.Client.Pages.PR
                        Duration = 3000
                    });
 
-            prItems = new();
+            
 
         }
 

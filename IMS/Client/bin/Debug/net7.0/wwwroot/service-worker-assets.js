@@ -93,7 +93,7 @@
       "url": "image\/Thumbs.db"
     },
     {
-      "hash": "sha256-s7u7PPyBYnHCCqUFTfvGzqoYpmY21piwmdQ3ErlPmsk=",
+      "hash": "sha256-y6F6aF3VPISaFpWUvMkuX+l3TeYRF+oDn+F5tE9qBcg=",
       "url": "index.html"
     },
     {
@@ -113,7 +113,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-qK0I6OiQkT1FP4c0O40RoR9d2oE4IDyFiPyZsKUg9Q4=",
+      "hash": "sha256-uyK+zJxIoVeqiRNYudHjlkCSsIUxK4RI4Shvw3lM2DA=",
       "url": "IMS.Client.styles.css"
     },
     {
@@ -263,6 +263,14 @@
     {
       "hash": "sha256-1YoOk0YnTVdJqumll3zHCleQIlJIdycpTbvrIdMo06g=",
       "url": "_framework\/Telerik.ReportViewer.Blazor.dll"
+    },
+    {
+      "hash": "sha256-T7yFVqCOYgREYAL7QwUb7v9ywwi5tBozK3GNtZpOvPU=",
+      "url": "_framework\/Toolbelt.Blazor.PWA.Updater.dll"
+    },
+    {
+      "hash": "sha256-DxofLJKW1Sj5Qu96c+V9\/S+RVDPmQjiif3pcechU5GU=",
+      "url": "_framework\/Toolbelt.Blazor.PWA.Updater.Service.dll"
     },
     {
       "hash": "sha256-VKZX+de4WCoEsOirOWgSviiKvr0Z3Ujd2\/PpLOUPOaE=",
@@ -965,7 +973,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-OgU2K+b7+fLpT0yKjW8Xdh+\/uZH6csUgg+Ls3ZjCPMM=",
+      "hash": "sha256-fAGACBOVT+hI3DbR98\/Y4swg0WgaUwlWZHiqRxCI2O4=",
       "url": "_framework\/IMS.Shared.dll"
     },
     {
@@ -977,20 +985,24 @@
       "url": "_framework\/Telerik.ReportServer.Services.Models.dll"
     },
     {
-      "hash": "sha256-k+Eqgc4iEp73mpinj\/kuW1Z7Lk+O\/wiX6WUqA2vETcE=",
+      "hash": "sha256-jQZ33nZN8ttPPNFhV\/Me29CYRIZxW2+5qG7r0Yjvu1c=",
       "url": "_framework\/IMS.Shared.pdb"
     },
     {
-      "hash": "sha256-u7bMrzZTVJzohLZ\/r7arx7xxdIkP5H8g4lJw7RAFBsQ=",
+      "hash": "sha256-r+nFE8HERlOdIvzcU0jjiKWKofpYHCeOWQjGHbLOY6k=",
       "url": "_framework\/IMS.Client.dll"
     },
     {
-      "hash": "sha256-W0nRHVwhsnMZ5LKn4zqgmS2TY8Zig+r0y\/SrdVQiDWc=",
+      "hash": "sha256-vtx0m4N3J+YHeAQE1Hd97hhboKd5dTBwF6Lt1vQb4u4=",
       "url": "_framework\/IMS.Client.pdb"
     },
     {
-      "hash": "sha256-r0o3W+1J\/Sr0GvcJieU3tY0TfyYMCf+QFUAddNvuqIw=",
+      "hash": "sha256-FqzcNpX4AJwMPfHpSixFlNLlQsxbE6pAdXNvkdrsjn8=",
       "url": "_framework\/blazor.boot.json"
+    },
+    {
+      "hash": "sha256-FusWOhPOKkLq10+x\/UFtqpm\/7B66OiSZdnFf1FsNKa8=",
+      "url": "_content\/Toolbelt.Blazor.PWA.Updater.Service\/script.min.js"
     },
     {
       "hash": "sha256-DewtGt3M2rMONowgFgL0f9Al6AlGhIR2vATS\/Jw9elk=",
@@ -1175,7 +1187,11 @@
     {
       "hash": "sha256-rZf3BJ55O3pmMKt\/1ntMD1t+PPePWXxj6lQXYfCu7gI=",
       "url": "_content\/BlazorGoogleMaps\/styles.css"
+    },
+    {
+      "hash": "sha256-CcbCAQysifGy37NQeQFm7ToIaHhq+ULV5MMf7PuLdXs=",
+      "url": "_content\/Toolbelt.Blazor.PWA.Updater\/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
     }
   ],
-  "version": "\/F8l9U34"
+  "version": "M9F\/dCzF"
 };

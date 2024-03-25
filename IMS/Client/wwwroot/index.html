@@ -16,21 +16,25 @@
     <!--\<link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">-->
     <link rel="stylesheet" href="/css/material3-base.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="" />
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
 
     <script src="js/map_picker_1.3.js"></script>
     <script src="js/reportserver_util.1.0.js"></script>
-    <script src="_content/BlazorGoogleMaps/js/objectManager.js"></script>
+
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="http://10.0.1.74:83/api/reports/resources/js/telerikReportViewer"></script> -->
     <link rel="stylesheet" href="css/kendo.default-main.min.css">
-    <script src="_content/Telerik.ReportViewer.Blazor/interop.js" defer></script>
 
     <link href="_content/Toolbelt.Blazor.PWA.Updater/Toolbelt.Blazor.PWA.Updater.bundle.scp.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/api/report/resources/js/telerikReportViewer"></script>
+    <link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.blueopal.min.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -58,12 +62,12 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-   
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrSKatMXf_UVFyJqfyI1O6QZ6Ws2_2P-0&libraries=places"></script>
-  
-    <!-- <script>navigator.serviceWorker.register('service-worker.js');</script> -->
-    <script src="_content/Toolbelt.Blazor.PWA.Updater.Service/script.min.js"></script>
 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrSKatMXf_UVFyJqfyI1O6QZ6Ws2_2P-0&libraries=places"></script>
+
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <!--<script src="_content/Toolbelt.Blazor.PWA.Updater.Service/script.min.js"></script>-->
+    <script src="_content/Telerik.ReportViewer.Blazor/interop.js" defer></script>
 </body>
 
 </html>

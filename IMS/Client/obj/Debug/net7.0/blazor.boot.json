@@ -1,7 +1,7 @@
 {
   "entryAssembly": "IMS.Client",
   "resources": {
-    "hash": "sha256-TCe37X8PDqVhIxsevw6hM7Da6B1MYoRrAAwNcV8sM2I=",
+    "hash": "sha256-UmHiDWfE+dD04x+ptwuX1aRPar1B6eOAIbyXpNrVgYA=",
     "runtime": {
       "dotnet.7.0.14.t77psjyod9.js": "sha256-YWGUknGRzP/fgO6YjvCJKPVQNZAPEd6ll+rHfQEIW+I=",
       "dotnet.timezones.blat": "sha256-t5xviiOQTfAsF0UDhmcyalKiaehUmf/sqJl97tmPM0M=",
@@ -48,6 +48,8 @@
       "System.IO.Pipelines.dll": "sha256-P/MqD0fCBd5bgTM16JC1QC/Zz7s+CwViyzmDFkBG4/c=",
       "System.Linq.Dynamic.Core.dll": "sha256-BBgVLrtvFKoZ6SbCxHRdzr9oeUHvnuQLfM8gRAFgDQc=",
       "Telerik.ReportViewer.Blazor.dll": "sha256-1YoOk0YnTVdJqumll3zHCleQIlJIdycpTbvrIdMo06g=",
+      "Toolbelt.Blazor.PWA.Updater.dll": "sha256-T7yFVqCOYgREYAL7QwUb7v9ywwi5tBozK3GNtZpOvPU=",
+      "Toolbelt.Blazor.PWA.Updater.Service.dll": "sha256-DxofLJKW1Sj5Qu96c+V9/S+RVDPmQjiif3pcechU5GU=",
       "ZstdSharp.dll": "sha256-VKZX+de4WCoEsOirOWgSviiKvr0Z3Ujd2/PpLOUPOaE=",
       "Microsoft.CSharp.dll": "sha256-XmCZ+Cfuw5py6Q1x16Nt5nVc8OQo+i7gBxjkydpKQUo=",
       "Microsoft.VisualBasic.Core.dll": "sha256-ed2zYwDkMhsA156oZD4+3/0ZGN6SxYqS0dNSMMKvpyw=",
@@ -217,14 +219,14 @@
       "mscorlib.dll": "sha256-YcsJInaT/kw3Vrm+SESegPxvT/Lr9RE6rE/KnxWIIc0=",
       "netstandard.dll": "sha256-TztlSRjADgiEABbiAMdWZpHrUVd8wnRtQRAvlwmRP/4=",
       "System.Private.CoreLib.dll": "sha256-BAhrZ8Zg3cJKQipxdzqQo+9jtPkOkRx1ou3oIhDohtk=",
-      "IMS.Shared.dll": "sha256-OgU2K+b7+fLpT0yKjW8Xdh+/uZH6csUgg+Ls3ZjCPMM=",
+      "IMS.Shared.dll": "sha256-fAGACBOVT+hI3DbR98/Y4swg0WgaUwlWZHiqRxCI2O4=",
       "Telerik.ReportServer.HttpClient.dll": "sha256-1SqlIjT/SrpOWL0bs5ukULSA0ZTXCgxoOyCoFSqKo4o=",
       "Telerik.ReportServer.Services.Models.dll": "sha256-CKXhob6OoiLvDJ1PN2/rROFfuuxtn57f4g+iTHIP6iw=",
-      "IMS.Client.dll": "sha256-eoR2kqFiNxwPFCVcqQwrMhi3XTRqyZwH51Pzm8JtWQQ="
+      "IMS.Client.dll": "sha256-Owc8v+wBvfrRYin/thKtTMpcqLkdU7Rbofq3rdDd2II="
     },
     "pdb": {
-      "IMS.Shared.pdb": "sha256-k+Eqgc4iEp73mpinj/kuW1Z7Lk+O/wiX6WUqA2vETcE=",
-      "IMS.Client.pdb": "sha256-d5yycPztmAQGu2tlKLKF0SP16UYXEFV/IRsqgQbpUaU="
+      "IMS.Shared.pdb": "sha256-jQZ33nZN8ttPPNFhV/Me29CYRIZxW2+5qG7r0Yjvu1c=",
+      "IMS.Client.pdb": "sha256-nVN4aDpfhR4TowMwiBx+GK/2RCbSPF8T43+y6Fkxhm4="
     },
     "runtimeAssets": {
       "dotnet.wasm": {

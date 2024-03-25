@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/israeldeguzman/Documents/GitHub/ims/SharedLibrary/SharedLibrary.csproj": {}
+  },
+  "projects": {
+    "/Users/israeldeguzman/Documents/GitHub/ims/SharedLibrary/SharedLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/israeldeguzman/Documents/GitHub/ims/SharedLibrary/SharedLibrary.csproj",
+        "projectName": "SharedLibrary",
+        "projectPath": "/Users/israeldeguzman/Documents/GitHub/ims/SharedLibrary/SharedLibrary.csproj",
+        "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
+        "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/SharedLibrary/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
+          "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

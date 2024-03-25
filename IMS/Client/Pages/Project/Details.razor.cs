@@ -5,10 +5,11 @@ using IMS.Client.Shared;
 using Radzen.Blazor;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace IMS.Client.Pages.Project
 {
+    [Authorize]
     partial class Details
     {
         PRViewModel prview = new();
@@ -236,6 +237,9 @@ namespace IMS.Client.Pages.Project
         {
             //navigationManager.NavigateTo("/Viewer?projectid=" + projectid);
             await JSRuntime.InvokeVoidAsync("open", "Viewer?report=workitem&projectid=" + projectid + "&workitemid=" + id, "_blank");  
+            try{
+
+            }catch{}
         }
 
 
@@ -243,7 +247,7 @@ namespace IMS.Client.Pages.Project
         void OnDetailsViewFromChild(PRViewModel _prview) => prview = _prview;
         void OnDetailsViewPOFromChild(POViewModel _poview) => poview = _poview;
 
-         void OnDetailsViewCVFromChild(CVViewModel _cvview) => cvview = _cvview;
+        void OnDetailsViewCVFromChild(CVViewModel _cvview) => cvview = _cvview;
         
     }
 }

@@ -99,6 +99,33 @@ namespace IMS.Client.Pages.PO
 
             if (result)
             {
+                bool hasNoPrice = false;
+
+                foreach(POItemModel item in po.items)
+                {
+                    if (item.price == 0)
+                    {
+                        hasNoPrice = true;
+                        break;
+                    }
+                   
+                }
+
+                if (hasNoPrice)
+                {
+                    NotificationService.Notify(
+                        new NotificationMessage
+                        {
+                            Severity = NotificationSeverity.Error,
+                            Summary = "Error",
+                            Detail = "Some PO Item has no price",
+                            Duration = 3000
+                        }
+                    );
+
+                    return;
+                }
+
                 List<string> paramList = new();
                 paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(po.prid));
                 paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(po.Id));

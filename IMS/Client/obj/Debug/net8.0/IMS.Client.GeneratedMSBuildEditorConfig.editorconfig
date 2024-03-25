@@ -1,0 +1,235 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = IMS.Client
+build_property.RootNamespace = IMS.Client
+build_property.ProjectDir = /Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/israeldeguzman/Documents/GitHub/ims/IMS/Client
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/LoginRedirect.razor]
+build_metadata.AdditionalFiles.TargetPath = TG9naW5SZWRpcmVjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/AddMaterials.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvQWRkTWF0ZXJpYWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/AddWorkItem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvQWRkV29ya0l0ZW0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Equipment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvRXF1aXBtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Items.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvSXRlbXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Labor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvTGFib3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Materials.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvTWF0ZXJpYWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Reference.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvUmVmZXJlbmNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/Unit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvVW5pdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Maintenance/WorkItems.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWFpbnRlbmFuY2UvV29ya0l0ZW1zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/MedalTally.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVkYWxUYWxseS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PO/AddPO.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUE8vQWRkUE8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PO/AddPOItems.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUE8vQWRkUE9JdGVtcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PO/EditPO.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUE8vRWRpdFBPLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PO/EditQuantity.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUE8vRWRpdFF1YW50aXR5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PO/PODetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUE8vUE9EZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PO/POList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUE8vUE9MaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PR/AddPR.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUFIvQWRkUFIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PR/AddPRItems.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUFIvQWRkUFJJdGVtcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PR/EditQuantity.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUFIvRWRpdFF1YW50aXR5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PR/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUFIvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PR/PRDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUFIvUFJEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/PR/ProjectPR.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUFIvUHJvamVjdFBSLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/AddEquipment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9BZGRFcXVpcG1lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/AddLabor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9BZGRMYWJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/AddMaterials.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9BZGRNYXRlcmlhbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/AddWorkItem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9BZGRXb3JrSXRlbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9EZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9JbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/MapLocation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9NYXBMb2NhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/NewProject.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9OZXdQcm9qZWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/UpdateEquipment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9VcGRhdGVFcXVpcG1lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/UpdateLabor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9VcGRhdGVMYWJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Project/UpdateQuantity.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvamVjdC9VcGRhdGVRdWFudGl0eS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/ReportViewer/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0Vmlld2VyL0luZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Viewer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVmlld2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Voucher/AddCV.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVm91Y2hlci9BZGRDVi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Voucher/CVDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVm91Y2hlci9DVkRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Pages/Voucher/VoucherList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVm91Y2hlci9Wb3VjaGVyTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/ConfirmDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbmZpcm1EaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/NavigationMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdmlnYXRpb25NZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/ReportLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlcG9ydExheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-px3aqd8s19
+
+[/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-j0f6bz9idp

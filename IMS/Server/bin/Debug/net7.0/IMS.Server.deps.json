@@ -406,6 +406,28 @@
           }
         }
       },
+      "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
+        "dependencies": {
+          "Toolbelt.Blazor.PWA.Updater.Service": "2.0.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Toolbelt.Blazor.PWA.Updater.dll": {
+            "assemblyVersion": "2.1.0.1",
+            "fileVersion": "2.1.0.1"
+          }
+        }
+      },
+      "Toolbelt.Blazor.PWA.Updater.Service/2.0.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "7.0.12"
+        },
+        "runtime": {
+          "lib/net6.0/Toolbelt.Blazor.PWA.Updater.Service.dll": {
+            "assemblyVersion": "2.0.0.1",
+            "fileVersion": "2.0.0.1"
+          }
+        }
+      },
       "ZstdSharp.Port/0.7.3": {
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {
@@ -422,7 +444,8 @@
           "Microsoft.AspNetCore.Components.WebAssembly": "7.0.12",
           "Newtonsoft.Json": "13.0.3",
           "Radzen.Blazor": "4.19.0",
-          "Telerik.ReportViewer.Blazor": "16.1.22.622"
+          "Telerik.ReportViewer.Blazor": "16.1.22.622",
+          "Toolbelt.Blazor.PWA.Updater": "2.1.0.1"
         },
         "runtime": {
           "IMS.Client.dll": {}
@@ -801,6 +824,20 @@
       "sha512": "sha512-45Ar9WO9w3r5tXfM39vzS+bY60+gpAEhaP0pDMQb/eXw23iLYC8uy6fL+fr7yMY+5d0ch7S9DFm9/i7ZKj4Iow==",
       "path": "telerik.reportviewer.blazor/16.1.22.622",
       "hashPath": "telerik.reportviewer.blazor.16.1.22.622.nupkg.sha512"
+    },
+    "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m5AbdhYBH/KpjqcBDLQ+snA4Q/tkptpzA3GvnMZh4J/RH+rU2lUxWkprugkSCjEFIRemYOJiNO5V39PcRmwblw==",
+      "path": "toolbelt.blazor.pwa.updater/2.1.0.1",
+      "hashPath": "toolbelt.blazor.pwa.updater.2.1.0.1.nupkg.sha512"
+    },
+    "Toolbelt.Blazor.PWA.Updater.Service/2.0.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6VEvKXab/ZGFw24mO427T/2cenXWCdOSDXZ3dlkO9ViwQxrvYwGh5K58A8Tj7ZkkcCh08JxshrfNYJnjMxXoUg==",
+      "path": "toolbelt.blazor.pwa.updater.service/2.0.0.1",
+      "hashPath": "toolbelt.blazor.pwa.updater.service.2.0.0.1.nupkg.sha512"
     },
     "ZstdSharp.Port/0.7.3": {
       "type": "package",

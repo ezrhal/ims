@@ -20,6 +20,8 @@ namespace IMS.Server.Services
          Task<string> SaveWorkitem(WorkItemModel workitem);
          Task<int> DeleteWorkItem(string id);
 
+        Task<List<WorkItemInfoModel>> GetWorkItemsInfo(string projectid);
+
         #region PROJECTS
 
         Task<List<ProjectModel>> GetProjects();
@@ -36,17 +38,35 @@ namespace IMS.Server.Services
         Task<string> UpdateQuantityHours(string id, string workitemid, string type, string itemid, double quantity, double hours);
         Task<string> DeleteWorkItem(string id, string workitemid);
         
+
+
+        //TRANSFER TO REPORT INTERFACE
+        Task<List<WorkItemModel>> GetReportProject(string projectid);
+        Task<List<MaterialsModel>> GetMaterials(string projectid, string workitemid);
+        Task<List<EquipmentModel>> GetEquipment(string projectid, string workitemid);
+        Task<List<LaborModel>> GetLabor(string projectid, string workitemid);
+
+
+        #endregion
+
+        #region PR
+
         Task<List<PRModel>> GetPRs(string projectid);
         Task<PRModel> GetPR(string id);
         Task<List<ProjectModel>> GetProjectname();
         Task<string> SavePR(PRModel pr);
         Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid);
-        Task<string> SavePRItem(string id, PRItemModel pritem, string isempty);
+        Task<string> SavePRItem(string id, List<BalanceMaterialModel> items, List<PRItemModel> existingitms);
         Task<string> RemovePRItem(string id, string pritemid);
         Task<string> UpdatePRItem(string id, string pritemid, double quantity);
-        Task<TotalProcuredModel> GetTotalProcured(string  projectid, string  itemid);
+        Task<TotalProcuredModel> GetTotalProcured(string projectid, string itemid);
         Task<string> DeletePR(string id);
         Task<string> SubmitPR(string id);
+        Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid, string workitemid);
+
+        #endregion
+
+        #region PO
 
         Task<List<SupplierModel>> GetSuppliers();
         Task<List<POModel>> GetPOs(string projectid);
@@ -57,17 +77,22 @@ namespace IMS.Server.Services
         Task<string> DeletePOItem(string prid, string poid, string id);
         Task<string> UpdatePOItem(string prid, string poid, POItemModel poitem);
         Task<string> SubmitPO(string prid, string poid);
-
-
-        Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid);
-
-        //TRANSFER TO REPORT INTERFACE
-        Task<List<WorkItemModel>> GetReportProject(string projectid);
-        Task<List<MaterialsModel>> GetMaterials(string projectid, string workitemid);
-        Task<List<EquipmentModel>> GetEquipment(string projectid, string workitemid);
-        Task<List<LaborModel>> GetLabor(string projectid, string workitemid);
-
+        Task<string> DeletePO(string prid, string poid);
+        Task<string> EditPO(POModel po);
 
         #endregion
+
+        #region VOUCHER
+
+        Task<List<POModel>> GetPOSDetails(string projectid);
+        Task<List<POModel>> GetCVs(string projectid);
+        Task<POModel> GetCV(string poid);
+        Task<string> SaveCV(POModel cv);
+        Task<string> DeleteCV(POModel cv);
+        Task<string> SubmitCV(string prid, string poid, int action);
+
+        #endregion
+
+        Task<bool> CheckUserCredential(string Username, string Password);
     }
 }

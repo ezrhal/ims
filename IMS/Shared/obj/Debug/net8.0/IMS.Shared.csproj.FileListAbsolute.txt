@@ -1,0 +1,13 @@
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/bin/Debug/net8.0/IMS.Shared.deps.json
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/bin/Debug/net8.0/IMS.Shared.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/bin/Debug/net8.0/IMS.Shared.pdb
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.csproj.AssemblyReference.cache
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.AssemblyInfoInputs.cache
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.AssemblyInfo.cs
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.csproj.CoreCompileInputs.cache
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.sourcelink.json
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/refint/IMS.Shared.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/IMS.Shared.pdb
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/Debug/net8.0/ref/IMS.Shared.dll

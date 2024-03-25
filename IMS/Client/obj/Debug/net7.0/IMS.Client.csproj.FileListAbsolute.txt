@@ -1825,3 +1825,11 @@
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net7.0/compressed/k7en69fk6w.gz
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net7.0/compressed/kd8t1xei0a.gz
 /Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net7.0/compressed/trvdwn1v7w.gz
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net7.0/wwwroot/_framework/Toolbelt.Blazor.PWA.Updater.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net7.0/wwwroot/_framework/Toolbelt.Blazor.PWA.Updater.Service.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net7.0/wwwroot/_framework/Toolbelt.Blazor.PWA.Updater.Service.dll.gz
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net7.0/wwwroot/_framework/Toolbelt.Blazor.PWA.Updater.dll.gz
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net7.0/Toolbelt.Blazor.PWA.Updater.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net7.0/Toolbelt.Blazor.PWA.Updater.Service.dll
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net7.0/compressed/g0xdp4wl1i.gz
+/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net7.0/compressed/e14sm88ikx.gz

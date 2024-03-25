@@ -33,7 +33,7 @@ namespace IMS.Client.Pages.PR
             string itemcount = (pr.items == null ? "0" : "1");   
             var result = await DialogService.OpenAsync<AddPRItems>("Add work item ",
                    new Dictionary<string, object>() { { "pr", pr }, {"prItemsGrid", prItemsGrid}},
-                   new DialogOptions() { Width = "700px", Resizable = false, Draggable = true });
+                   new DialogOptions() { Width = "800px", Resizable = false, Draggable = true });
             
            pr.amount = (double)pr.items.Sum(q => q.quantity * q.unitcost);
 
@@ -94,18 +94,46 @@ namespace IMS.Client.Pages.PR
 
             if (result)
             {
-                await httpClient.PostAsJsonAsync("purchaserequest/submitpr", id);
-                pr.submitted = 1;
+                var hasZeroQuantity = false;
 
-                NotificationService.Notify(
-                    new NotificationMessage
+                foreach(PRItemModel item in pr.items)
+                {
+                    if (item.quantity == 0)
                     {
-                        Severity = NotificationSeverity.Success,
-                        Summary = "Success",
-                        Detail = "PR has been submitted",
-                        Duration = 3000
+                        hasZeroQuantity = true;
+                        break;
                     }
-                );
+
+                }
+
+                if (!hasZeroQuantity)
+                {
+                    await httpClient.PostAsJsonAsync("purchaserequest/submitpr", id);
+                    pr.submitted = 1;
+
+                    NotificationService.Notify(
+                        new NotificationMessage
+                        {
+                            Severity = NotificationSeverity.Success,
+                            Summary = "Success",
+                            Detail = "PR has been submitted",
+                            Duration = 3000
+                        }
+                    );
+                }
+                else
+                {
+                    NotificationService.Notify(
+                        new NotificationMessage
+                        {
+                            Severity = NotificationSeverity.Error,
+                            Summary = "Error",
+                            Detail = "Some item has 0 quantity",
+                            Duration = 3000
+                        }
+                    );
+                }
+                
             }
            
         }

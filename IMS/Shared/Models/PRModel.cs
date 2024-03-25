@@ -21,6 +21,8 @@ public class PRModel
     public List<StatusModel>? statuslogs { get; set; }
     public int submitted { get; set; }
     public List<POModel> PO { get; set; }
+    public string workitemid { get; set; }
+    public string workitem { get; set; }
 
     public PRModel()
     {
@@ -86,15 +88,20 @@ public class POModel
     public int isactive { get; set; }
     public string? userid { get; set; }
     [BsonIgnoreIfDefault]
-    public double amount { get; set; }
+    public double? amount { get; set; }
     public int submitted { get; set; }
     public List<POItemModel> items { get; set; }
+
+    //CV
     public string? cvno { get; set; }
     public string? checkno { get; set; }
     public DateTime? cvdate { get; set; }
     public string? payee { get; set; }
     public string? payeeaddress { get; set; }
     public int? isrecieved { get; set; }
+    public int cvsubmitted { get; set; }
+
+    public DateTime? datereceived { get; set; }
 
     public POModel()
     {
@@ -102,6 +109,11 @@ public class POModel
         pono = "";
         isactive = 1;
         amount = 0;
+        supplierid = "";
+        supplier = "";
+        supplieraddress = "";
+        cvsubmitted = 0;
+
         items = new();
     }
 }
@@ -121,6 +133,15 @@ public class POItemModel
     public POItemModel()
     {
         Id = ObjectId.GenerateNewId().ToString();
+        price = 0;
     }
+}
+
+public class POLogModel()
+{
+    public string status { get; set; }
+    public string remarks { get; set; }
+    public DateTime logdate { get; set; }
+    public string user { get; set; }
 }
 

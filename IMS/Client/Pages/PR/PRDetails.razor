@@ -40,17 +40,26 @@
                 <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
                     <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start">
                         <RadzenCard Variant="Variant.Outlined" class="col-md-6 p-4">
-                             
-                             <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
                                 <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
                                     <RadzenLabel Text="PR No." />
                                 </RadzenColumn>
                                 <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
                                     <RadzenTextBox style="width:100%" value="@pr.transactionno" />
-                                    
+
                                 </RadzenColumn>
                             </RadzenRow>
-                             <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" class="mb-2" >
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="Work Item" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenTextBox style="width:100%" value="@pr.workitem" />
+
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" class="mb-2">
                                 <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
                                     <RadzenLabel Text="Date" />
                                 </RadzenColumn>
@@ -58,7 +67,7 @@
                                     <RadzenTextBox style="width:100%" value="@string.Format("{0:MMMM dd, yyyy}", pr.dateprepared)" />
                                 </RadzenColumn>
                             </RadzenRow>
-                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;"class="mb-2" >
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" class="mb-2">
                                 <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
                                     <RadzenLabel Text="Total Amount" />
                                 </RadzenColumn>
@@ -69,7 +78,7 @@
                             @{
                                 if (pr.submitted == 0)
                                 {
-                                    <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" >
+                                    <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
                                         <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
                                             <RadzenLabel Text="" />
                                         </RadzenColumn>
@@ -79,7 +88,7 @@
                                     </RadzenRow>
                                 }
                             }
-                            
+
                         </RadzenCard>
                        
                     </RadzenStack>

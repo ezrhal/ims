@@ -1,0 +1,211 @@
+﻿@layout LoginLayout
+@page "/medaltally"
+
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+@inject ILocalStorageService _localStorage
+@inject AuthenticationStateProvider _authenticationStateProvider;
+
+@using IMS.Shared.Models
+
+<style>
+    .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+    }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @@font-face {
+        font-family: 'font1';
+        src: url('fonts/MadimiOne-Regular.ttf') format('truetype');
+    }
+
+    .custom-font1 {
+      font-family: 'font1', Arial, sans-serif;
+    }
+
+    @@font-face {
+        font-family: 'font2';
+        src: url('fonts/ProtestStrike-Regular.ttf') format('truetype');
+    }
+
+    .custom-font2 {
+        font-family: 'font2', Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+        position: relative;
+    }
+
+        th:nth-child(1), td:nth-child(1) {
+            width: 5%;
+        }
+
+        th:nth-child(2), td:nth-child(2) {
+            width: 8%;
+        }
+
+        th:nth-child(3), td:nth-child(3) {
+            width: 40%;
+        }
+
+        th:nth-child(4), td:nth-child(4),
+        th:nth-child(5), td:nth-child(5),
+        th:nth-child(6), td:nth-child(6),
+        th:nth-child(7), td:nth-child(7) {
+            width: 12%;
+        }
+
+    tr {
+        position: relative;
+    }
+
+       
+
+    td {
+        padding-top: 10px; /* Add top padding for the gap */
+        padding-bottom: 10px; /* Add bottom padding for the gap */
+    }
+
+</style>
+
+<RadzenMediaQuery Query="(max-width: 600px)" Change="@OnChange" />
+
+
+<div style="width: 100%; height: 100%; background-color: #DDE6ED">
+    <RadzenStack JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" class="rz-border-info-light" Style="height: 100vh; width: 100%; padding: 20px">
+        @{
+            if (IsSmall)
+            {
+
+            }
+            else
+            {
+                <RadzenCard Variant="Variant.Flat" Style="width: 100%; background-color: white">
+                    <RadzenStack Orientation="Orientation.Horizontal" Style="width:100%; height: 90vh">
+
+                        <RadzenColumn Size="4">
+                            <div style="text-align:center; width: 500px; height: 100%; background-color: white">
+                                <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="width:100%; height: 100%">
+                                    <div>
+                                        <div>
+                                            <img src="image/cram.jpeg" width="500px" />
+                                        </div>
+                                        <div>
+                                            <img src="image/deped.jpeg" width="200px" />
+                                        </div>
+                                    </div>
+
+                                </RadzenRow>
+
+                            </div>
+                        </RadzenColumn>
+                        <RadzenColumn Size="8" Style="width: 100%; height: 90vh ">
+                            <RadzenCard Variant="Variant.Outlined" Style="width:100%; height: 100%; padding: 20px">
+                                <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="width: 100%">
+                                    <div>
+                                        <img src="image/medal.png" width="70px" />
+                                    </div>
+                                    <div>
+                                        <span class="custom-font1" style="font-size: 70px; font-weight: bold">Medal Tally</span>
+                                    </div>
+                                </RadzenRow>
+                                <RadzenRow Style="height: 95%; overflow: hidden">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th><img src="image/gold.png" width="75px" /></th>
+                                                <th><img src="image/silver.png" width="75px" /></th>
+                                                <th><img src="image/bronze.png" width="75px" /></th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="rz-card rz-variant-flat" style="background-color: rgba(145, 200, 228, 0.2)">
+                                                <td class="custom-font2" style="color: #FFD700; font-size: 30px">1st</td>
+                                                <td><img src="image/ads.png" width="70px" /></td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px; text-align: left; padding-left: 20px ">Agusan del Sur</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">5</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">5</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">5</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">15</td>
+                                            </tr>
+                                            <tr> <td style="padding: 7px;"></td></tr>
+                                            <tr class="rz-card rz-variant-flat" style="background-color: rgba(70, 130, 169, 0.1)">
+                                                <td class="custom-font2" style="color: #C0C0C0; font-size: 30px">2nd</td>
+                                                <td><img src="image/adn.png" width="70px" /></td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px; text-align: left; padding-left: 20px ">Agusan del Norte</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">4</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">4</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">4</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">12</td>
+                                            </tr>
+                                            <tr> <td style="padding: 7px;"></td></tr>
+                                            <tr class="rz-card rz-variant-flat" style="background-color: rgba(145, 200, 228, 0.2)">
+                                                <td class="custom-font2" style="color: #CD7F32; font-size: 30px">3rd</td>
+                                                <td><img src="image/dinagat.png" width="70px" /></td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px; text-align: left; padding-left: 20px ">Dinagat Islands</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">3</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">3</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">3</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">9</td>
+                                            </tr>
+                                            <tr> <td style="padding: 7px;"></td></tr>
+                                            <tr class="rz-card rz-variant-flat" style="background-color: rgba(70, 130, 169, 0.1)">
+                                                <td class="custom-font2" style="font-size: 30px">4th</td>
+                                                <td><img src="image/sdn.png" width="70px" /></td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px; text-align: left; padding-left: 20px ">Surigao del Norte</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">2</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">2</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">2</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">6</td>
+                                            </tr>
+                                            <tr> <td style="padding: 7px;"></td></tr>
+                                            <tr class="rz-card rz-variant-flat" style="background-color: rgba(145, 200, 228, 0.2)">
+                                                <td class="custom-font2" style="font-size: 30px">5th</td>
+                                                <td><img src="image/sds.png" width="70px" /></td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px; text-align: left; padding-left: 20px">Surigao del Sur</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">1</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">1</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">1</td>
+                                                <td class="custom-font1" style="color: #272829; font-size: 36px;">3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div style="text-align: right; width: 100%; margin-right: -20px; position: relative; top: -220px; left: 10px;">
+                                        <img src="image/sports.png" width="650px" style="opacity: 0.2" />
+                                    </div>
+                                </RadzenRow>
+                            </RadzenCard>
+                            
+                        </RadzenColumn>
+
+                    </RadzenStack>
+                </RadzenCard>
+
+            }
+        }
+
+    </RadzenStack>
+</div>
+
+

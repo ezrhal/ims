@@ -9,30 +9,43 @@
         <RadzenColumn Size="12" SizeSM="12">
             <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
 
-                @* <RadzenDataGrid Data="@balancematerials" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
-                            TItem="BalanceMaterialModel" Density="Density.Compact" Context="workitem" LoadData="@LoadData"
-                            SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false">
+                <RadzenDataGrid Data="@balancematerials" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                            TItem="BalanceMaterialModel" Density="Density.Compact" Context="workitem" LoadData="@LoadData" @ref="grid"
+                            SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItems">
 
-                    <Columns>  
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="Id" Title="#" Frozen="false" Width="50px" TextAlign="TextAlign.Center">
+                    <Columns>
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                            <HeaderTemplate>
+                                <RadzenCheckBox TriState="false" TValue="bool?"
+                                                Value="@(selectedItems == null || selectedItems?.Any() != true ? false : !balancematerials.All(i => selectedItems.Contains(i)) ? null : balancematerials.Any(i => selectedItems.Contains(i)))"
+                                                Change="@(args => selectedItems = args == true ? balancematerials.ToList() : null)" />
+                            </HeaderTemplate>
                             <Template Context="data">
-                                @(balancematerials.IndexOf(data) + 1)
+                                <RadzenCheckBox TriState="false" Value="@(selectedItems != null && selectedItems.Contains(data))"
+                                                TValue="bool" Change=@(args => grid.SelectRow(data)) />
+                            </Template>
+
+                        </RadzenDataGridColumn>
+                       
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="item" Title="Item" Frozen="false" Width="400px">
+                            <Template Context="data">
+                                <div>@data.item @data.description</div>
                             </Template>
                         </RadzenDataGridColumn>
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="item" Title="Item" Frozen="false" Width="400px" />
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="description" Title="Description" Frozen="false" />
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Frozen="false" Width="120px" />
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Frozen="false" Width="120px" >
-                                <Template Context="detail">
-                                <div style="text-align: right">
-                                    @String.Format("{0:n2}", detail.unitcost)
-                                </div>
-                            </Template>
-                        </RadzenDataGridColumn>  
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="quantity" Title="Qty" TextAlign="TextAlign.Center" Frozen="false" Width="100px" />
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="prquantity" Title="Toal PR" TextAlign="TextAlign.Center" Frozen="false" Width="100px" />
+                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="balancequantity" Title="Balance" TextAlign="TextAlign.Center" Frozen="false" Width="100px" />
+                        @*<RadzenDataGridColumn TItem="BalanceMaterialModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Frozen="false" Width="120px">
+            <Template Context="detail">
+                <div style="text-align: right">
+                    @String.Format("{0:n2}", detail.unitcost)
+                </div>
+            </Template>
+        </RadzenDataGridColumn>*@
                     </Columns>
-                </RadzenDataGrid>  *@
+                </RadzenDataGrid>  
 
-                <RadzenDropDown Data=@items TextProperty="item" ValueProperty="itemid" TValue="string" @bind-Value="@prItems.itemid" Class="rz-background-color-white" Placeholder="Select Item" Name="item"
+                @*<RadzenDropDown Data=@items TextProperty="item" ValueProperty="itemid" TValue="string" @bind-Value="@prItems.itemid" Class="rz-background-color-white" Placeholder="Select Item" Name="item"
                 Change="@SelectItem" />
                 <RadzenRequiredValidator Component="item" Text="Item is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
                 <RadzenRow>
@@ -73,7 +86,8 @@
                 </RadzenRow>
                
                 <RadzenNumeric @bind-Value="@prItems.quantity" Name="unitcost" Class="rz-background-color-white" Placeholder="Quantity" />
-                <RadzenNumericRangeValidator Component="unitcost" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+                <RadzenNumericRangeValidator Component="unitcost" Min="1" Max="999999999999" Text="Quantity should be greater than 0" Popup="true" Style="position:relative; top: -10px; width: fit-content" />*@
+
             </RadzenStack>
             <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
                 <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
