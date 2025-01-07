@@ -49,9 +49,9 @@ namespace IMS.Server.Controllers
         }
 
         [HttpGet("getmaterialsquantity")]
-        public async Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid = "")
+        public async Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid = "", string workitemid = "")
         {
-            return await _db.GetMaterialsQuantity(projectid, itemid);
+            return await _db.GetMaterialsQuantity(projectid, itemid, workitemid);
         }
 
         [HttpPost("savepritems")]
@@ -62,6 +62,22 @@ namespace IMS.Server.Controllers
             List<PRItemModel> existing = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PRItemModel>>(paramList[2].ToString());
 
             return await _db.SavePRItem(prid, items, existing);
+
+            //string prid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[0].ToString());
+            //PRItemModel pritem = Newtonsoft.Json.JsonConvert.DeserializeObject<PRItemModel>(paramList[1].ToString());
+            //string isempty = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[2].ToString());
+
+            //return await _db.SavePRItem(prid, pritem, isempty);
+        }
+        
+        [HttpPost("savepritemsadmin")]
+        public async Task<string> SavePRItemAdmin(List<string> paramList)
+        {
+            string prid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[0].ToString());
+            List<ItemModel> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ItemModel>>(paramList[1].ToString());
+            List<PRItemModel> existing = Newtonsoft.Json.JsonConvert.DeserializeObject<List<PRItemModel>>(paramList[2].ToString());
+
+            return await _db.SavePRItemAdmin(prid, items, existing);
 
             //string prid = Newtonsoft.Json.JsonConvert.DeserializeObject<string>(paramList[0].ToString());
             //PRItemModel pritem = Newtonsoft.Json.JsonConvert.DeserializeObject<PRItemModel>(paramList[1].ToString());

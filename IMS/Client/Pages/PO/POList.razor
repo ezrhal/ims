@@ -1,5 +1,5 @@
 ﻿
-@page "/PR/POList"
+@page "/PO/POList"
 @inject HttpClient httpClient
 @inject DialogService DialogService
 @inject NotificationService NotificationService
@@ -55,7 +55,7 @@
                                     <RadzenDataGridColumn TItem="POModel" Property="pono" Title="PO No." Frozen="false" Width="150px" TextAlign="TextAlign.Center">
                                         <Template Context="data">
                                             <div>
-                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
+                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id, data.prid))" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>
@@ -132,7 +132,7 @@
                                     <RadzenDataGridColumn TItem="POModel" Property="transactionno" Title="PR No." Frozen="false" Width="150px" TextAlign="TextAlign.Center" >
                                         <Template Context="data">
                                             <div>
-                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id))" />
+                                                <RadzenButton Text="@data.pono" Variant="Variant.Outlined" Size="ButtonSize.Small" Click="@(() => OpenPODetails(data.Id, data.prid))" />
                                             </div>
                                         </Template>
                                     </RadzenDataGridColumn>

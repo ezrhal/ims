@@ -1,0 +1,27 @@
+@using IMS.Shared.Models
+@inject Radzen.DialogService DialogService
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+
+
+<RadzenTemplateForm Data="@menu" Submit="@(async (MenuModel args) => { await SaveMenu(); })">
+    <RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                <RadzenTextBox @bind-Value="@menu.menu" Name="menu" Class="rz-background-color-white" Placeholder="Menu" />
+                <RadzenRequiredValidator Component="menu" Text="Menu description is required" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+                <RadzenTextBox @bind-Value="@menu.path" Class="rz-background-color-white" />
+                <RadzenTextBox @bind-Value="@menu.icon" Name="icon" Class="rz-background-color-white" Placeholder="Icon" />
+                <RadzenRequiredValidator Component="icon" Text="Icon is required" Popup="true" Style="position:relative; top: -10px; width: fit-content" />
+                <RadzenTextBox @bind-Value="@menu.cssclass" Name="cssclass" Class="rz-background-color-white" Placeholder="Class" />
+                <RadzenTextBox @bind-Value="@menu.style" Name="style" Class="rz-background-color-white" Placeholder="CSS Style" />
+                
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenTemplateForm>

@@ -1,22 +1,15 @@
 ﻿<Properties StartupConfiguration="{AB1CD4D5-3BDC-46C3-AAB8-C0C42BA57EB0}|hotreloadprofile">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.IMS.Server PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IMS/Server/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IMS/Server/Controllers/ReportsController.cs">
     <Files>
       <File FileName="IMS/Client/Pages/PO/EditQuantity.razor.cs" />
       <File FileName="IMS/Client/Pages/PO/EditQuantity.razor" />
-      <File FileName="IMS/Server/Program.cs" Line="42" Column="3" />
+      <File FileName="IMS/Server/Program.cs" />
       <File FileName="IMS/Server/appsettings.json" />
       <File FileName="IMS/Server/Properties/launchSettings.json" />
       <File FileName="IMS/Server/appsettings.Development.json" />
       <File FileName="IMS/Server/Services/MongoDBService.cs" />
       <File FileName="../../../../../usr/local/share/dotnet/sdk/8.0.100/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Sdk.FrameworkReferenceResolution.targets" />
-      <File FileName="IMS/Client/Program.cs" Line="20" Column="1" />
+      <File FileName="IMS/Client/Program.cs" />
       <File FileName="IMS/Client/AppSettings.cs" />
       <File FileName="IMS/Client/App.razor" />
       <File FileName="IMS/Client/wwwroot/index.html" />
@@ -36,7 +29,7 @@
       <File FileName="IMS/Client/Pages/Login.razor.cs" />
       <File FileName="IMS/Client/LoginRedirect.razor" />
       <File FileName="IMS/Client/Shared/ReportLayout.razor" />
-      <File FileName="IMS/Client/Pages/Viewer.razor" Line="34" Column="39" />
+      <File FileName="IMS/Client/Pages/Viewer.razor" />
       <File FileName="IMS/Client/Shared/LoginLayout.razor" />
       <File FileName="IMS/Client/Pages/PO/AddPO.razor" />
       <File FileName="IMS/Client/Pages/PO/AddPO.razor.cs" />
@@ -79,15 +72,45 @@
       <File FileName="IMS/Shared/Models/BalanceMaterialModel.cs" />
       <File FileName="IMS/Shared/Models/TotalProcuredModel.cs" />
       <File FileName="IMS/Client/Pages/PR/PRDetails.razor.cs" />
-      <File FileName="IMS/Client/Pages/Viewer.razor.cs" Line="1" Column="1" />
-      <File FileName="IMS/Server/Controllers/ReportsController.cs" Line="23" Column="1" />
+      <File FileName="IMS/Client/Pages/Viewer.razor.cs" />
+      <File FileName="IMS/Server/Controllers/ReportsController.cs" Line="147" Column="12" />
+      <File FileName="IMS/Client/_Imports.razor" />
+      <File FileName="IMS/Client/Pages/ReportViewer/Index.razor.cs" />
+      <File FileName="IMS/Client/Pages/ReportViewer/Index.razor" />
+      <File FileName="IMS/Client/Properties/launchSettings.json" />
+      <File FileName="IMS/Server/Properties/PublishProfiles/FolderProfile.pubxml" />
+      <File FileName="IMS/Server/Controllers/MaintenanceController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="IMS" expanded="True" selected="True" />
+          <Node name="IMS" expanded="True">
+            <Node name="IMS.Client">
+              <Node name="Pages" expanded="True">
+                <Node name="PO" expanded="True">
+                  <Node name="EditQuantity.razor" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="IMS.Server">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True">
+                  <Node name="Spire.Doc" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Reports" expanded="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.IMS.Server PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

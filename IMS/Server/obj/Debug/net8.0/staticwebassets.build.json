@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wNPfVx8Vml9FJvkzynVTF3rAPf6h2jSiD12Dz5CGewY=",
+  "Hash": "Vm1BUOqdbrQna1njEtbB6IBXc/gDN08393OE64U/JQE=",
   "Source": "IMS.Server",
   "BasePath": "_content/IMS.Server",
   "Mode": "Default",
@@ -25,9 +25,35 @@
       "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
       "BasePath": "/",
       "Pattern": "**"
+    },
+    {
+      "Name": "IMS.Server/wwwroot",
+      "Source": "IMS.Server",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/wwwroot/",
+      "BasePath": "_content/IMS.Server",
+      "Pattern": "**"
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/israeldeguzman/.nuget/packages/blazored.video/1.0.1/staticwebassets/blazoredVideo.js",
+      "SourceId": "Blazored.Video",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/blazored.video/1.0.1/staticwebassets/",
+      "BasePath": "_content/Blazored.Video",
+      "RelativePath": "blazoredVideo.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/blazored.video/1.0.1/staticwebassets/blazoredVideo.js"
+    },
     {
       "Identity": "/Users/israeldeguzman/.nuget/packages/blazorpro.blazorsize/6.2.2/staticwebassets/blazorSizeMedia.js",
       "SourceId": "BlazorPro.BlazorSize",
@@ -105,10 +131,67 @@
       "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/blazorpro.blazorsize/6.2.2/staticwebassets/blazorSizeResizeModule.js"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/dark-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/main.js",
+      "SourceId": "BlazorVideoPlayer",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/",
+      "BasePath": "_content/BlazorVideoPlayer",
+      "RelativePath": "main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/main.js"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/plyr.css",
+      "SourceId": "BlazorVideoPlayer",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/",
+      "BasePath": "_content/BlazorVideoPlayer",
+      "RelativePath": "plyr.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/plyr.css"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/plyr.js",
+      "SourceId": "BlazorVideoPlayer",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/",
+      "BasePath": "_content/BlazorVideoPlayer",
+      "RelativePath": "plyr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/blazorvideoplayer/3.0.0/staticwebassets/plyr.js"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/dark-base.css",
       "AssetKind": "All",
@@ -121,13 +204,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/dark-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/dark-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/dark-wcag.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/dark-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/dark-wcag.css",
       "AssetKind": "All",
@@ -140,13 +223,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/dark-wcag.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/dark-wcag.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/dark.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/dark.css",
       "AssetKind": "All",
@@ -159,13 +242,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/dark.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/dark.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/default-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/default-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/default-base.css",
       "AssetKind": "All",
@@ -178,13 +261,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/default-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/default-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/default-wcag.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/default-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/default-wcag.css",
       "AssetKind": "All",
@@ -197,13 +280,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/default-wcag.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/default-wcag.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/default.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/default.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/default.css",
       "AssetKind": "All",
@@ -216,13 +299,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/default.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/default.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/fluent-base.css",
       "AssetKind": "All",
@@ -235,13 +318,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent-dark-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/fluent-dark-base.css",
       "AssetKind": "All",
@@ -254,13 +337,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent-dark-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent-dark-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent-dark.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/fluent-dark.css",
       "AssetKind": "All",
@@ -273,13 +356,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent-dark.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent-dark.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/fluent.css",
       "AssetKind": "All",
@@ -292,13 +375,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/fluent.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/fluent.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/humanistic-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/humanistic-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-base.css",
       "AssetKind": "All",
@@ -311,13 +394,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/humanistic-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/humanistic-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/humanistic-wcag.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/humanistic-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic-wcag.css",
       "AssetKind": "All",
@@ -330,13 +413,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/humanistic-wcag.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/humanistic-wcag.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/humanistic.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/humanistic.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/humanistic.css",
       "AssetKind": "All",
@@ -349,13 +432,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/humanistic.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/humanistic.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-base.css",
       "AssetKind": "All",
@@ -368,13 +451,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-dark-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-dark-base.css",
       "AssetKind": "All",
@@ -387,13 +470,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-dark-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-dark-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-dark.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-dark.css",
       "AssetKind": "All",
@@ -406,13 +489,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-dark.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-dark.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-wcag.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material-wcag.css",
       "AssetKind": "All",
@@ -425,13 +508,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material-wcag.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material-wcag.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material.css",
       "AssetKind": "All",
@@ -444,13 +527,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material3-base.css",
       "AssetKind": "All",
@@ -463,13 +546,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3-dark-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3-dark-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material3-dark-base.css",
       "AssetKind": "All",
@@ -482,13 +565,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3-dark-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3-dark-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3-dark.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3-dark.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material3-dark.css",
       "AssetKind": "All",
@@ -501,13 +584,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3-dark.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3-dark.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/material3.css",
       "AssetKind": "All",
@@ -520,13 +603,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/material3.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/material3.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/software-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/software-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-base.css",
       "AssetKind": "All",
@@ -539,13 +622,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/software-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/software-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/software-wcag.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/software-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software-wcag.css",
       "AssetKind": "All",
@@ -558,13 +641,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/software-wcag.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/software-wcag.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/software.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/software.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/software.css",
       "AssetKind": "All",
@@ -577,13 +660,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/software.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/software.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/standard-base.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/standard-base.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-base.css",
       "AssetKind": "All",
@@ -596,13 +679,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/standard-base.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/standard-base.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/standard-wcag.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/standard-wcag.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard-wcag.css",
       "AssetKind": "All",
@@ -615,13 +698,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/standard-wcag.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/standard-wcag.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/standard.css",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/standard.css",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "css/standard.css",
       "AssetKind": "All",
@@ -634,13 +717,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/css/standard.css"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/css/standard.css"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/MaterialIcons-Regular.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/MaterialIcons-Regular.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/MaterialIcons-Regular.woff",
       "AssetKind": "All",
@@ -653,13 +736,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/MaterialIcons-Regular.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/MaterialIcons-Regular.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v15-latin-300.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v15-latin-300.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v15-latin-300.woff",
       "AssetKind": "All",
@@ -672,13 +755,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v15-latin-300.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v15-latin-300.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v15-latin-700.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v15-latin-700.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v15-latin-700.woff",
       "AssetKind": "All",
@@ -691,13 +774,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v15-latin-700.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v15-latin-700.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v15-latin-regular.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v15-latin-regular.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v15-latin-regular.woff",
       "AssetKind": "All",
@@ -710,13 +793,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v15-latin-regular.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v15-latin-regular.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-300.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-300.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v30-latin-300.woff",
       "AssetKind": "All",
@@ -729,13 +812,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-300.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-300.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-500.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-500.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v30-latin-500.woff",
       "AssetKind": "All",
@@ -748,13 +831,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-500.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-500.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-700.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-700.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v30-latin-700.woff",
       "AssetKind": "All",
@@ -767,13 +850,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-700.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-700.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-regular.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-regular.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/roboto-v30-latin-regular.woff",
       "AssetKind": "All",
@@ -786,13 +869,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/roboto-v30-latin-regular.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/roboto-v30-latin-regular.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Black.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Black.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-Black.woff",
       "AssetKind": "All",
@@ -805,13 +888,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Black.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Black.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-BlackIt.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-BlackIt.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-BlackIt.woff",
       "AssetKind": "All",
@@ -824,13 +907,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-BlackIt.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-BlackIt.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Bold.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Bold.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-Bold.woff",
       "AssetKind": "All",
@@ -843,13 +926,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Bold.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Bold.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-BoldIt.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-BoldIt.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-BoldIt.woff",
       "AssetKind": "All",
@@ -862,13 +945,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-BoldIt.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-BoldIt.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-ExtraLight.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-ExtraLight.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-ExtraLight.woff",
       "AssetKind": "All",
@@ -881,13 +964,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-ExtraLight.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-ExtraLight.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-ExtraLightIt.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-ExtraLightIt.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-ExtraLightIt.woff",
       "AssetKind": "All",
@@ -900,13 +983,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-ExtraLightIt.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-ExtraLightIt.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-It.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-It.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-It.woff",
       "AssetKind": "All",
@@ -919,13 +1002,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-It.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-It.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Light.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Light.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-Light.woff",
       "AssetKind": "All",
@@ -938,13 +1021,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Light.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Light.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-LightIt.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-LightIt.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-LightIt.woff",
       "AssetKind": "All",
@@ -957,13 +1040,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-LightIt.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-LightIt.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Regular.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Regular.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-Regular.woff",
       "AssetKind": "All",
@@ -976,13 +1059,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Regular.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Regular.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Semibold.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Semibold.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-Semibold.woff",
       "AssetKind": "All",
@@ -995,13 +1078,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-Semibold.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-Semibold.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-SemiboldIt.woff",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-SemiboldIt.woff",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "fonts/SourceSansPro-SemiboldIt.woff",
       "AssetKind": "All",
@@ -1014,13 +1097,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/fonts/SourceSansPro-SemiboldIt.woff"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/fonts/SourceSansPro-SemiboldIt.woff"
     },
     {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/Radzen.Blazor.js",
+      "Identity": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/Radzen.Blazor.js",
       "SourceId": "Radzen.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/",
       "BasePath": "_content/Radzen.Blazor",
       "RelativePath": "Radzen.Blazor.js",
       "AssetKind": "All",
@@ -1033,26 +1116,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.27.1/staticwebassets/Radzen.Blazor.js"
-    },
-    {
-      "Identity": "/Users/israeldeguzman/.nuget/packages/telerik.reportviewer.blazor/16.1.22.622/staticwebassets/interop.js",
-      "SourceId": "Telerik.ReportViewer.Blazor",
-      "SourceType": "Package",
-      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/telerik.reportviewer.blazor/16.1.22.622/staticwebassets/",
-      "BasePath": "_content/Telerik.ReportViewer.Blazor",
-      "RelativePath": "interop.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/telerik.reportviewer.blazor/16.1.22.622/staticwebassets/interop.js"
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/radzen.blazor/4.28.9/staticwebassets/Radzen.Blazor.js"
     },
     {
       "Identity": "/Users/israeldeguzman/.nuget/packages/toolbelt.blazor.pwa.updater.service/2.0.0.1/staticwebassets/script.min.js",
@@ -1091,6 +1155,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/toolbelt.blazor.pwa.updater/2.1.0.1/staticwebassets/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/.nuget/packages/vidazor/1.0.5/staticwebassets/functions.js",
+      "SourceId": "Vidazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/vidazor/1.0.5/staticwebassets/",
+      "BasePath": "_content/Vidazor",
+      "RelativePath": "functions.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/vidazor/1.0.5/staticwebassets/functions.js"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/.nuget/packages/vidazor/1.0.5/staticwebassets/functions.min.js",
+      "SourceId": "Vidazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/israeldeguzman/.nuget/packages/vidazor/1.0.5/staticwebassets/",
+      "BasePath": "_content/Vidazor",
+      "RelativePath": "functions.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/israeldeguzman/.nuget/packages/vidazor/1.0.5/staticwebassets/functions.min.js"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/AWSSDK.Core.wasm",
@@ -1188,6 +1290,25 @@
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Blazored.LocalStorage.wasm"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Blazored.Video.wasm",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.Video.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Blazored.Video.wasm"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/BlazorPro.BlazorSize.wasm",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -1205,6 +1326,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/BlazorPro.BlazorSize.wasm"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/BlazorVideoPlayer.wasm",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorVideoPlayer.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/BlazorVideoPlayer.wasm"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/DnsClient.wasm",
@@ -5273,63 +5413,6 @@
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/System.Xml.XPath.XDocument.wasm"
     },
     {
-      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportServer.HttpClient.wasm",
-      "SourceId": "IMS.Client",
-      "SourceType": "Project",
-      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "_framework/Telerik.ReportServer.HttpClient.wasm",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "WasmResource",
-      "AssetTraitValue": "runtime",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Telerik.ReportServer.HttpClient.wasm"
-    },
-    {
-      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportServer.Services.Models.wasm",
-      "SourceId": "IMS.Client",
-      "SourceType": "Project",
-      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "_framework/Telerik.ReportServer.Services.Models.wasm",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "WasmResource",
-      "AssetTraitValue": "runtime",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Telerik.ReportServer.Services.Models.wasm"
-    },
-    {
-      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportViewer.Blazor.wasm",
-      "SourceId": "IMS.Client",
-      "SourceType": "Project",
-      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "_framework/Telerik.ReportViewer.Blazor.wasm",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "WasmResource",
-      "AssetTraitValue": "runtime",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Telerik.ReportViewer.Blazor.wasm"
-    },
-    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Toolbelt.Blazor.PWA.Updater.Service.wasm",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -5366,6 +5449,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Toolbelt.Blazor.PWA.Updater.wasm"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Vidazor.wasm",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Vidazor.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/webcil/Vidazor.wasm"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/WindowsBase.wasm",
@@ -6090,25 +6192,6 @@
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/System.IO.Compression.Brotli.wasm"
     },
     {
-      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/7f8ie4cadb.gz",
-      "SourceId": "IMS.Client",
-      "SourceType": "Project",
-      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "_framework/Telerik.ReportServer.HttpClient.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportServer.HttpClient.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportServer.HttpClient.wasm"
-    },
-    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/7gb1ygxfzb.gz",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -6202,25 +6285,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/System.Text.RegularExpressions.wasm"
-    },
-    {
-      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/8py7fa3oga.gz",
-      "SourceId": "IMS.Client",
-      "SourceType": "Project",
-      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "_framework/Telerik.ReportServer.Services.Models.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportServer.Services.Models.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportServer.Services.Models.wasm"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/95rl1pym6a.gz",
@@ -6487,6 +6551,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/System.Xml.XPath.wasm"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/cduyi5bi4d.gz",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorVideoPlayer.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/BlazorVideoPlayer.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/BlazorVideoPlayer.wasm"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/cgq6y2d104.gz",
@@ -7456,25 +7539,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/System.Runtime.Serialization.Xml.wasm"
-    },
-    {
-      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/juzam84gbo.gz",
-      "SourceId": "IMS.Client",
-      "SourceType": "Project",
-      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "_framework/Telerik.ReportViewer.Blazor.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportViewer.Blazor.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Telerik.ReportViewer.Blazor.wasm"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/k28gzrutes.gz",
@@ -8541,6 +8605,25 @@
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/System.ValueTuple.wasm"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/ra2m549ge9.gz",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.Video.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Blazored.Video.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Blazored.Video.wasm"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/rmle5kxj5z.gz",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -9605,6 +9688,25 @@
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/System.Transactions.wasm"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/ziya52laxc.gz",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Vidazor.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Vidazor.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/bin/Debug/net8.0/wwwroot/_framework/Vidazor.wasm"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/Debug/net8.0/compressed/zj685nojzi.gz",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -9831,6 +9933,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/css/fluent-dark-base.css",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "css/fluent-dark-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/fluent-dark-base.css"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/css/kendo.default-main.min.css",
@@ -10270,6 +10391,101 @@
       "OriginalItemSpec": "wwwroot/image/ads.png"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/adslogo.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/adslogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/adslogo.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/AGUSAN DEL NORTE.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/AGUSAN DEL NORTE.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/AGUSAN DEL NORTE.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/AGUSAN DEL SUR.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/AGUSAN DEL SUR.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/AGUSAN DEL SUR.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/BAYUGAN CITY.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/BAYUGAN CITY.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/BAYUGAN CITY.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/BISLIG CITY.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/BISLIG CITY.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/BISLIG CITY.png"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/bronze.png",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -10289,6 +10505,44 @@
       "OriginalItemSpec": "wwwroot/image/bronze.png"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/BUTUAN CITY.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/BUTUAN CITY.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/BUTUAN CITY.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/CABADBARAN CITY.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/CABADBARAN CITY.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/CABADBARAN CITY.png"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/CRAM.jpeg",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -10306,6 +10560,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/image/CRAM.jpeg"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/cs copy.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/cs copy.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/cs copy.png"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/cs.png",
@@ -10346,6 +10619,25 @@
       "OriginalItemSpec": "wwwroot/image/DepEd.jpeg"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/DINAGAT ISLANDS.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/DINAGAT ISLANDS.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/DINAGAT ISLANDS.png"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/dinagat.png",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -10363,6 +10655,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/image/dinagat.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/footer.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/footer.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/footer.png"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/gold.png",
@@ -10403,6 +10714,44 @@
       "OriginalItemSpec": "wwwroot/image/medal.png"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/medaltally.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/medaltally.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/medaltally.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/medaltally2.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/medaltally2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/medaltally2.png"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/sdn.png",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -10441,6 +10790,25 @@
       "OriginalItemSpec": "wwwroot/image/sds.png"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SIARGAO ISLAND.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/SIARGAO ISLAND.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/SIARGAO ISLAND.png"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/silver.png",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -10477,6 +10845,82 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/image/sports.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SURIGAO CITY.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/SURIGAO CITY.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/SURIGAO CITY.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SURIGAO DEL NORTE.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/SURIGAO DEL NORTE.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/SURIGAO DEL NORTE.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SURIGAO DEL SUR.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/SURIGAO DEL SUR.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/SURIGAO DEL SUR.png"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/TANDAG CITY.png",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "image/TANDAG CITY.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/image/TANDAG CITY.png"
     },
     {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/Thumbs.db",
@@ -10555,6 +10999,44 @@
       "OriginalItemSpec": "wwwroot/js/reportserver_util.1.0.js"
     },
     {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/js/Telerik.ReportViewer.Blazor.interop.js",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/Telerik.ReportViewer.Blazor.interop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/Telerik.ReportViewer.Blazor.interop.js"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/js/telerikReportViewer-17.0.23.118.min.js",
+      "SourceId": "IMS.Client",
+      "SourceType": "Project",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/telerikReportViewer-17.0.23.118.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/telerikReportViewer-17.0.23.118.min.js"
+    },
+    {
       "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/manifest.json",
       "SourceId": "IMS.Client",
       "SourceType": "Project",
@@ -10591,6 +11073,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/Debug/net8.0/scopedcss/bundle/IMS.Server.styles.css"
+    },
+    {
+      "Identity": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/wwwroot/Reports/workitem.trdp",
+      "SourceId": "IMS.Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/wwwroot/",
+      "BasePath": "_content/IMS.Server",
+      "RelativePath": "Reports/workitem.trdp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Reports/workitem.trdp"
     }
   ]
 }

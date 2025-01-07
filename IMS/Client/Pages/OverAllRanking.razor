@@ -1,0 +1,259 @@
+@layout LoginLayout
+@page "/overallranking"
+
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+@inject DialogService DialogService
+
+@using IMS.Shared.Models
+
+<style>
+    .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+    }
+
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @@font-face {
+        font-family: 'font1';
+        src: url('fonts/MadimiOne-Regular.ttf') format('truetype');
+    }
+
+    .custom-font1 {
+      font-family: 'font1', Arial, sans-serif;
+    }
+
+    @@font-face {
+        font-family: 'font2';
+        src: url('fonts/ProtestStrike-Regular.ttf') format('truetype');
+    }
+
+    .custom-font2 {
+        font-family: 'font2', Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 6px;
+        text-align: center;
+        position: relative;
+    }
+
+        th:nth-child(1), td:nth-child(1) {
+            width: 5%;
+        }
+
+        th:nth-child(2), td:nth-child(2) {
+            width: 8%;
+        }
+
+        th:nth-child(3), td:nth-child(3) {
+            width: 40%;
+        }
+
+        th:nth-child(4), td:nth-child(4),
+        th:nth-child(5), td:nth-child(5),
+        th:nth-child(6), td:nth-child(6),
+        th:nth-child(7), td:nth-child(7) {
+            width: 12%;
+        }
+
+    tr {
+        position: relative;
+    }
+
+       
+
+    td {
+        padding-top: 8px; /* Add top padding for the gap */
+        padding-bottom: 8px; /* Add bottom padding for the gap */
+    }
+    
+    .custom-font3 {
+        font-family: 'font2', Arial, sans-serif;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: black;
+    }
+    
+     
+
+</style>
+
+<RadzenMediaQuery Query="(max-width: 600px)" Change="@OnChange" />
+
+
+<div style="width: 100%; height: 100%; background-color: #DDE6ED">
+    <RadzenStack JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" class="rz-border-info-light" Style="height: 100vh; width: 100%; padding: 20px">
+        @{
+            if (IsSmall)
+            {
+                <RadzenCard Variant="Variant.Outlined" Style="width:100%; height: 100%; padding: 20px">
+                    <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="width: 100%">
+                        <div>
+                            <RadzenText class="custom-font3" Style="font-size: 50px; font-weight: bold; color: #FFFFFF" >@label</RadzenText>
+                            <RadzenText TextStyle="TextStyle.H4">@asof</RadzenText>
+                        </div>
+                    </RadzenRow>
+                    <RadzenRow Style="height: 95%; overflow: hidden">
+                        <table>
+                            <thead>
+                            <tr>    
+                                <th>Rank</th>
+                                <th></th>s
+                                <th></th>
+                                <th><img src="image/gold.png" width="70px" /></th>
+                                <th><img src="image/silver.png" width="70px" /></th>
+                                <th><img src="image/bronze.png" width="70px" /></th>
+                                <th class="custom-font1" style="color: #272829; font-size: 36px;">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @{
+                                if (medalDispay != null)
+                                {
+                                    int y = 1;
+                                                
+                                    foreach (var data in medalDispay)
+                                    {
+                                        <tr @onclick="@(() => GetEventMedals(data.Province.Trim()))" class="rz-card rz-variant-flat" style="@(y == 1 ? rowstyle : rowstyle1)">
+                                            <td  class="custom-font2" style="@data.rankstyle">@data.rank</td>
+                                            <td><img @onclick="@(() => GetEventMedals(data.Province.Trim()))" src="@data.Province_id" width="64px" /></td> 
+                                            <td  class="custom-font1" style="color: #272829; font-size: 15px; text-align: left; padding-left: 15px ">@data.Province</td>
+                                            <td class="custom-font1" style="color: #272829; font-size: 15px;">@(Convert.ToInt16(data.Gold))</td>
+                                            <td class="custom-font1" style="color: #272829; font-size: 15px;">@(Convert.ToInt16(data.Silver))</td>
+                                            <td class="custom-font1" style="color: #272829; font-size: 15px;">@(Convert.ToInt16(data.Bronze))</td>
+                                            <td class="custom-font1" style="color: #272829; font-size: 15px;">@(Convert.ToInt16(data.Gold) + Convert.ToInt16(data.Silver) + Convert.ToInt16(data.Bronze))</td>
+                                        </tr>
+                                        <tr> <td style="padding: 5px;"></td></tr>
+                                        y = y == 1 ? 0 : 1;
+                                    }
+
+                                               
+                                }
+                            }
+                                       
+                            </tbody>
+                        </table>
+                        <div style="text-align: right; width: 100%; margin-right: -20px; position: relative; top: -350px; left: 10px;">
+                            <img src="image/sports.png" width="650px" style="opacity: 0.2" />
+                        </div>
+                    </RadzenRow>
+                </RadzenCard>
+                
+            }
+            else
+            {
+                <RadzenCard Variant="Variant.Flat" Style="width: 100%; background-color: white">
+                    <RadzenStack Orientation="Orientation.Horizontal" Style="width:100%; height: 90vh">
+                        <RadzenColumn Size="4">
+                            <div style="text-align:center; width: 500px; height: 100%; background-color: white">
+                                <RadzenRow JustifyContent="JustifyContent.Center" Style="width:100%; height: 100%">
+                                    <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="width: 100%; margin-top: -20px">
+                                        <div>
+                                            <RadzenText class="custom-font3" Style="font-size: 70px; font-weight: bold; color: #FFFFFF" >Medal Tally</RadzenText>
+                                             <RadzenText TextStyle="TextStyle.H4">@asof</RadzenText>
+                                        </div>
+                                    </RadzenRow>
+                                    <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="width: 100%; margin-top: -20px">
+                                      <div>
+                                          <img src="image/CRAM.jpeg" width="500px"/>
+                                      </div>
+                                      <RadzenRow AlignItems="AlignItems.Center">
+                                          <RadzenColumn>
+                                              <img src="image/DepEd.jpeg" width="150px" />
+                                          </RadzenColumn>
+                                          <RadzenColumn>
+                                              <img src="image/adslogo.png" width="150px" />
+                                          </RadzenColumn>
+                                      </RadzenRow>
+                                    </RadzenRow>
+                                </RadzenRow>
+
+                            </div>
+                        </RadzenColumn>
+                        <RadzenColumn Size="8" Style="width: 100%; height: 90vh ">
+                            <RadzenCard Variant="Variant.Outlined" Style="width:100%; height: 100%; padding: 20px">
+                                <RadzenRow JustifyContent="JustifyContent.Center" AlignItems="AlignItems.Center" Style="width: 100%">
+                                    <div>
+                                        <img src="image/medal.png" width="70px" />
+                                    </div>
+                                    <div>
+                                        <RadzenText class="custom-font3" Style="font-size: 50px; color: #FFFFFF">@label</RadzenText>
+                                    </div>
+                                </RadzenRow>
+                                <RadzenRow Style="height: 95%; overflow: hidden">
+                                    <table style="z-index: 100">
+                                        <thead>
+                                        <tr>    
+                                            <th>Rank</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th><img src="image/gold.png" width="60px" /></th>
+                                            <th><img src="image/silver.png" width="60px" /></th>
+                                            <th><img src="image/bronze.png" width="60px" /></th>
+                                            <th class="custom-font1" style="color: #272829; font-size: 22px;">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @{
+                                            if (medalDispay != null)
+                                            {
+                                                int y = 1;
+                                                
+                                                foreach (var data in medalDispay)
+                                                {
+                                                    <tr @onclick="@(() => GetEventMedals(data.Province.Trim()))" class="rz-card rz-variant-flat" style="@(y == 1 ? rowstyle : rowstyle1)">
+                                                        <td class="custom-font2" style="@data.rankstyle">@data.rank</td>
+                                                        <td><img src="@data.Province_id" width="30px" /></td> 
+                                                        <td onclick="@(() => GetEventMedals(data.Province.Trim()))" class="custom-font1" style="color: #272829; font-size: 22px; text-align: left; padding-left: 20px ">@data.Province</td>
+                                                        <td class="custom-font1" style="color: #272829; font-size: 22px;">@(Convert.ToInt16(data.Gold))</td>
+                                                        <td class="custom-font1" style="color: #272829; font-size: 22px;">@(Convert.ToInt16(data.Silver))</td>
+                                                        <td class="custom-font1" style="color: #272829; font-size: 22px;">@(Convert.ToInt16(data.Bronze))</td>
+                                                        <td class="custom-font1" style="color: #272829; font-size: 22px;">@(Convert.ToInt16(data.Gold) + Convert.ToInt16(data.Silver) + Convert.ToInt16(data.Bronze))</td>
+                                                    </tr>
+                                                    <tr> <td style="padding: 4px;"></td></tr>
+                                                    y = y == 1 ? 0 : 1;
+                                                }
+
+                                               
+                                            }
+                                        }
+                                       
+                                        </tbody>
+                                    </table>
+                                    <div style="text-align: right; width: 100%; margin-right: -20px; position: relative; top: -350px; left: 10px;">
+                                        <img src="image/sports.png" width="650px" style="opacity: 0.2; z-index: 1" />
+                                    </div>
+                                </RadzenRow>
+                            </RadzenCard>
+                            
+                        </RadzenColumn>
+
+                    </RadzenStack>
+                    <div class="p-2" style="display: flex; align-items: center;  justify-content: space-between !important; height: 100px; 
+                                position: sticky; top:  0; width:  100%; z-index: 10000; background-image: url('image/footer.png'); background-repeat: repeat-x ">
+                       
+                    </div>
+                    
+                </RadzenCard>
+
+            }
+        }
+
+    </RadzenStack>
+</div>
+
+

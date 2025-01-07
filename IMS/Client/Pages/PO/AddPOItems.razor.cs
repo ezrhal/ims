@@ -14,7 +14,9 @@ namespace IMS.Client.Pages.PO
         RadzenDataGrid<PRItemModel> grid;
         IList<PRItemModel> selectedItems;
         List<PRItemModel> pritems;
-         List<PRItemModel> filteredItems = new List<PRItemModel>();
+        List<PRItemModel> filteredItems = new List<PRItemModel>();
+
+        private bool itemadded = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -29,7 +31,7 @@ namespace IMS.Client.Pages.PO
 
         void CloseDialog()
 		{
-            dialog.Close();
+            dialog.Close(itemadded);
         }
 
         public async Task SavePOItems()
@@ -47,7 +49,6 @@ namespace IMS.Client.Pages.PO
 
             if (result != "")
             {
-
                 
                  NotificationService.Notify(
                     new NotificationMessage
@@ -57,7 +58,6 @@ namespace IMS.Client.Pages.PO
                         Detail = "PO item has been save",
                         Duration = 3000
                     });
-                
 
                 foreach(PRItemModel pritem in selectedItems)
                 {
@@ -68,8 +68,8 @@ namespace IMS.Client.Pages.PO
 
                 grid.Reload();
                 selectedItems = null;
+                itemadded = true;
 
-                
             }
 
         }

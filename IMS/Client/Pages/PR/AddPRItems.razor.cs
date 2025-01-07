@@ -22,28 +22,52 @@ namespace IMS.Client.Pages.PR
         double remainingquantity = 0;
         IList<BalanceMaterialModel> selectedItems;
         RadzenDataGrid<BalanceMaterialModel> grid;
+        
+        IList<ItemModel> selectedItemsList;
+        RadzenDataGrid<ItemModel> gridItems;
 
         List<MaterialsModel> items;
+        List<ItemModel> itemsList;
         List<BalanceMaterialModel> balancematerials;
         protected override async Task OnInitializedAsync()
         {
-            items = await httpClient.GetFromJsonAsync<List<MaterialsModel>>("purchaserequest/getmaterialsquantity?projectid=" + pr.projectid + "&itemid=");
-            balancematerials = await httpClient.GetFromJsonAsync<List<BalanceMaterialModel>>("purchaserequest/getbalancematerials?projectid=" + pr.projectid + "&workitemid=" + pr.workitemid);
-
-            
-
+            if (pr.charges == "Project")
+            {
+                items = await httpClient.GetFromJsonAsync<List<MaterialsModel>>("purchaserequest/getmaterialsquantity?projectid=" + pr.projectid + "&itemid=");
+                balancematerials = await httpClient.GetFromJsonAsync<List<BalanceMaterialModel>>("purchaserequest/getbalancematerials?projectid=" + pr.projectid + "&workitemid=" + pr.workitemid);
+            }
+            else
+            {
+                itemsList = await httpClient.GetFromJsonAsync<List<ItemModel>>("maintenance/getitemsbytype?typeid=1");
+            }
         }
 
         public async Task SavePRItem(PRItemModel args)
         {
             List<string> paramList = new();
-
             paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.Id));
-            paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(selectedItems));
-            paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.items));
 
-            var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepritems", paramList);
-
+            if (pr.charges == "Admin")
+            {
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(selectedItemsList));
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.items));
+                var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepritemsadmin", paramList);
+            }
+            else if (pr.charges == "Motor Pool")
+            {
+                
+            }
+            else
+            {
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(selectedItems));
+                paramList.Add(Newtonsoft.Json.JsonConvert.SerializeObject(pr.items));
+                
+                var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepritems", paramList);
+            }
+            
+           
+           
+    
 
             //PRItemModel pritem = pr.items.Find(q => q.itemid.Equals(prItems.itemid));
 

@@ -1,8 +1,9 @@
 ﻿
-@page "/Project/Index"
+@page "/"
 @inject HttpClient httpClient
 @inject DialogService DialogService
 @inject NotificationService NotificationService
+@inject NavigationManager _navigationManager
 @using IMS.Shared.Models
 
 
@@ -23,15 +24,16 @@
 </div>
 
 <div class="col-md-12 col-lg-12">
+    
     <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
         <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
             <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
-                <RadzenButton Icon="add" Text="New Project" Click=@AddProject />
-                <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" />
+                <RadzenButton Icon="add" Text="New Project" Click=@AddProject/>
+                <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))"/>
             </RadzenStack>
             <RadzenRow>
                 <RadzenDataGrid @ref="grid" GridLines="DataGridGridLines.Both" AllowColumnResize="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
-                                Data="@filteredprojects" TItem="ProjectModel" 
+                                Data="@filteredprojects" TItem="ProjectModel"
                                 SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItems">
 
                     <Columns>
@@ -54,12 +56,13 @@
                                 @(filteredprojects.IndexOf(data) + 1)
                             </Template>
                         </RadzenDataGridColumn>
-                        <RadzenDataGridColumn TItem="ProjectModel" Property="projectname" Title="Project Title" Frozen="false" >
+                        <RadzenDataGridColumn TItem="ProjectModel" Property="projectname" Title="Project Title" Frozen="false">
                             <Template Context="data">
-                                <div><a href="/project/details?projectid=@data.Id">@data.projectname</a></div>
+                                @* <div><a href="/project/details?projectid=@data.Id">@data.projectname</a></div> *@
+                                <div style="cursor: pointer; color:  #0071c1" @onclick="@(() => ProjectDetails(data.Id))">@data.projectname</div>
                             </Template>
                         </RadzenDataGridColumn>
-                        <RadzenDataGridColumn TItem="ProjectModel" Property="geodata.address" Title="Location" Width="700px" />
+                        <RadzenDataGridColumn TItem="ProjectModel" Property="geodata.address" Title="Location" Width="700px"/>
                         <RadzenDataGridColumn TItem="ProjectModel" Property="projectcost" Title="Project Cost" Width="170px">
                             <Template Context="detail">
                                 <div style="text-align: right; font-size: 15px">
@@ -69,9 +72,9 @@
                         </RadzenDataGridColumn>
                         <RadzenDataGridColumn TItem="ProjectModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                             <Template Context="data">
-                                 <div style="margin-left: -5px">
-                                    <RadzenButton Click="@(() => UpdateProject(data.Id))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
-                                    <RadzenButton Click="@(() => RemoveProject(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" />
+                                <div style="margin-left: -5px">
+                                    <RadzenButton Click="@(() => UpdateProject(data.Id))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small"/>
+                                    <RadzenButton Click="@(() => RemoveProject(data.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small"/>
                                 </div>
                             </Template>
                         </RadzenDataGridColumn>

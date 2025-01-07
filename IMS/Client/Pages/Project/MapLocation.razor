@@ -48,18 +48,19 @@
 
 </style>
 
-    <div style="background-color: #fff; margin-left: 5px; margin-right: 5px">
-        <RadzenRow class="col-md-12" style="display:flex; justify-content: space-around; padding-top:0; ">
-            <RadzenFormField AllowFloatingLabel="false" Text="" style="width: 100%;" >
-                <ChildContent>
-                    <RadzenTextBox id="pac-search" style="width:100%;" Placeholder="Search address" />
-                </ChildContent>
-                <End>
-                    <RadzenIcon Icon="search" />
-                </End>
-            </RadzenFormField>
-        </RadzenRow>
-    </div>
+<div style="background-color: #fff; margin-left: 5px; margin-right: 5px">
+    <RadzenButton Text="Close" Click="@CloseSide"></RadzenButton>
+    <RadzenRow class="col-md-12" style="display:flex; justify-content: space-around; padding-top:0; ">
+        <RadzenFormField AllowFloatingLabel="false" Text="" style="width: 100%;">
+            <ChildContent>
+                <RadzenTextBox id="pac-search" style="width:100%;" Placeholder="Search address"/>
+            </ChildContent>
+            <End>
+                <RadzenIcon Icon="search"/>
+            </End>
+        </RadzenFormField>
+    </RadzenRow>
+</div>
     
     
-    <div id="map" style="margin-top: 100px !important" ></div>
+<div id="map" style="margin-top: 100px !important" ></div>

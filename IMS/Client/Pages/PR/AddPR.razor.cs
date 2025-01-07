@@ -14,14 +14,18 @@ namespace IMS.Client.Pages.PR
         PRModel pr = new();
         List<ProjectModel> projects;
         List<WorkItemInfoModel> workitems;
+        private List<string> charges = new();
+        private bool chargesProject = false;
 
         protected override async Task OnInitializedAsync()
         {
             projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("purchaserequest/getprojectname");
-
+            charges.Add("Project");
+            charges.Add("Admin");
+            charges.Add("Motor Pool");
+            
             if (projectview)
             {
-
                 workitems = await httpClient.GetFromJsonAsync<List<WorkItemInfoModel>>("purchaserequest/getworkitemsinfo?projectid=" + projectid);
             }
             
@@ -29,12 +33,16 @@ namespace IMS.Client.Pages.PR
 
         public async Task SavePR(PRModel args)
         {
-
+            Console.WriteLine(projectview);
             if (projectview)
-                args.projectid = projectid;
-
-            args.projectname = projects.First(q => q.Id.Equals(args.projectid)).projectname;
-            args.workitem = workitems.First(q => q.workitemid.Equals(args.workitemid)).workitem;
+            {
+                if (projectview)
+                    args.projectid = projectid;
+                
+                args.charges = "Project";
+                args.projectname = projects.First(q => q.Id.Equals(args.projectid)).projectname;
+                args.workitem = workitems.First(q => q.workitemid.Equals(args.workitemid)).workitem;
+            }
 
             var ret = await httpClient.PostAsJsonAsync("purchaserequest/savepr", args);
             string result = await ret.Content.ReadAsStringAsync();
@@ -59,6 +67,19 @@ namespace IMS.Client.Pages.PR
 
         }
 
+        public void SelectCharges()
+        {
+            if (pr.charges == "Project")
+            {
+                chargesProject = true;
+            }
+            else
+            {
+                chargesProject = false;
+            }
+            
+        }
+        
         public async Task SelectProject()
         {
             workitems = await httpClient.GetFromJsonAsync<List<WorkItemInfoModel>>("purchaserequest/getworkitems?projectid=" + pr.projectid);

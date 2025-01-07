@@ -12,13 +12,23 @@
                 @{
                     if (!projectview)
                     {
-                        <RadzenDropDown Data=@projects TextProperty="projectname" ValueProperty="Id" TValue="string" @bind-Value="@pr.projectid" Class="rz-background-color-white" Placeholder="Select Project" Name="projects" />
-                        <RadzenRequiredValidator Component="projects" Text="Project is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+                        <RadzenDropDown AllowFiltering="true" Data=@charges TValue="string" @bind-Value="@pr.charges" Class="rz-background-color-white" 
+                                        Change="@SelectCharges" Placeholder="Select Charges" Name="charges" />
+                        <RadzenRequiredValidator Component="charges" Text="Charges is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+                        
+                        <RadzenDropDown Visible="@chargesProject" AllowFiltering="true" Data=@projects TextProperty="projectname" ValueProperty="Id" TValue="string" @bind-Value="@pr.projectid" Class="rz-background-color-white" Placeholder="Select Project" Name="projects" />
+                        <RadzenRequiredValidator Visible="@chargesProject" Component="projects" Text="Project is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
                     }
                 }
 
-                <RadzenDropDown Data=@workitems TextProperty="workitem" ValueProperty="workitemid" TValue="string" @bind-Value="@pr.workitemid" Class="rz-background-color-white" Placeholder="Select Pay Item" Name="workitem" />
-                <RadzenRequiredValidator Component="workitem" Text="Project is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+                @{
+                    if (chargesProject || projectview)
+                    {
+                        <RadzenDropDown Data=@workitems TextProperty="workitem" ValueProperty="workitemid" TValue="string" @bind-Value="@pr.workitemid" Class="rz-background-color-white" Placeholder="Select Pay Item" Name="workitem" />
+                        <RadzenRequiredValidator Component="workitem" Text="Project is required" DefaultValue="0" Style="position:relative; top: -10px; width: fit-content" Popup="true" />
+                    }
+                }
+                
 
 
             </RadzenStack>

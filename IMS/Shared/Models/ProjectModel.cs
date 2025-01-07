@@ -49,6 +49,8 @@ namespace IMS.Shared.Models
 		[BsonIgnoreIfDefault]
 		public double amount { get; set; } = 0;
 
+		public string workitemid { get; set; } = "";
+
 		public MaterialsModel()
 		{
 			Id = ObjectId.GenerateNewId().ToString();

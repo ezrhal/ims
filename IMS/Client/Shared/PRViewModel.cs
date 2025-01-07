@@ -11,6 +11,7 @@ public class POViewModel
 {
     public bool openpo { get; set; } = false;
     public string poid { get; set; } = "";
+    public string prid { get; set; } = "";
     public bool projectviewpo { get; set; } = false;
 }
 

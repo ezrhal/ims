@@ -2,9 +2,11 @@ using Radzen;
 using Radzen.Blazor;
 using IMS.Shared.Models;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IMS.Client.Pages.PR
 {
+    [Authorize]
     public partial class Index
     {
         RadzenDataGrid<PRModel> grid;

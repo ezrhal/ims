@@ -12,14 +12,15 @@ using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Authorization;
 
+
 namespace IMS.Client.Pages.Project
 {
-
+    
     [Authorize]
     partial class Index
     {
         //[CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
-
+        
         List<ProjectModel> projects;
         List<ProjectModel> filteredprojects;
 
@@ -43,7 +44,8 @@ namespace IMS.Client.Pages.Project
             //}
 
             projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("project/getprojects");
-
+            //projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("https://imsgetprojects.azurewebsites.net/api/getprojects?code=NJIDeaOp9zYZsf2XUq2lBGbzb2me69IjV2T26JRozL9AAzFuflQhyA==");
+            
             foreach(ProjectModel proj in projects)
             {
                 if (proj.workitems != null)
@@ -97,11 +99,7 @@ namespace IMS.Client.Pages.Project
 
             }
         }
-
         
-
-        
-
         void OnSearch(string Value)
         {
             if (Value.Length > 0)
@@ -128,6 +126,13 @@ namespace IMS.Client.Pages.Project
             
         }
 
+        public void ProjectDetails(string id)
+        {
+            ProjectModel project = projects.Find(q => q.Id.Equals(id));
+            _navigationManager.NavigateTo("/project/details/" + id);
+        }
+
+       
 
     }
 }

@@ -43,6 +43,25 @@
           "lib/net8.0/Blazored.LocalStorage.dll": {}
         }
       },
+      "Blazored.Video/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Blazored.Video.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Blazored.Video.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazored.Video.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazored.Video.props": {}
+        }
+      },
       "BlazorPro.BlazorSize/6.2.2": {
         "type": "package",
         "dependencies": {
@@ -61,6 +80,31 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/BlazorPro.BlazorSize.props": {}
+        }
+      },
+      "BlazorVideoPlayer/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "7.0.4"
+        },
+        "compile": {
+          "lib/net7.0/BlazorVideoPlayer.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/BlazorVideoPlayer.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/net7.0/Logo-128.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "buildTransitive/BlazorVideoPlayer.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorVideoPlayer.props": {}
         }
       },
       "DartSassBuilder/1.0.0": {
@@ -673,7 +717,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.27.1": {
+      "Radzen.Blazor/4.28.9": {
         "type": "package",
         "dependencies": {
           "DartSassBuilder": "1.0.0",
@@ -867,25 +911,6 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
-      "Telerik.ReportViewer.Blazor/16.1.22.622": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.1.0",
-          "Microsoft.AspNetCore.Components.Web": "3.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Telerik.ReportViewer.Blazor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Telerik.ReportViewer.Blazor.dll": {}
-        },
-        "build": {
-          "buildTransitive/Telerik.ReportViewer.Blazor.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/Telerik.ReportViewer.Blazor.props": {}
-        }
-      },
       "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
         "type": "package",
         "dependencies": {
@@ -928,6 +953,28 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Toolbelt.Blazor.PWA.Updater.Service.props": {}
+        }
+      },
+      "Vidazor/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/Vidazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Vidazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Vidazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Vidazor.props": {}
         }
       },
       "ZstdSharp.Port/0.7.3": {
@@ -995,6 +1042,25 @@
           "lib/net8.0/Blazored.LocalStorage.dll": {}
         }
       },
+      "Blazored.Video/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Blazored.Video.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Blazored.Video.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazored.Video.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazored.Video.props": {}
+        }
+      },
       "BlazorPro.BlazorSize/6.2.2": {
         "type": "package",
         "dependencies": {
@@ -1013,6 +1079,31 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/BlazorPro.BlazorSize.props": {}
+        }
+      },
+      "BlazorVideoPlayer/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "7.0.4"
+        },
+        "compile": {
+          "lib/net7.0/BlazorVideoPlayer.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/BlazorVideoPlayer.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/net7.0/Logo-128.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "buildTransitive/BlazorVideoPlayer.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorVideoPlayer.props": {}
         }
       },
       "DartSassBuilder/1.0.0": {
@@ -1605,7 +1696,7 @@
           }
         }
       },
-      "Radzen.Blazor/4.27.1": {
+      "Radzen.Blazor/4.28.9": {
         "type": "package",
         "dependencies": {
           "DartSassBuilder": "1.0.0",
@@ -1777,25 +1868,6 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
-      "Telerik.ReportViewer.Blazor/16.1.22.622": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.1.0",
-          "Microsoft.AspNetCore.Components.Web": "3.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Telerik.ReportViewer.Blazor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Telerik.ReportViewer.Blazor.dll": {}
-        },
-        "build": {
-          "buildTransitive/Telerik.ReportViewer.Blazor.props": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/Telerik.ReportViewer.Blazor.props": {}
-        }
-      },
       "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
         "type": "package",
         "dependencies": {
@@ -1838,6 +1910,28 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Toolbelt.Blazor.PWA.Updater.Service.props": {}
+        }
+      },
+      "Vidazor/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/Vidazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Vidazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Vidazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Vidazor.props": {}
         }
       },
       "ZstdSharp.Port/0.7.3": {
@@ -1933,6 +2027,24 @@
         "lib/net8.0/Blazored.LocalStorage.dll"
       ]
     },
+    "Blazored.Video/1.0.1": {
+      "sha512": "aQbSLUBo/8Me1KHyZDs+yXar0nLu9oUzWx76UXikNXGXaEHLQKFQYZ9lb8YsSvzp9E3YnELoItxJFipF1n54Xg==",
+      "type": "package",
+      "path": "blazored.video/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.video.1.0.1.nupkg.sha512",
+        "blazored.video.nuspec",
+        "build/Blazored.Video.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazored.Video.props",
+        "buildTransitive/Blazored.Video.props",
+        "icon.png",
+        "lib/net6.0/Blazored.Video.dll",
+        "staticwebassets/blazoredVideo.js"
+      ]
+    },
     "BlazorPro.BlazorSize/6.2.2": {
       "sha512": "jvduXRnOZehyuIWAGF8StaybP89Fzz0DtLncu+jPfq93BSAH3gWsHVX+GcaZsKk7IQtCBXCg63SJw6c4AXPB1Q==",
       "type": "package",
@@ -1953,6 +2065,29 @@
         "staticwebassets/blazorSizeMediaModule.js",
         "staticwebassets/blazorSizeResize.js",
         "staticwebassets/blazorSizeResizeModule.js"
+      ]
+    },
+    "BlazorVideoPlayer/3.0.0": {
+      "sha512": "PIicDXH8X0Gl9QSAvX3q/BkEdrwtQ7tH2+mn7QcC6wzBofHo6FHXHxtxzo2l5bbcDarKxz1N8+QPh7xcb6AjFg==",
+      "type": "package",
+      "path": "blazorvideoplayer/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Logo-128.png",
+        "README.md",
+        "blazorvideoplayer.3.0.0.nupkg.sha512",
+        "blazorvideoplayer.nuspec",
+        "build/BlazorVideoPlayer.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorVideoPlayer.props",
+        "buildTransitive/BlazorVideoPlayer.props",
+        "content/Logo-128.png",
+        "contentFiles/any/net7.0/Logo-128.png",
+        "lib/net7.0/BlazorVideoPlayer.dll",
+        "staticwebassets/main.js",
+        "staticwebassets/plyr.css",
+        "staticwebassets/plyr.js"
       ]
     },
     "DartSassBuilder/1.0.0": {
@@ -3139,10 +3274,10 @@
         "packageIcon.png"
       ]
     },
-    "Radzen.Blazor/4.27.1": {
-      "sha512": "dwbehgTsHrakw4ceaOziFI+dMeClCwfD5jYjwv86IylRj8ar2ir5WMEiEngWF7pTpt3Ju7l2FRG+of5jeOsB6g==",
+    "Radzen.Blazor/4.28.9": {
+      "sha512": "YF40Uibe+qPFispy32KqU+S3+y37/nalt1/HMX018/s7ntW8ypJnKSsa2516MS73HlyqmF3pcTUGzMRsdqYpSQ==",
       "type": "package",
-      "path": "radzen.blazor/4.27.1",
+      "path": "radzen.blazor/4.28.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3163,7 +3298,7 @@
         "lib/net8.0/Radzen.Blazor.xml",
         "lib/netstandard2.1/Radzen.Blazor.dll",
         "lib/netstandard2.1/Radzen.Blazor.xml",
-        "radzen.blazor.4.27.1.nupkg.sha512",
+        "radzen.blazor.4.28.9.nupkg.sha512",
         "radzen.blazor.nuspec",
         "staticwebassets/Radzen.Blazor.js",
         "staticwebassets/css/dark-base.css",
@@ -3636,25 +3771,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Telerik.ReportViewer.Blazor/16.1.22.622": {
-      "sha512": "45Ar9WO9w3r5tXfM39vzS+bY60+gpAEhaP0pDMQb/eXw23iLYC8uy6fL+fr7yMY+5d0ch7S9DFm9/i7ZKj4Iow==",
-      "type": "package",
-      "path": "telerik.reportviewer.blazor/16.1.22.622",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LicenseAgreements/EULA.txt",
-        "build/Microsoft.AspNetCore.StaticWebAssets.props",
-        "build/Telerik.ReportViewer.Blazor.props",
-        "buildMultiTargeting/Telerik.ReportViewer.Blazor.props",
-        "buildTransitive/Telerik.ReportViewer.Blazor.props",
-        "images/reporting.png",
-        "lib/netstandard2.0/Telerik.ReportViewer.Blazor.dll",
-        "staticwebassets/interop.js",
-        "telerik.reportviewer.blazor.16.1.22.622.nupkg.sha512",
-        "telerik.reportviewer.blazor.nuspec"
-      ]
-    },
     "Toolbelt.Blazor.PWA.Updater/2.1.0.1": {
       "sha512": "m5AbdhYBH/KpjqcBDLQ+snA4Q/tkptpzA3GvnMZh4J/RH+rU2lUxWkprugkSCjEFIRemYOJiNO5V39PcRmwblw==",
       "type": "package",
@@ -3695,6 +3811,26 @@
         "toolbelt.blazor.pwa.updater.service.nuspec"
       ]
     },
+    "Vidazor/1.0.5": {
+      "sha512": "eeiU7g2U+gJHxjphpVymT+bPSEMsQTozeXBYeRzENJ3CExWGRGqua13Gw97SjCgWFv/U+NrZuu+wfPDqqTH0cw==",
+      "type": "package",
+      "path": "vidazor/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Vidazor.props",
+        "buildMultiTargeting/Vidazor.props",
+        "buildTransitive/Vidazor.props",
+        "icon.png",
+        "lib/net5.0/Vidazor.dll",
+        "lib/net5.0/Vidazor.xml",
+        "staticwebassets/functions.js",
+        "staticwebassets/functions.min.js",
+        "vidazor.1.0.5.nupkg.sha512",
+        "vidazor.nuspec"
+      ]
+    },
     "ZstdSharp.Port/0.7.3": {
       "sha512": "U9Ix4l4cl58Kzz1rJzj5hoVTjmbx1qGMwzAcbv1j/d3NzrFaESIurQyg+ow4mivCgkE3S413y+U9k4WdnEIkRA==",
       "type": "package",
@@ -3722,7 +3858,9 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "BlazorPro.BlazorSize >= 6.2.2",
+      "BlazorVideoPlayer >= 3.0.0",
       "Blazored.LocalStorage >= 4.5.0",
+      "Blazored.Video >= 1.0.1",
       "IMS.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Components.Authorization >= 8.0.3",
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.3",
@@ -3730,9 +3868,9 @@
       "Microsoft.NET.ILLink.Tasks >= 8.0.3",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.3",
       "Newtonsoft.Json >= 13.0.3",
-      "Radzen.Blazor >= 4.27.1",
-      "Telerik.ReportViewer.Blazor >= 16.1.22.622",
-      "Toolbelt.Blazor.PWA.Updater >= 2.1.0.1"
+      "Radzen.Blazor >= 4.28.9",
+      "Toolbelt.Blazor.PWA.Updater >= 2.1.0.1",
+      "Vidazor >= 1.0.5"
     ]
   },
   "packageFolders": {
@@ -3747,6 +3885,7 @@
       "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
       "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
         "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -3756,9 +3895,7 @@
       ],
       "sources": {
         "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
-        "/usr/local/share/dotnet/library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -3789,9 +3926,17 @@
             "target": "Package",
             "version": "[6.2.2, )"
           },
+          "BlazorVideoPlayer": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Blazored.LocalStorage": {
             "target": "Package",
             "version": "[4.5.0, )"
+          },
+          "Blazored.Video": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           },
           "Microsoft.AspNetCore.Components.Authorization": {
             "target": "Package",
@@ -3824,15 +3969,15 @@
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[4.27.1, )"
-          },
-          "Telerik.ReportViewer.Blazor": {
-            "target": "Package",
-            "version": "[16.1.22.622, )"
+            "version": "[4.28.9, )"
           },
           "Toolbelt.Blazor.PWA.Updater": {
             "target": "Package",
             "version": "[2.1.0.1, )"
+          },
+          "Vidazor": {
+            "target": "Package",
+            "version": "[1.0.5, )"
           }
         },
         "imports": [

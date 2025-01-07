@@ -1,0 +1,81 @@
+@using IMS.Shared.Models
+@inject Radzen.DialogService DialogService
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+
+
+@page "/maintenance/role"
+
+<div class="col-md-12 col-lg-12 mb-3">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenBreadCrumb>
+            <RadzenBreadCrumbItem Icon="home" Path="/" Text="Home" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Purchase Order" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Index" />
+        </RadzenBreadCrumb>
+    </RadzenCard>
+</div>
+
+<div class="col-md-12 col-lg-12">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            <RadzenRow>
+                <RadzenStack class="mb-2" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
+                    <RadzenButton Icon="add" Text="Menu" Click=@NewRole />
+                    @* <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" /> *@
+                </RadzenStack>
+                
+                <RadzenDataGrid @ref="rolegrid" AllowFiltering="true" AllowSorting="true" AllowColumnResize="true" GridLines="DataGridGridLines.Both"
+                                Data="@roles" TItem="RoleModel" Density="Density.Compact">
+
+                    <Template Context="data">
+                        <RadzenCard Variant="Variant.Outlined" class="rz-background-color-white m-1 p-1">
+                            <h5 class="ps-3 pt-2">Menus for @data.role role</h5>
+                            <RadzenButton class="mb-2" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small" Shade="Shade.Dark" Click="@(() => AddRoleMenu(data.Id))">Add Material</RadzenButton>
+                            <RadzenDataGrid AllowPaging="true" AllowSorting="true" GridLines="DataGridGridLines.Both" PageSize="10" Data="@data.menus" TItem="MenuModel"  @ref="menugrid">
+                                <Columns>
+                                    @{
+                                        if (data.menus != null)
+                                        {
+                                            <RadzenDataGridColumn Width="60px" TItem="MenuModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                                                <Template Context="mItem">
+                                                    @(data.menus.IndexOf(mItem) + 1)
+                                                </Template>
+                                            </RadzenDataGridColumn>
+                                            <RadzenDataGridColumn TItem="MenuModel" Property="menu" Title="Menu" />
+                                            <RadzenDataGridColumn TItem="MenuModel" Property="path" Title="Path" />
+                                            <RadzenDataGridColumn TItem="MenuModel" Property="cssclass" Title="Class" Width="110px" TextAlign="TextAlign.Center" />
+                                            <RadzenDataGridColumn TItem="MenuModel" Property="style" Title="Style" />
+                                            <RadzenDataGridColumn TItem="MenuModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                                <Template Context="mItem">
+                                                    <RadzenButton Click="@(() => RemoveRoleMenu(mItem.Id))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" class="my-1 ms-1" />
+                                                </Template>
+                                            </RadzenDataGridColumn>
+                                        }
+                                    }
+                                </Columns>
+                            </RadzenDataGrid>
+                        </RadzenCard>
+
+                    </Template>
+                    
+                    <Columns>
+                        <RadzenDataGridColumn TItem="RoleModel" Property="username" Title="" Sortable="false" Filterable="false" Width="50px" TextAlign="TextAlign.Center">
+                            <Template Context="data">
+                                @(roles.IndexOf(data) + 1)
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="RoleModel" Property="role" Title="Role" Sortable="false" Filterable="false"/>
+                        <RadzenDataGridColumn TItem="RoleModel" Width="80px" Frozen="true" Filterable="false" TextAlign="TextAlign.Center">
+                            <Template Context="data">
+                                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Filled" Size="ButtonSize.ExtraSmall" Shade="Shade.Lighter" Click="@(() => EditRole(data.Id))"/>
+                                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Variant="Variant.Filled" Size="ButtonSize.ExtraSmall" Shade="Shade.Lighter" Click="@(() => DeleteRole(data.Id))"/>
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            </RadzenRow>
+        </RadzenStack>
+    </RadzenCard>
+</div>

@@ -4,6 +4,7 @@ using Radzen;
 using IMS.Client.Shared;
 using Radzen.Blazor;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 
 namespace IMS.Client.Pages.PO
@@ -26,7 +27,7 @@ namespace IMS.Client.Pages.PO
             if (poid == "" )
                 poid =  navigationManager.Uri.Split("?")[1].Split("=")[1];
             
-            po = await httpClient.GetFromJsonAsync<POModel>("purchaseorder/getpo?poid=" + poid);
+            po = await httpClient.GetFromJsonAsync<POModel>("purchaseorder/getpo?poid=" + poid + "&prid=" + prid);
             po.amount = (double)po.items.Sum(q => q.quantity * q.price);
         }
 
@@ -36,11 +37,13 @@ namespace IMS.Client.Pages.PO
             var result = await DialogService.OpenAsync<AddPOItems>("Add PR items ",
                    new Dictionary<string, object>() { { "po", po }, {"poItemsGrid", poItemsGrid}},
                    new DialogOptions() { Width = "800px", Resizable = false, Draggable = true });
+
+            if (result)
+            {
+                po = await httpClient.GetFromJsonAsync<POModel>("purchaseorder/getpo?poid=" + poid + "&prid=" + prid);
+                po.amount = (double)po.items.Sum(q => q.quantity * q.price);
+            }
             
-            po = await httpClient.GetFromJsonAsync<POModel>("purchaseorder/getpo?poid=" + poid);
-
-            po.amount = (double)po.items.Sum(q => q.quantity * q.price);
-
         }
 
         public async Task DeletePOItem(string id)
@@ -156,6 +159,11 @@ namespace IMS.Client.Pages.PO
             poview.openpo = false;
             po.projectid = "";
             await OnDetailsViewPO.InvokeAsync(poview);
+        }
+
+        public async Task PrintPO(string id)
+        {
+            await JSRuntime.InvokeVoidAsync("open", "api/reports/printpo?prid=" + prid + "&poid=" + id, "_blank"); 
         }
     }
 }

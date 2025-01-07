@@ -28,12 +28,39 @@ namespace IMS.Server.Controllers
         {
             return _db.GetUnits(itemtype);
         }
+        
+        [HttpGet("getroles")]
+        public Task<List<RoleModel>> GetRoles()
+        {
+            return _db.GetRoles();
+        }
 
         [HttpGet("getworkcategories")]
         public Task<List<WorkCategoryModel>> GetWorkCategories()
         {
             return _db.GetCategories();
         }
+        
+        [HttpGet("Test")]
+        public async Task<string> Test()
+        {
+            string url = "https://reports.pgas.ph/Report/View/VENDOR/Vendor_Application?uniqueName=6642d3771374b429388bb67c";
+            byte[] pdfBinary = await DownloadPdfAsync(url);
+            string base64String = Convert.ToBase64String(pdfBinary);
+            return base64String;
+        }
+
+        public static async Task<byte[]> DownloadPdfAsync(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/pdf"));
+                return await client.GetByteArrayAsync(url);
+            }
+        }
+        
+       
     }
 }
 

@@ -153,32 +153,21 @@
                                     </RadzenDataGridColumn>
 
                                     <RadzenDataGridColumn TItem="POModel" TextAlign="TextAlign.Center" Property="amount" Title="Amount" Width="170px">
-                                        <Template Context="detail">
-                                            <div style="text-align: right; font-size: 15px">
-                                                @{
-                                                    if (detail.items != null)
-                                                    {
-                                                        @String.Format("{0:n2}", detail.items.Sum(q => q.quantity * q.price))
-                                                    }
-                                                    else
-                                                    {
-                                                        @String.Format("{0:n2}", 0)
-                                                    }
-                                                }
-                                                
-                                            </div>
-                                        </Template>
-                                        <FooterTemplate>
-                                            @{
-                                                if (filteredCVSubmitted != null)
-                                                {
-                                                    <div style="text-align: right; font-size: 15px; font-weight: bold">
-                                                        @string.Format("₱ {0:n2}", filteredCVSubmitted.Sum(q => q.amount))
-                                                    </div>
-                                                }
-                                            }
-                                                
-                                        </FooterTemplate>
+                                         <Template Context="data">
+                                             <div style="text-align: right; font-size: 15px">
+                                                 @String.Format("{0:n2}", data.amount)
+                                             </div>
+                                         </Template>
+                                         <FooterTemplate>
+                                             @{
+                                                 if (filteredCVSubmitted != null)
+                                                 {
+                                                     <div style="text-align: right; font-size: 15px; font-weight: bold">
+                                                         @string.Format("₱ {0:n2}",  filteredCVSubmitted.Sum(q => q.amount))
+                                                     </div>
+                                                 }
+                                             }
+                                         </FooterTemplate>
                                     </RadzenDataGridColumn>
                                     <RadzenDataGridColumn TItem="POModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                         <Template Context="data">

@@ -1,0 +1,53 @@
+@using IMS.Shared.Models
+@inject Radzen.DialogService DialogService
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+
+
+@page "/maintenance/menu"
+
+<div class="col-md-12 col-lg-12 mb-3">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenBreadCrumb>
+            <RadzenBreadCrumbItem Icon="home" Path="/" Text="Home" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Purchase Order" />
+            <RadzenBreadCrumbItem Icon="settings" Path="/PO/POList" Text="Index" />
+        </RadzenBreadCrumb>
+    </RadzenCard>
+</div>
+
+<div class="col-md-12 col-lg-12">
+    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
+        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+            <RadzenRow>
+                <RadzenStack class="mb-2" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
+                    <RadzenButton Icon="add" Text="Menu" Click=@NewMenu />
+                    @* <RadzenTextBox Placeholder="Search..." @oninput="@(args => OnSearch(args.Value.ToString()))" /> *@
+                </RadzenStack>
+                <RadzenDataGrid @ref="menugrid" AllowFiltering="true" AllowSorting="true" AllowColumnResize="true" GridLines="DataGridGridLines.Both"
+                                Data="@menus" TItem="MenuModel" Density="Density.Compact">
+                    
+                    <Columns>
+                        <RadzenDataGridColumn TItem="MenuModel" Property="username" Title="" Sortable="false" Filterable="false" Width="50px" TextAlign="TextAlign.Center">
+                            <Template Context="data">
+                                @(menus.IndexOf(data) + 1)
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="MenuModel" Property="menu" Title="Menu" Sortable="false" Filterable="false"/>
+                        <RadzenDataGridColumn TItem="MenuModel" Property="path" Title="Path" Sortable="false" Filterable="false"/>
+                        <RadzenDataGridColumn TItem="MenuModel" Property="cssclass" Title="Class" Sortable="false" Filterable="false"/>
+                        <RadzenDataGridColumn TItem="MenuModel" Property="style" Title="Style" Sortable="false" Filterable="false"/>
+                        <RadzenDataGridColumn TItem="MenuModel" Property="icon" Title="Icon" Sortable="false" Filterable="false"/>
+                        <RadzenDataGridColumn TItem="MenuModel" Width="80px" Frozen="true" Filterable="false" TextAlign="TextAlign.Center">
+                            <Template Context="data">
+                                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Primary" Variant="Variant.Filled" Size="ButtonSize.ExtraSmall" Shade="Shade.Lighter" Click="@(() => EditMenu(data.Id))"/>
+                                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Variant="Variant.Filled" Size="ButtonSize.ExtraSmall" Shade="Shade.Lighter" Click="@(() => DeleteMenu(data.Id))"/>
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            </RadzenRow>
+        </RadzenStack>
+    </RadzenCard>
+</div>

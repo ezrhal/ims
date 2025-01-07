@@ -1,0 +1,53 @@
+
+@inject DialogService DialogService
+@inject HttpClient httpClient
+
+<RadzenRow Style="height: 95%; overflow: hidden">
+    @{
+        if (pronviceEventMedals == null)
+        {
+            <RadzenStack AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center">
+                <RadzenText TextStyle="TextStyle.H6">Fetching Data...</RadzenText>
+            </RadzenStack>
+        }
+        else
+        {
+            <table>
+                <thead>
+                <tr>
+                    <th>Sport</th>
+                    <th style="width: 200px"><img src="image/gold.png" width="40px"/></th>
+                    <th style="width: 200px"><img src="image/silver.png" width="40px"/></th>
+                    <th style="width: 200px"><img src="image/bronze.png" width="40px"/></th>
+                    <th class="custom-font1" style="color: #272829; font-size: 20px;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                @{
+                    if (pronviceEventMedals != null)
+                    {
+                        int y = 1;
+
+                        foreach (var data in pronviceEventMedals)
+                        {
+                            <tr class="rz-card rz-variant-flat" style="@(y == 1 ? rowstyle : rowstyle1)">
+                                <td style="color: #272829; font-size: 14px; width: 40% !important;">@data.sport</td>
+                                <td class="custom-font1" style="color: #272829; font-size: 14px;  width: 12% !important;">@(Convert.ToInt16(data.Gold))</td>
+                                <td class="custom-font1" style="color: #272829; font-size: 14px;  width: 12% !important;">@(Convert.ToInt16(data.Silver))</td>
+                                <td class="custom-font1" style="color: #272829; font-size: 14px;  width: 12% !important;">@(Convert.ToInt16(data.Bronze))</td>
+                                <td class="custom-font1" style="color: #272829; font-size: 14px;  width: 12% !important;">@(Convert.ToInt16(data.Gold) + Convert.ToInt16(data.Silver) + Convert.ToInt16(data.Bronze))</td>
+                            </tr>
+                            <tr> <td style="padding: 2px;"></td></tr>
+                            y = y == 1 ? 0 : 1;
+                        }
+
+
+                    }
+                }
+
+                </tbody>
+            </table>
+        }
+    }
+   
+</RadzenRow>

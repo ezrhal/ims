@@ -1,45 +1,45 @@
-﻿@page "/Viewer"
-@* For Blazor Web Apps, an interactive render mode should be used, for example: *@
-@* @rendermode InteractiveServer *@
-@using Telerik.ReportViewer.Blazor
-@inject NavigationManager navigationManager
-@layout ReportLayout
-
-
-
-<style>
-    #rv1 {
-        position: relative;
-        width: 100%;
-        height: 80vh;
-    }
-</style>
-
-@*<ReportViewer ViewerId="rv1"
-    ReportServer="@(new ReportServerOptions {  Url = "http://10.0.1.74:83/", Username = "reportserver", Password = "pimo@123" })"
-    ReportSource="@(new ReportSourceOptions()
-                {
-                    Report = "Samples/" + @report,
-                    Parameters = new Dictionary<string, object>
-                    {
-                        { "projectid", @projectid },
-                        { "workitemid", @workitemid }
-                    } 
-                    
-                })"
-    ScaleMode="@(ScaleMode.Specific)"
-    Scale="1.0" />*@
-
-<ReportViewer ViewerId="rv1"
-              ServiceUrl="/api/reports"
-              ReportSource="@(new ReportSourceOptions()
-                              {
-                                  Report = "workitem.trdp",
-                                  Parameters = new Dictionary<string, object>
-                                    {
-                                        { "projectid", @projectid },
-                                        { "workitemid", @workitemid }
-                                    } 
-                              })"
-              ScaleMode="@ScaleMode.FitPageWidth" />
-
+﻿@* @page "/Viewer" *@
+@* $1$ For Blazor Web Apps, an interactive render mode should be used, for example: #1# *@
+@* $1$ @rendermode InteractiveServer #1# *@
+@* @using Telerik.ReportViewer.Blazor *@
+@* @inject NavigationManager navigationManager *@
+@* @layout ReportLayout *@
+@* *@
+@* *@
+@* *@
+@* <style> *@
+@*     #rv1 { *@
+@*         position: relative; *@
+@*         width: 100%; *@
+@*         height: 80vh; *@
+@*     } *@
+@* </style> *@
+@* *@
+@* @*<ReportViewer ViewerId="rv1" *@
+@*     ReportServer="@(new ReportServerOptions {  Url = "http://10.0.1.74:83/", Username = "reportserver", Password = "pimo@123" })" *@
+@*     ReportSource="@(new ReportSourceOptions() *@
+@*                 { *@
+@*                     Report = "Samples/" + @report, *@
+@*                     Parameters = new Dictionary<string, object> *@
+@*                     { *@
+@*                         { "projectid", @projectid }, *@
+@*                         { "workitemid", @workitemid } *@
+@*                     }  *@
+@*                      *@
+@*                 })" *@
+@*     ScaleMode="@(ScaleMode.Specific)" *@
+@*     Scale="1.0" />*@ 
+@* *@
+@* <ReportViewer ViewerId="rv1" *@
+@*               ServiceUrl="https://servicereport1.azurewebsites.net/api/reports" *@
+@*               ReportSource="@(new ReportSourceOptions() *@
+@*                               { *@
+@*                                   Report = "workitem.trdp", *@
+@*                                   Parameters = new Dictionary<string, object> *@
+@*                                     { *@
+@*                                         { "projectid", @projectid }, *@
+@*                                         { "workitemid", @workitemid } *@
+@*                                     }  *@
+@*                               })" *@
+@*               ScaleMode="@ScaleMode.FitPageWidth" /> *@
+@* *@

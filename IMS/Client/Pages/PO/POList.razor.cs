@@ -115,18 +115,19 @@ namespace IMS.Client.Pages.PO
                   new DialogOptions() { Width = "500px", Resizable = false, Draggable = true });
         }
 
-        public async Task OpenPODetails(string id)
+        public async Task OpenPODetails(string id, string prid)
         {
             if (!projectviewpo)
             {
-                navigationManager.NavigateTo("/purchaseorder/details?poid=" + id);
+                navigationManager.NavigateTo("/purchaseorder/details/" + prid + "/" + id);
             }
             else
             {
                 poview.openpo = true;
                 poview.poid = id;
+                poview.prid = prid;
                 await OnDetailsViewPO.InvokeAsync(poview);
-                Console.WriteLine(id);
+               
             }
 
             

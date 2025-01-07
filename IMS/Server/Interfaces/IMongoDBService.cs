@@ -55,7 +55,7 @@ namespace IMS.Server.Services
         Task<PRModel> GetPR(string id);
         Task<List<ProjectModel>> GetProjectname();
         Task<string> SavePR(PRModel pr);
-        Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid);
+        Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid, string workitemid);
         Task<string> SavePRItem(string id, List<BalanceMaterialModel> items, List<PRItemModel> existingitms);
         Task<string> RemovePRItem(string id, string pritemid);
         Task<string> UpdatePRItem(string id, string pritemid, double quantity);
@@ -64,6 +64,8 @@ namespace IMS.Server.Services
         Task<string> SubmitPR(string id);
         Task<List<BalanceMaterialModel>> GetBalanceMaterials(string projectid, string workitemid);
 
+        Task<string> SavePRItemAdmin(string id, List<ItemModel> items, List<PRItemModel> existingitms);
+        
         #endregion
 
         #region PO
@@ -71,7 +73,7 @@ namespace IMS.Server.Services
         Task<List<SupplierModel>> GetSuppliers();
         Task<List<POModel>> GetPOs(string projectid);
         Task<string> SavePO(POModel po, string prid, string isempty);
-        Task<POModel> GetPO(string poid);
+        Task<POModel> GetPO(string poid, string prid);
         Task<List<PRItemModel>> GetPRItems(string prid);
         Task<string> SavePOItems(string poid, string prid, List<POItemModel> items, List<POItemModel> existing);
         Task<string> DeletePOItem(string prid, string poid, string id);
@@ -93,6 +95,21 @@ namespace IMS.Server.Services
 
         #endregion
 
-        Task<bool> CheckUserCredential(string Username, string Password);
+        #region USER
+
+        Task<string> SaveUser(UserModel user);
+        Task<List<UserModel>> GetUsers();
+        Task<List<RoleModel>> GetRoles();
+        
+        #endregion
+        
+        #region Menu
+
+        Task<List<MenuModel>> GetMenus();
+        Task<string> SaveMneu(MenuModel menu);
+        Task<List<MenuModel>> GetParentMenus();
+        #endregion
+        
+        Task<LoginModel> CheckUserCredential(string Username, string Password);
     }
 }

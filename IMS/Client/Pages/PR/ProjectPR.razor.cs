@@ -4,9 +4,11 @@ using IMS.Shared.Models;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components;
 using IMS.Client.Shared;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IMS.Client.Pages.PR
 {
+    [Authorize]
     public partial class ProjectPR
     {
         [Parameter] public bool projectview { get; set; } = false;
@@ -24,18 +26,14 @@ namespace IMS.Client.Pages.PR
         List<PRModel> filteredPRSubmitted;
         IList<PRModel> selectedItems;
 
-
-
+        
         protected override async Task OnInitializedAsync()
         {
             PRs = await httpClient.GetFromJsonAsync<List<PRModel>>("purchaserequest/getprs?projectid=" + projectid);
-            PRSubmitted = PRs.Where(q => q.submitted.Equals(1)).ToList();
-            PRs.RemoveAll(q => q.submitted.Equals(1));
-
-            prview = new();
-
+            
             foreach(PRModel pr in PRs)
             {
+                
                 if (pr.items != null)
                 {
                     pr.amount = pr.items.Sum(q => q.unitcost * (q.quantity ?? 0));
@@ -46,7 +44,12 @@ namespace IMS.Client.Pages.PR
                 }
                 
             }
+            
+            PRSubmitted = PRs.Where(q => q.submitted.Equals(1)).ToList();
+            PRs.RemoveAll(q => q.submitted.Equals(1));
 
+            prview = new();
+            
             if (PRs != null)
                 filteredPR = PRs;
             

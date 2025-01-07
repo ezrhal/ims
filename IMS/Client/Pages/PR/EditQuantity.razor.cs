@@ -9,8 +9,10 @@ namespace IMS.Client.Pages.PR
     public partial class EditQuantity
     {
         [Parameter] public PRItemModel prItem { get; set; }
+        [Parameter] public string charges { get; set; }
         [Parameter] public string id { get; set; }
         [Parameter] public string projectid { get; set; }
+        [Parameter] public string workitemid { get; set; }
         [Parameter] public RadzenDataGrid<PRItemModel> prItemGrid { get; set; }
         TotalProcuredModel totalprocured = new();
         
@@ -19,11 +21,20 @@ namespace IMS.Client.Pages.PR
 
         protected override async Task OnInitializedAsync()
         {
-            totalprocured = await httpClient.GetFromJsonAsync<TotalProcuredModel>("purchaserequest/gettotalprocured?projectid=" + projectid + "&itemid=" + prItem.itemid);
-            List<MaterialsModel> items = await httpClient.GetFromJsonAsync<List<MaterialsModel>>("purchaserequest/getmaterialsquantity?projectid=" + projectid + "&itemid=" + prItem.itemid);
+            if (charges != "Admin")
+            {
+                totalprocured = await httpClient.GetFromJsonAsync<TotalProcuredModel>("purchaserequest/gettotalprocured?projectid=" + projectid + "&itemid=" + prItem.itemid);
+                List<MaterialsModel> items = await httpClient.GetFromJsonAsync<List<MaterialsModel>>("purchaserequest/getmaterialsquantity?projectid=" + projectid + "&itemid=" + prItem.itemid + 
+                    "&workitemid=" + workitemid);
             
-            totalprocured.totalquantity = (double)items.First(q => q.itemid.Equals(prItem.itemid)).quantity;
-            remainingquantity = totalprocured.totalquantity - totalprocured.totalprocured;
+                totalprocured.totalquantity = (double)items.First(q => q.itemid.Equals(prItem.itemid)).quantity;
+                remainingquantity = totalprocured.totalquantity - totalprocured.totalprocured;
+            }
+            else
+            {
+                
+            }
+            
         }
 
         public async Task SaveQuantity(PRItemModel args)

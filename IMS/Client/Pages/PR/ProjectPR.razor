@@ -74,8 +74,19 @@
                                     @{
                                         if (!projectview)
                                         {
-                                            <RadzenDataGridColumn TItem="PRModel" Property="geodata.address" Title="Location">
-                                                
+                                            <RadzenDataGridColumn TItem="PRModel" Property="geodata.address" Title="Charges">
+                                                <Template Context="data">
+                                                   @{
+                                                       if (data.charges == "Project")
+                                                       {
+                                                           <div>@data.projectname</div>
+                                                       }
+                                                       else
+                                                       {
+                                                           <div>@data.charges</div>
+                                                       }
+                                                   }
+                                                </Template>
                                             </RadzenDataGridColumn>
                                         }
                                     }
@@ -175,8 +186,19 @@
                                     @{
                                         if (!projectview)
                                         {
-                                            <RadzenDataGridColumn TItem="PRModel" Property="geodata.address" Title="Location">
-                                                
+                                            <RadzenDataGridColumn TItem="PRModel" Property="geodata.address" Title="Charges">
+                                                <Template Context="data">
+                                                    @{
+                                                        if (data.charges == "Project")
+                                                        {
+                                                            <div>@data.projectname</div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div>@data.charges</div>
+                                                        }
+                                                    }
+                                                </Template>
                                             </RadzenDataGridColumn>
                                         }
                                     }

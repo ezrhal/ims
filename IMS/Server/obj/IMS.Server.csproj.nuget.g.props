@@ -7,17 +7,19 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/israeldeguzman/.nuget/packages/</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/israeldeguzman/.nuget/packages/</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.4.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.12.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="/Users/israeldeguzman/.nuget/packages/" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)vidazor/1.0.5/buildTransitive/Vidazor.props" Condition="Exists('$(NuGetPackageRoot)vidazor/1.0.5/buildTransitive/Vidazor.props')" />
     <Import Project="$(NuGetPackageRoot)toolbelt.blazor.pwa.updater.service/2.0.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.Service.props" Condition="Exists('$(NuGetPackageRoot)toolbelt.blazor.pwa.updater.service/2.0.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.Service.props')" />
     <Import Project="$(NuGetPackageRoot)toolbelt.blazor.pwa.updater/2.1.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.props" Condition="Exists('$(NuGetPackageRoot)toolbelt.blazor.pwa.updater/2.1.0.1/buildTransitive/Toolbelt.Blazor.PWA.Updater.props')" />
-    <Import Project="$(NuGetPackageRoot)telerik.reportviewer.blazor/16.1.22.622/buildTransitive/Telerik.ReportViewer.Blazor.props" Condition="Exists('$(NuGetPackageRoot)telerik.reportviewer.blazor/16.1.22.622/buildTransitive/Telerik.ReportViewer.Blazor.props')" />
-    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.27.1/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.27.1/buildTransitive/Radzen.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)radzen.blazor/4.28.9/buildTransitive/Radzen.Blazor.props" Condition="Exists('$(NuGetPackageRoot)radzen.blazor/4.28.9/buildTransitive/Radzen.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)blazorvideoplayer/3.0.0/buildTransitive/BlazorVideoPlayer.props" Condition="Exists('$(NuGetPackageRoot)blazorvideoplayer/3.0.0/buildTransitive/BlazorVideoPlayer.props')" />
     <Import Project="$(NuGetPackageRoot)blazorpro.blazorsize/6.2.2/buildTransitive/BlazorPro.BlazorSize.props" Condition="Exists('$(NuGetPackageRoot)blazorpro.blazorsize/6.2.2/buildTransitive/BlazorPro.BlazorSize.props')" />
+    <Import Project="$(NuGetPackageRoot)blazored.video/1.0.1/buildTransitive/Blazored.Video.props" Condition="Exists('$(NuGetPackageRoot)blazored.video/1.0.1/buildTransitive/Blazored.Video.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">/Users/israeldeguzman/.nuget/packages/awssdk.core/3.7.100.14</PkgAWSSDK_Core>

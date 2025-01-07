@@ -46,11 +46,13 @@ namespace IMS.Client.Pages
                 var loginResult = JsonSerializer.Deserialize<LoginResult>(await response.Content.ReadAsStringAsync(),
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
-                Console.WriteLine(loginResult.Successful);
+               // Console.WriteLine(loginResult.Successful);
 
                 if (loginResult.Successful)
                 {
                     await _localStorage.SetItemAsync("authToken", loginResult.Token);
+                    await _localStorage.SetItemAsync("userLogin", loginResult.UserLogin);
+                    
                     ((ApiAuthenticationStateProvider)_authenticationStateProvider).MarkUserAsAuthenticated(login.Username);
                     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", loginResult.Token);
                     NavigationManager.NavigateTo("/");
@@ -65,7 +67,7 @@ namespace IMS.Client.Pages
                             Summary = "Invalid",
                             Detail = "Invalid username or password.",
                             Duration = 3000
-                        }); ;
+                        });
                 }
             }
             else

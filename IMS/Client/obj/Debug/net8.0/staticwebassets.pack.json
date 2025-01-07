@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
     },
     {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/css/fluent-dark-base.css",
+      "PackagePath": "staticwebassets/css/fluent-dark-base.css"
+    },
+    {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/css/kendo.default-main.min.css",
       "PackagePath": "staticwebassets/css/kendo.default-main.min.css"
     },
@@ -117,12 +121,60 @@
       "PackagePath": "staticwebassets/icon-512.png"
     },
     {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/AGUSAN DEL NORTE.png",
+      "PackagePath": "staticwebassets/image/AGUSAN DEL NORTE.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/AGUSAN DEL SUR.png",
+      "PackagePath": "staticwebassets/image/AGUSAN DEL SUR.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/BAYUGAN CITY.png",
+      "PackagePath": "staticwebassets/image/BAYUGAN CITY.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/BISLIG CITY.png",
+      "PackagePath": "staticwebassets/image/BISLIG CITY.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/BUTUAN CITY.png",
+      "PackagePath": "staticwebassets/image/BUTUAN CITY.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/CABADBARAN CITY.png",
+      "PackagePath": "staticwebassets/image/CABADBARAN CITY.png"
+    },
+    {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/CRAM.jpeg",
       "PackagePath": "staticwebassets/image/CRAM.jpeg"
     },
     {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/DINAGAT ISLANDS.png",
+      "PackagePath": "staticwebassets/image/DINAGAT ISLANDS.png"
+    },
+    {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/DepEd.jpeg",
       "PackagePath": "staticwebassets/image/DepEd.jpeg"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SIARGAO ISLAND.png",
+      "PackagePath": "staticwebassets/image/SIARGAO ISLAND.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SURIGAO CITY.png",
+      "PackagePath": "staticwebassets/image/SURIGAO CITY.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SURIGAO DEL NORTE.png",
+      "PackagePath": "staticwebassets/image/SURIGAO DEL NORTE.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/SURIGAO DEL SUR.png",
+      "PackagePath": "staticwebassets/image/SURIGAO DEL SUR.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/TANDAG CITY.png",
+      "PackagePath": "staticwebassets/image/TANDAG CITY.png"
     },
     {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/Thumbs.db",
@@ -137,8 +189,16 @@
       "PackagePath": "staticwebassets/image/ads.png"
     },
     {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/adslogo.png",
+      "PackagePath": "staticwebassets/image/adslogo.png"
+    },
+    {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/bronze.png",
       "PackagePath": "staticwebassets/image/bronze.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/cs copy.png",
+      "PackagePath": "staticwebassets/image/cs copy.png"
     },
     {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/cs.png",
@@ -149,12 +209,24 @@
       "PackagePath": "staticwebassets/image/dinagat.png"
     },
     {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/footer.png",
+      "PackagePath": "staticwebassets/image/footer.png"
+    },
+    {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/gold.png",
       "PackagePath": "staticwebassets/image/gold.png"
     },
     {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/medal.png",
       "PackagePath": "staticwebassets/image/medal.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/medaltally.png",
+      "PackagePath": "staticwebassets/image/medaltally.png"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/medaltally2.png",
+      "PackagePath": "staticwebassets/image/medaltally2.png"
     },
     {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/image/sdn.png",
@@ -177,12 +249,20 @@
       "PackagePath": "staticwebassets/index.html"
     },
     {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/js/Telerik.ReportViewer.Blazor.interop.js",
+      "PackagePath": "staticwebassets/js/Telerik.ReportViewer.Blazor.interop.js"
+    },
+    {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/js/map_picker_1.3.js",
       "PackagePath": "staticwebassets/js/map_picker_1.3.js"
     },
     {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/js/reportserver_util.1.0.js",
       "PackagePath": "staticwebassets/js/reportserver_util.1.0.js"
+    },
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/js/telerikReportViewer-17.0.23.118.min.js",
+      "PackagePath": "staticwebassets/js/telerikReportViewer-17.0.23.118.min.js"
     },
     {
       "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/wwwroot/manifest.json",

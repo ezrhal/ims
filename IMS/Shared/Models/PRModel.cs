@@ -21,8 +21,9 @@ public class PRModel
     public List<StatusModel>? statuslogs { get; set; }
     public int submitted { get; set; }
     public List<POModel> PO { get; set; }
-    public string workitemid { get; set; }
-    public string workitem { get; set; }
+    public string? workitemid { get; set; }
+    public string? workitem { get; set; }
+    public string charges { get; set; }
 
     public PRModel()
     {
@@ -37,6 +38,7 @@ public class PRModel
         amount = 0;
         transactionno = "";
         submitted = 0;
+        charges = "";
     }
 
 
@@ -76,7 +78,8 @@ public class POModel
     public string Id { get; set; }
     public string pono { get; set; }
     [BsonIgnoreIfNull]
-    public string projectid { get; set; } = null;
+    [BsonIgnoreIfDefault]
+    public string projectid { get; set; } = "";
     [BsonIgnoreIfNull]
     public string prid { get; set; } = null;
     [BsonIgnoreIfNull]
@@ -95,6 +98,7 @@ public class POModel
     //CV
     public string? cvno { get; set; }
     public string? checkno { get; set; }
+    public string? checkdate { get; set; }
     public DateTime? cvdate { get; set; }
     public string? payee { get; set; }
     public string? payeeaddress { get; set; }
@@ -102,6 +106,10 @@ public class POModel
     public int cvsubmitted { get; set; }
 
     public DateTime? datereceived { get; set; }
+
+    [BsonIgnoreIfDefault]
+    [BsonIgnoreIfNull]
+    public string projectname { get; set; } = "";
 
     public POModel()
     {
@@ -118,6 +126,7 @@ public class POModel
     }
 }
 
+[BsonIgnoreExtraElements]
 public class POItemModel
 {
     [BsonId]
@@ -129,11 +138,15 @@ public class POItemModel
     public string unit { get; set; }
     public double price { get; set; }
     public double? quantity { get; set; }
+    [BsonIgnoreIfDefault]
+    [BsonIgnoreIfNull]
+    public double unitcost { get; set; }
 
     public POItemModel()
     {
         Id = ObjectId.GenerateNewId().ToString();
         price = 0;
+        unitcost = 0;
     }
 }
 

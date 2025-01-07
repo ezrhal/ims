@@ -184,6 +184,13 @@ namespace IMS.Server.Controllers
             return await _db.GetLabor(projectid, workitemid);
         }
 
+        [HttpPost("testresponse")]
+        public async Task<int> Addnumber(TestNumber number)
+        {
+            int result = number.number1 + number.number2;
+            return result;
+        }
+
     }
 }
 

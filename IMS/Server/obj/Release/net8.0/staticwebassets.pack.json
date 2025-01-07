@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/wwwroot/Reports/workitem.trdp",
+      "PackagePath": "staticwebassets/Reports/workitem.trdp"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.IMS.Server.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.IMS.Server.props",
+      "PackagePath": "build\\IMS.Server.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.IMS.Server.props",
+      "PackagePath": "buildMultiTargeting\\IMS.Server.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.IMS.Server.props",
+      "PackagePath": "buildTransitive\\IMS.Server.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

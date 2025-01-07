@@ -45,6 +45,14 @@
         "Key": "Value"
       },
       "hotReloadProfile": "aspnetcore"
+    },
+    "IMS.Server": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:51032;http://localhost:58887",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

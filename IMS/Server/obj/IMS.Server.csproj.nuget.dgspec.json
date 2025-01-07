@@ -13,6 +13,7 @@
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Client/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -22,9 +23,7 @@
         ],
         "sources": {
           "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -40,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -50,9 +54,17 @@
               "target": "Package",
               "version": "[6.2.2, )"
             },
+            "BlazorVideoPlayer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "Blazored.Video": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             },
             "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
@@ -85,15 +97,15 @@
             },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[4.27.1, )"
-            },
-            "Telerik.ReportViewer.Blazor": {
-              "target": "Package",
-              "version": "[16.1.22.622, )"
+              "version": "[4.28.9, )"
             },
             "Toolbelt.Blazor.PWA.Updater": {
               "target": "Package",
               "version": "[2.1.0.1, )"
+            },
+            "Vidazor": {
+              "target": "Package",
+              "version": "[1.0.5, )"
             }
           },
           "imports": [
@@ -136,6 +148,7 @@
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Server/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -145,9 +158,7 @@
         ],
         "sources": {
           "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -166,6 +177,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -175,6 +191,14 @@
             "AspNetCore.Identity.Mongo": {
               "target": "Package",
               "version": "[8.3.3, )"
+            },
+            "FreeSpire.Doc": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.61, )"
             },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
@@ -204,13 +228,25 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[2.88.7, )"
+            },
+            "Syncfusion.DocIO.Net.Core": {
+              "target": "Package",
+              "version": "[23.2.7, )"
+            },
+            "Syncfusion.DocIORenderer.Net.Core": {
+              "target": "Package",
+              "version": "[23.2.7, )"
+            },
+            "Syncfusion.Pdf.Net.Core": {
+              "target": "Package",
+              "version": "[23.2.7, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.4.1, )"
-            },
-            "Telerik.Reporting.Services.AspNetCore": {
-              "target": "Package",
-              "version": "[16.1.22.622, )"
             }
           },
           "imports": [
@@ -245,6 +281,7 @@
         "packagesPath": "/Users/israeldeguzman/.nuget/packages/",
         "outputPath": "/Users/israeldeguzman/Documents/GitHub/ims/IMS/Shared/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/israeldeguzman/Documents/GitHub/ims/NuGet.Config",
           "/Users/israeldeguzman/.nuget/NuGet/NuGet.Config"
@@ -254,9 +291,7 @@
         ],
         "sources": {
           "/Users/israeldeguzman/Documents/Syncfusion/22.2.5/Blazor/NugetPackages": {},
-          "/usr/local/share/dotnet/library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -268,6 +303,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {

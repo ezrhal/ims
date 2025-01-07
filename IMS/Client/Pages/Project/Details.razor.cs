@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace IMS.Client.Pages.Project
 {
     [Authorize]
     partial class Details
     {
+        [Parameter] public string projectid {get;set;} = "";
+        
         PRViewModel prview = new();
         POViewModel poview = new();
         CVViewModel cvview = new();
@@ -21,13 +24,14 @@ namespace IMS.Client.Pages.Project
         RadzenDataGrid<MaterialsModel> materialsGrid;
         RadzenDataGrid<EquipmentModel> equipmentGrid;
         RadzenDataGrid<LaborModel> laborGrid;
-        [Parameter] public string projectid {get;set;} = "";
+        
 
         protected override async Task OnInitializedAsync()
         {
+            Console.WriteLine(projectid);
             try
             {
-                projectid =  navigationManager.Uri.Split("?")[1].Split("=")[1];
+                //projectid =  navigationManager.Uri.Split("?")[1].Split("=")[1];
                 project = await httpClient.GetFromJsonAsync<ProjectModel>("project/getproject?id=" + projectid);
             }
             catch{}
@@ -227,21 +231,26 @@ namespace IMS.Client.Pages.Project
             StateHasChanged();
         }
 
-        async void PrintWorkItems()
+        async void PrintProject()
         {
             //navigationManager.NavigateTo("/Viewer?projectid=" + projectid);
-            await JSRuntime.InvokeVoidAsync("open", "Viewer?report=POW&projectid=" + projectid, "_blank");  
+            await JSRuntime.InvokeVoidAsync("open", "api/reports/printproject?projectid=" + projectid , "_blank");  
         }
 
         async void PrintWorkItemsDetails(string id)
         {
-            //navigationManager.NavigateTo("/Viewer?projectid=" + projectid);
-            await JSRuntime.InvokeVoidAsync("open", "Viewer?report=workitem&projectid=" + projectid + "&workitemid=" + id, "_blank");  
-            try{
-
-            }catch{}
+            await JSRuntime.InvokeVoidAsync("open", "api/reports/printworkitem?projectid=" + projectid + "&workitemid=" + id, "_blank");  
         }
 
+
+        #region SPIRE
+
+        public async Task ReportWorkitem(string id)
+        {
+            await httpClient.GetFromJsonAsync<string>("api/reports/generatereport");
+        }
+
+        #endregion
 
 
         void OnDetailsViewFromChild(PRViewModel _prview) => prview = _prview;

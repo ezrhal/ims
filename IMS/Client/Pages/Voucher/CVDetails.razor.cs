@@ -4,6 +4,7 @@ using Radzen;
 using IMS.Client.Shared;
 using Radzen.Blazor;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 
 namespace IMS.Client.Pages.Voucher
@@ -65,6 +66,11 @@ namespace IMS.Client.Pages.Voucher
         async Task LoadData(LoadDataArgs args)
         {
             StateHasChanged();
+        }
+        
+        public async Task PrintCV(string id)
+        {
+            await JSRuntime.InvokeVoidAsync("open", "api/reports/printcv?poid=" + id, "_blank"); 
         }
 
         async void ButtonBackClick()

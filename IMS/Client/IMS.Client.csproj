@@ -17,24 +17,27 @@
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Blazored.Video" Version="1.0.1" />
+    <PackageReference Include="BlazorVideoPlayer" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.3" PrivateAssets="all" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Radzen.Blazor" Version="4.27.1" />
-    <PackageReference Include="Telerik.ReportViewer.Blazor" Version="16.1.22.622" />
+    <PackageReference Include="Radzen.Blazor" Version="4.28.9" />
     <PackageReference Include="BlazorPro.BlazorSize" Version="6.2.2" />
     <PackageReference Include="Toolbelt.Blazor.PWA.Updater" Version="2.1.0.1" />
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
+    <PackageReference Include="Vidazor" Version="1.0.5" />
   </ItemGroup>
-<ItemGroup>
+  
+<!-- <ItemGroup>
      <Reference Include="Telerik.ReportServer.HttpClient">
       	<HintPath>bin\Debug\net7.0\Telerik.ReportServer.HttpClient.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.ReportServer.Services.Models">    
- 	    <HintPath>bin\Debug\net7.0\Telerik.ReportServer.Services.Models.dll</HintPath>
+     <Reference Include="Telerik.ReportViewer.Blazor">
+      	<HintPath>Dll\Telerik.ReportViewer.Blazor.dll</HintPath>
     </Reference>
-</ItemGroup>
+</ItemGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\IMS.Shared.csproj" />
@@ -47,9 +50,5 @@
   <ItemGroup>
     <None Remove="Pages\Maintenance\" />
     <None Remove="Pages\Project\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Maintenance\" />
-    <Folder Include="Pages\Project\" />
   </ItemGroup>
 </Project>

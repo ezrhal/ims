@@ -13,12 +13,14 @@ using System.Security.Claims;
 using System.Text;
 using IMS.Server.Services;
 using Microsoft.AspNetCore.Authorization;
+using IMS.Server.Services;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace IMS.Server.Controllers
 {
+    [ApiController]
     [Route("api/[controller]/[action]")]
     public class AccountController : Controller
     {
@@ -35,13 +37,18 @@ namespace IMS.Server.Controllers
             
         }
 
+        public async Task<string> getenc(string input)
+        {
+            return Utilities.EncryptString(input);
+        }
+
         public async Task<IActionResult> Login([FromBody]LoginModel login)
         {
             //var result = await _signInManager.PasswordSignInAsync(login.Username, login.Password, false, false);
+            //Utilities.EncryptString(login.Password)
+            var result = await _db.CheckUserCredential(login.Username, Utilities.EncryptString(login.Password));
 
-            var result = await _db.CheckUserCredential(login.Username, login.Password);
-
-            if (!result)
+            if (result == null)
                 return BadRequest(new LoginResult { Successful = false, Error = "Invalid Username or Password" });
 
             var claims = new[]
@@ -61,7 +68,7 @@ namespace IMS.Server.Controllers
                 signingCredentials: creds
             );
 
-            return Ok(new LoginResult { Successful = true, Token = new JwtSecurityTokenHandler().WriteToken(token) });
+            return Ok(new LoginResult { Successful = true, Token = new JwtSecurityTokenHandler().WriteToken(token), UserLogin = result});
 
         }
 
@@ -71,7 +78,7 @@ namespace IMS.Server.Controllers
 
             var result = await _db.CheckUserCredential(login.Username, login.Password);
 
-            if (!result)
+            if (result == null)
                 return "Bad Request"; //BadRequest(new LoginResult { Successful = false, Error = result.ToString() });
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -108,6 +115,19 @@ namespace IMS.Server.Controllers
         public async Task<string> CheckAuth()
         {
             return "string";
+        }
+
+        [HttpPost]
+        public async Task<string> SaveUser(UserModel user)
+        {
+            user.Password = Utilities.EncryptString("123456");
+            return await _db.SaveUser(user);
+        }
+
+        
+        public async Task<List<UserModel>> GetUsers()
+        {
+            return await _db.GetUsers();
         }
     }
 }

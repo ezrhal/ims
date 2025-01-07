@@ -35,7 +35,10 @@ namespace IMS.Client.Pages.Project
             }
         }
 
-        
+        public void CloseSide()
+        {
+            mapDialogService.CloseSide();
+        }
         
         
     }

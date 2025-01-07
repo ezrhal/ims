@@ -7,6 +7,7 @@
 @using IMS.Shared.Models
 @inject NotificationService NotificationService
 @inject NavigationManager navigationManager
+@inject IJSRuntime JSRuntime
 
 @{
     if (!projectviewcv)
@@ -58,7 +59,14 @@
                                 </RadzenColumn>
                                 <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
                                     <RadzenTextBox style="width:100%" value="@cv.checkno" />
-
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="Check Date." />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    <RadzenMask Mask="****/**/**" CharacterPattern="[0-9]" Placeholder="yyyy/mm/dd" Name="date" @bind-Value=@cv.checkdate Style="width: 100%;"/>
                                 </RadzenColumn>
                             </RadzenRow>
                             <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
@@ -93,22 +101,21 @@
                                     <RadzenTextBox style="width:100%" value="@string.Format("₱ {0:n2}", cv.amount)" />
                                 </RadzenColumn>
                             </RadzenRow>
-                            @{
-                                if (cv.cvsubmitted == 0)
-                                {
-                                    <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
-                                        <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
-                                            <RadzenLabel Text="" />
-                                        </RadzenColumn>
-                                        <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
-                                            <RadzenButton Icon="arrow_outward" Text="Submit" Click="@(() => SubmitCV(cv.Id))" />
-                                        </RadzenColumn>
-                                    </RadzenRow>
-                                }
-                            }
-
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    @{
+                                        if (cv.submitted == 0)
+                                        {
+                                            <RadzenButton Icon="arrow_outward" Text="Submit" Click="@(() => SubmitCV(cv.Id))"/>
+                                        }
+                                    }
+                                    <RadzenButton Icon="print" Text="Print" Click="@(() => PrintCV(cv.Id))"/>
+                                </RadzenColumn>
+                            </RadzenRow>
                         </RadzenCard>
-
                     </RadzenStack>
                     @* <RadzenStack Orientation="Orientation.Horizontal">
                             <RadzenRow AlignItems="AlignItems.Start" Style="width:100%">

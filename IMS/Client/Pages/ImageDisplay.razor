@@ -1,0 +1,28 @@
+@layout LoginLayout
+
+@inject HttpClient httpClient
+
+@page "/images"
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+
+<RadzenStack style="width:100%" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center">
+    <div class="imgbox">
+        <img class="center-fit" src="@imgsource"/>
+    </div>
+    
+</RadzenStack>

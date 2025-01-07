@@ -1,0 +1,36 @@
+@using IMS.Shared.Models
+@inject Radzen.DialogService DialogService
+@inject HttpClient httpClient
+@inject NotificationService NotificationService
+@inject NavigationManager NavigationManager
+
+
+<RadzenTemplateForm Data="@menu" Submit="@(async (MenuModel args) => { await SaveMenu(); })">
+    <RadzenRow Gap="0.15rem">
+        <RadzenColumn Size="12" SizeSM="12">
+            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                
+                <RadzenDropDown Data=@parentMenus TextProperty="menu" ValueProperty="Id" TValue="string" @bind-Value="@menu.parentid" Class="rz-background-color-white" Placeholder="Select Parent Menu" Name="parentid"/>
+
+                <RadzenTextBox @bind-Value="@menu.menu" Class="rz-background-color-white" Name="menu" Placeholder="Menu"/>
+                <RadzenRequiredValidator Component="menu" Text="Menu is required" Popup="true" Style="position:relative; top: -10px; width: fit-content"/>
+
+                <RadzenTextBox @bind-Value="@menu.path" Name="path" Class="rz-background-color-white" Placeholder="Path"/>
+                <RadzenRequiredValidator Component="path" Text="path is required" Popup="true" Style="position:relative; top: -10px; width: fit-content"/>
+
+                <RadzenTextBox @bind-Value="@menu.cssclass" Name="cssclass" Class="rz-background-color-white" Placeholder="Class"/>
+                
+                <RadzenTextBox @bind-Value="@menu.style" Name="style" Class="rz-background-color-white" Placeholder="Style"/>
+
+                <RadzenTextBox @bind-Value="@menu.icon" Name="icon" Class="rz-background-color-white" Placeholder="Icon"/>
+                <RadzenRequiredValidator Component="icon" Text="Icon is required" Popup="true" Style="position:relative; top: -10px; width: fit-content"/>
+
+
+            </RadzenStack>
+            <RadzenStack Orientation="Orientation.Horizontal" Class="mt-3" JustifyContent="JustifyContent.Right" Gap="0.5rem">
+                <RadzenButton Text="Cancel" Click="@(() => CloseDialog())" ButtonStyle="ButtonStyle.Secondary" />
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary" Shade="Shade.Dark" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenTemplateForm>

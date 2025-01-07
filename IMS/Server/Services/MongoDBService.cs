@@ -21,7 +21,7 @@ namespace IMS.Server.Services
 
         public MongoDBService(IConfiguration configuration)
         {
-            var client = new MongoClient(configuration.GetConnectionString("MongoConnection"));
+            var client = new MongoClient(configuration.GetConnectionString("AtlasMongoDB"));
             //var client = new MongoClient(configuration.GetConnectionString("AtlasMongoDB"));
             db = client.GetDatabase("IMS");
             _collection = db.GetCollection<ItemModel>("Items");
@@ -38,8 +38,8 @@ namespace IMS.Server.Services
         {
             try
             {
-                _collection.InsertOne(item);
-                return item.Id.ToString();
+                await _collection.InsertOneAsync(item);
+                return item.Id;
             }
             catch (Exception e)
             {
@@ -55,7 +55,7 @@ namespace IMS.Server.Services
 
         public async Task<int> UpdateItem(ItemModel item)
         {
-            _collection.ReplaceOne(f => f.Id.Equals(item.Id), item);
+            await _collection.ReplaceOneAsync(f => f.Id.Equals(item.Id), item);
             return 1;
         }
 
@@ -494,11 +494,11 @@ namespace IMS.Server.Services
 
         }
 
-        public async Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid)
+        public async Task<List<MaterialsModel>> GetMaterialsQuantity(string projectid, string itemid, string workitemid)
         {
             if (itemid.Length > 0)
             {
-                return db.GetCollection<MaterialsModel>("MaterialsQuantity").Find(q => q.Id.Equals(projectid) && q.itemid.Equals(itemid)).ToList();
+                return db.GetCollection<MaterialsModel>("MaterialsQuantity").Find(q => q.Id.Equals(projectid) && q.itemid.Equals(itemid) && q.workitemid.Equals(workitemid)).ToList();
             }
             else
             {
@@ -555,7 +555,7 @@ namespace IMS.Server.Services
 
             items.RemoveAll(q => q.Id.Equals(""));
 
-            BsonDocument filter = new BsonDocument();
+           BsonDocument filter = new BsonDocument();
             filter = filter.Set("_id", new BsonObjectId(new ObjectId(id)));
 
             var update = Builders<PRItemModel>.Update.PushEach("items", items);
@@ -586,6 +586,76 @@ namespace IMS.Server.Services
 
                 }
             }
+
+            
+            return "0";
+        }
+        
+        public async Task<string> SavePRItemAdmin(string id, List<ItemModel> items, List<PRItemModel> existingitms)
+        {
+
+            List<PRItemModel> itms = new();
+
+            foreach (var i in items)
+            {
+                PRItemModel ii = new();
+                ii.itemid = i.Id;
+                ii.item = i.item;
+                ii.unitcost = i.unitcost;
+                ii.description = i.description;
+                ii.quantity = 0;
+                itms.Add(ii);
+            }
+            
+            var startDict = itms.GroupBy(r => new { r.itemid }).ToDictionary(g => g.Key, g => g.First());
+            var endDict = existingitms.GroupBy(r => new { r.itemid }).ToDictionary(g => g.Key, g => g.First());
+            List<string> itemids = new();
+
+            foreach (var key in startDict.Keys.Union(endDict.Keys))
+            {
+                var hasStart = startDict.TryGetValue(key, out var start);
+                var hasEnd = endDict.TryGetValue(key, out var end);
+
+                if (hasStart && !hasEnd)
+                {
+                    PRItemModel item = itms.First(q => q.itemid.Equals(key.itemid));
+
+                    item.Id = ObjectId.GenerateNewId().ToString();
+                }
+            }
+
+            itms.RemoveAll(q => q.Id.Equals(""));
+            BsonDocument filter = new BsonDocument();
+            filter = filter.Set("_id", new BsonObjectId(new ObjectId(id)));
+
+            var update = Builders<PRItemModel>.Update.PushEach("items", items);
+
+            var result = db.GetCollection<PRItemModel>("PurchaseRequest").UpdateOne(filter, update);
+
+            // foreach (PRItemModel existingitem in existingitms)
+            // {
+            //     if (itemids.Contains(existingitem.itemid))
+            //     {
+            //         BsonDocument updateQry = new BsonDocument();
+            //         updateQry = updateQry.Set("items.$[material].quantity", existingitem.quantity);
+            //         var updt = new BsonDocument("$set", updateQry);
+            //
+            //         var arrayFilters = new List<ArrayFilterDefinition>
+            //         {
+            //             new BsonDocumentArrayFilterDefinition<BsonDocument>(
+            //                 new BsonDocument("material._id", new BsonObjectId(new ObjectId(existingitem.Id)))
+            //             )
+            //         };
+            //
+            //         var updateOptions = new UpdateOptions()
+            //         {
+            //             ArrayFilters = arrayFilters
+            //         };
+            //
+            //         result = await db.GetCollection<POItemModel>("PurchaseRequest").UpdateOneAsync(filter, updt, updateOptions);
+            //
+            //     }
+            // }
 
             //BsonDocument filter = new BsonDocument();
             //filter = filter.Set("_id", new BsonObjectId(new ObjectId(id)));
@@ -718,8 +788,15 @@ namespace IMS.Server.Services
 
         public async Task<List<POModel>> GetPOs(string projectid)
         {
-            var result = db.GetCollection<POModel>("PurchaseOrder").Find(q => q.projectid.Equals(projectid)).ToList();
-            return result;
+            if (projectid != null)
+            {
+                return db.GetCollection<POModel>("PurchaseOrder").Find(q => q.projectid.Equals(projectid)).ToList();
+            }
+            else
+            {
+               return db.GetCollection<POModel>("PurchaseOrder").Find(q => true).ToList();
+            }
+           
         }
 
         public async Task<string> SavePO(POModel po, string prid, string isempty)
@@ -754,9 +831,27 @@ namespace IMS.Server.Services
             return po.Id;
         }
 
-        public async Task<POModel> GetPO(string poid)
+        public async Task<POModel> GetPO(string poid, string prid)
         {
-            return db.GetCollection<POModel>("PurchaseOrder").Find(q => q.Id.Equals(poid)).FirstOrDefault();
+            POModel po = db.GetCollection<POModel>("PurchaseOrder").Find(q => q.Id.Equals(poid)).FirstOrDefault();
+            List<PRItemModel> pritems =  db.GetCollection<PRItemModel>("PRItems").Find(q => q.Id.Equals(prid)).ToList();
+            
+            var startDict = pritems.GroupBy(r => new {r.itemid}).ToDictionary(g => g.Key, g => g.First());
+            var endDict = po.items.GroupBy(r => new {r.itemid}).ToDictionary(g => g.Key, g => g.First());
+
+            foreach (var key in startDict.Keys.Union(endDict.Keys)) {
+                var hasStart = startDict.TryGetValue(key, out var start);
+                var hasEnd = endDict.TryGetValue(key, out var end);
+                
+                if (hasStart && hasEnd)
+                {
+                    POItemModel poitem = po.items.First(q => q.itemid.Equals(key.itemid));
+                    PRItemModel pritem = pritems.First(q => q.itemid.Equals(key.itemid));
+                    poitem.unitcost = pritem.unitcost;
+                } 
+            }
+
+            return po;
         }
 
         public async Task<List<PRItemModel>> GetPRItems(string prid)
@@ -1027,15 +1122,51 @@ namespace IMS.Server.Services
 
         #region USER
 
-        public async Task<bool> CheckUserCredential(string Username, string Password)
+        public async Task<List<RoleModel>> GetRoles()
         {
-            LoginModel login = db.GetCollection<LoginModel>("Mongos").Find(q => q.Username.ToLower().Equals(Username.ToLower()) && q.Password.Equals(Password)).FirstOrDefault();
+            return db.GetCollection<RoleModel>("Roles").Find(q => q.isactive.Equals(1)).ToList();
+        }
+        
+        public async Task<string> SaveUser(UserModel user)
+        {
+            RoleModel role = db.GetCollection<RoleModel>("Roles").Find(q => q.isactive.Equals(1) && q.Id.Equals(user.roleid))
+                .FirstOrDefault();
 
-            if (login != null)
-                return true;
+            if (role != null)
+            {
+                user.menu = role.menus;
+                db.GetCollection<UserModel>("Mongos").InsertOne(user);
+                return user.Id;
+            }
 
-            return false;
+            return "";
+        }
 
+        public async Task<List<UserModel>> GetUsers()
+        {
+            return db.GetCollection<UserModel>("UserView").Find(q => true).ToList();
+        }
+        
+        public async Task<LoginModel> CheckUserCredential(string Username, string Password)
+        {
+            try
+            {
+                LoginModel login = db.GetCollection<LoginModel>("Mongos").Find(q => q.Username.ToLower().Equals(Username.ToLower()) && q.Password.Equals(Password)).FirstOrDefault();
+                
+                if (login != null)
+                {
+                    login.Password = "";
+                    return login;
+                }
+                
+            }catch(Exception e)
+            {
+                
+            }
+            
+           
+            
+            return null;
         }
 
         #endregion
@@ -1120,6 +1251,30 @@ namespace IMS.Server.Services
 
         #endregion
 
+
+        #region MENU
+        
+        public async Task<List<MenuModel>> GetMenus()
+        {
+           return db.GetCollection<MenuModel>("Menu").Find(q => true).ToList();
+        }
+        
+        public async Task<string> SaveMneu(MenuModel menu)
+        {
+            db.GetCollection<MenuModel>("Menu").InsertOne(menu);
+
+            return menu.Id;
+        }
+
+        public async Task<List<MenuModel>> GetParentMenus()
+        {
+           return db.GetCollection<MenuModel>("Menu").Find(q => q.parentid.Equals("")).ToList();
+        }
+
+        
+        
+        #endregion
+        
         //TRANSFER TO REPORT SERVICE
         public async Task<List<WorkItemModel>> GetReportProject(string projectid)
         {

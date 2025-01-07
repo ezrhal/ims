@@ -9,9 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Telerik.Reporting.Services;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Telerik.Reporting.Cache.File;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,23 +22,37 @@ IConfigurationRoot configuration = new ConfigurationBuilder()
            .Build();
 
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IMongoDBService, MongoDBService>();
+//builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+//    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+//);
 
-// change builder.Services.AddRazorPages();
-builder.Services.AddRazorPages().AddNewtonsoftJson();
+
+builder.Services.AddRazorPages();
 builder.Services.AddControllers().AddNewtonsoftJson();
-
-//REST Service
-builder.Services.TryAddSingleton<IReportServiceConfiguration>(sp => new ReportServiceConfiguration
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IMongoDBService, MongoDBService>();
+builder.Services.AddMvcCore(options =>
 {
-
-    ReportingEngineConfiguration = ConfigurationHelper.ResolveConfiguration(sp.GetService<IWebHostEnvironment>()),
-    HostAppId = "IMS",
-    Storage = new FileStorage(),
-    ReportSourceResolver = new UriReportSourceResolver(
-                        System.IO.Path.Combine(sp.GetService<IWebHostEnvironment>().ContentRootPath, "Reports"))
+    options.ReturnHttpNotAcceptable = true;
 });
+//// change builder.Services.AddRazorPages();
+//builder.Services.AddRazorPages().AddNewtonsoftJson(options =>
+//    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+//);
+
+//builder.Services.AddControllers().AddNewtonsoftJson(options =>
+//    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+//);
+//REST Service
+//builder.Services.TryAddSingleton<IReportServiceConfiguration>(sp => new ReportServiceConfiguration
+//{
+    
+//    ReportingEngineConfiguration = ConfigurationHelper.ResolveConfiguration(sp.GetService<IWebHostEnvironment>()),
+//    HostAppId = "IMS",
+//    Storage = new FileStorage(),
+//    ReportSourceResolver = new UriReportSourceResolver(
+//                        System.IO.Path.Combine(sp.GetService<IWebHostEnvironment>().ContentRootPath, "Reports"))
+//});
 
 //builder.Services.TryAddSingleton<IReportServiceConfiguration>(sp =>
 //     new ReportServiceConfiguration
@@ -82,6 +94,16 @@ builder.Services.AddAuthentication(options =>
 
     };
 });
+
+builder.Services.AddCors(corsOption => corsOption.AddPolicy(
+    "ReportingRestPolicy",
+    corsBuilder =>
+    {
+        corsBuilder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    }
+));
 
 builder.Services.AddAuthorization();
 
@@ -137,6 +159,10 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();
+
+app.UseCors(
+    options => options.AllowAnyOrigin().AllowAnyHeader() //.WithOrigins("https://servicereport1.azurewebsites.net/").AllowAnyMethod().AllowAnyHeader().AllowCredentials()
+) ;
 
 app.MapFallbackToFile("index.html");
 

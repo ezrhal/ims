@@ -95,11 +95,11 @@ namespace IMS.Client.Pages.Project
 
         public async Task MapLoc()
         {
-            
+          
             var result = await dialog.OpenSideAsync<MapLocation>("Set Project Location",
                    new Dictionary<string, object>() {{"geoData", project.geodata}},
                    new SideDialogOptions() { Position = DialogPosition.Right, Width = "600px", CloseDialogOnOverlayClick = true});
-
+            
         }
 
         public async Task HandleChange (ChangeEventArgs args){

@@ -1,5 +1,6 @@
 ﻿
-@page "/Project/Details"
+@page "/Project/Details/{projectid}"
+
 @inject HttpClient httpClient
 @inject DialogService DialogService
 @using IMS.Shared.Models
@@ -9,6 +10,7 @@
 @using IMS.Client.Pages.PO
 @using IMS.Client.Pages.Voucher
 @inject IJSRuntime JSRuntime
+
 
 <div class="col-md-12 col-lg-12 mb-3" style="width:100%">
     <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white">
@@ -24,7 +26,7 @@
     if (project != null)
     {
         <div class="col-md-12 col-lg-12">
-            <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white col-md-12 col-lg-12 p-4" >
+            <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white col-md-12 col-lg-12 p-4">
                 <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
                     <RadzenText class="mb-1"><h5>Project Details</h5></RadzenText>
                     <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start">
@@ -47,14 +49,14 @@
                             </RadzenColumn>
                         </RadzenRow>
                     </RadzenStack>
-                       <RadzenStack Orientation="Orientation.Horizontal">
+                    <RadzenStack Orientation="Orientation.Horizontal">
                         <RadzenRow AlignItems="AlignItems.Start" Style="width:100%">
                             <RadzenColumn Size="12" SizeMD="2" SizeLG="2">
-                               
+
                             </RadzenColumn>
                             <RadzenColumn Size="12" SizeMD="10" SizeLG="10" styl>
-                                <RadzenButton Icon="print" ButtonStyle="ButtonStyle.Primary" Text="Print"  Click="@PrintWorkItems" />
-                                
+                                <RadzenButton Icon="print" ButtonStyle="ButtonStyle.Primary" Text="Print" Click="@PrintProject" />
+
                             </RadzenColumn>
                         </RadzenRow>
                     </RadzenStack>
@@ -67,12 +69,12 @@
                                         <RadzenButton Icon="add" Text="Add Work Item" ButtonStyle="ButtonStyle.Primary" style="width: 170px" Click="@AddWorkItem" />
 
                                         <RadzenDataGrid Data="@project.workitems" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
-                                                    TItem="WorkItemModel" Density="Density.Compact" Context="workitem" @ref="workitemGrid" LoadData="@LoadData"
-                                                    SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false">
+                                                        TItem="WorkItemModel" Density="Density.Compact" Context="workitem" @ref="workitemGrid" LoadData="@LoadData"
+                                                        SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false">
 
-                                                <Template Context="material">
-                                                    <RadzenCard Variant="Variant.Outlined" class="rz-background-color-white m-1 p-1" >
-                                                        <h5 class="ps-3 pt-2">@material.itemno @material.description</h5>
+                                            <Template Context="material">
+                                                <RadzenCard Variant="Variant.Outlined" class="rz-background-color-white m-1 p-1">
+                                                    <h5 class="ps-3 pt-2">@material.itemno @material.description</h5>
                                                     <RadzenTabs>
                                                         <Tabs>
                                                             <RadzenTabsItem Icon="construction" Text="Materials">
@@ -84,7 +86,7 @@
                                                                             {
                                                                                 <RadzenDataGridColumn Width="60px" TItem="MaterialsModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
                                                                                     <Template Context="data">
-                                                                                    @(material.materials.IndexOf(data) + 1)
+                                                                                        @(material.materials.IndexOf(data) + 1)
                                                                                     </Template>
                                                                                 </RadzenDataGridColumn>
                                                                                 <RadzenDataGridColumn TItem="MaterialsModel" Property="item" Title="Material" />
@@ -92,7 +94,7 @@
                                                                                 <RadzenDataGridColumn TItem="MaterialsModel" Property="unit" Title="Unit" Width="110px" TextAlign="TextAlign.Center" />
                                                                                 <RadzenDataGridColumn TItem="MaterialsModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Width="130px">
                                                                                     <Template Context="data">
-                                                                                    <div style="text-align: right">
+                                                                                        <div style="text-align: right">
                                                                                             @String.Format("{0:n2}", data.unitcost)
                                                                                         </div>
                                                                                     </Template>
@@ -100,7 +102,7 @@
                                                                                 <RadzenDataGridColumn TItem="MaterialsModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Width="110px" />
                                                                                 <RadzenDataGridColumn TItem="MaterialsModel" Property="amount" Title="Amount" Width="220px" TextAlign="TextAlign.Center">
                                                                                     <Template Context="detail">
-                                                                                    <div style="text-align: right">
+                                                                                        <div style="text-align: right">
                                                                                             @String.Format("{0:n2}", detail.amount)
                                                                                         </div>
                                                                                     </Template>
@@ -113,7 +115,7 @@
                                                                                                 </div>
                                                                                             }
                                                                                         }
-                                                                                    
+
                                                                                     </FooterTemplate>
                                                                                 </RadzenDataGridColumn>
                                                                                 <RadzenDataGridColumn TItem="MaterialsModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
@@ -131,52 +133,52 @@
                                                                 <RadzenButton class="mb-2" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small" Shade="Shade.Dark" Click="@(() => AddEquipment(material.Id))">Add Equipment</RadzenButton>
                                                                 <RadzenDataGrid AllowPaging="true" AllowSorting="true" GridLines="DataGridGridLines.Both" PageSize="10" Data="@material.equipment" TItem="EquipmentModel" @ref="equipmentGrid">
                                                                     <Columns>
-                                                                    @{
-                                                                        if (material.equipment != null)
-                                                                        {
-                                                                            <RadzenDataGridColumn Width="60px" TItem="EquipmentModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
-                                                                                <Template Context="data">
-                                                                                    @(material.equipment.IndexOf(data) + 1)
-                                                                                </Template>
-                                                                            </RadzenDataGridColumn>
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="item" Title="Equipment" />
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="description" Title="Description" />
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="unit" Title="Unit" Width="110px" TextAlign="TextAlign.Center" />
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="unitcost" Title="Rate" TextAlign="TextAlign.Center" Width="130px">
-                                                                                <Template Context="detail">
-                                                                                    <div style="text-align: right">
-                                                                                        @String.Format("{0:n2}", detail.unitcost)
-                                                                                    </div>
-                                                                                </Template>
-                                                                            </RadzenDataGridColumn>
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Width="110px" />
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="hours" Title="Hours" TextAlign="TextAlign.Center" Width="110px" />
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Property="amount" Title="Amount" Width="220px" TextAlign="TextAlign.Center">
-                                                                                <Template Context="detail">
-                                                                                    <div style="text-align: right">
-                                                                                        @String.Format("{0:n2}", detail.amount)
-                                                                                    </div>
-                                                                                </Template>
-                                                                                <FooterTemplate>
-                                                                                    @{
-                                                                                        if (material.equipment != null)
-                                                                                        {
-                                                                                            <div style="text-align:right">
-                                                                                                Total : <b>@String.Format("{0:n2}", material.equipment.Sum(o => o.amount))</b>
-                                                                                            </div>
+                                                                        @{
+                                                                            if (material.equipment != null)
+                                                                            {
+                                                                                <RadzenDataGridColumn Width="60px" TItem="EquipmentModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                                                                                    <Template Context="data">
+                                                                                        @(material.equipment.IndexOf(data) + 1)
+                                                                                    </Template>
+                                                                                </RadzenDataGridColumn>
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="item" Title="Equipment" />
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="description" Title="Description" />
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="unit" Title="Unit" Width="110px" TextAlign="TextAlign.Center" />
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="unitcost" Title="Rate" TextAlign="TextAlign.Center" Width="130px">
+                                                                                    <Template Context="detail">
+                                                                                        <div style="text-align: right">
+                                                                                            @String.Format("{0:n2}", detail.unitcost)
+                                                                                        </div>
+                                                                                    </Template>
+                                                                                </RadzenDataGridColumn>
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Width="110px" />
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="hours" Title="Hours" TextAlign="TextAlign.Center" Width="110px" />
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Property="amount" Title="Amount" Width="220px" TextAlign="TextAlign.Center">
+                                                                                    <Template Context="detail">
+                                                                                        <div style="text-align: right">
+                                                                                            @String.Format("{0:n2}", detail.amount)
+                                                                                        </div>
+                                                                                    </Template>
+                                                                                    <FooterTemplate>
+                                                                                        @{
+                                                                                            if (material.equipment != null)
+                                                                                            {
+                                                                                                <div style="text-align:right">
+                                                                                                    Total : <b>@String.Format("{0:n2}", material.equipment.Sum(o => o.amount))</b>
+                                                                                                </div>
+                                                                                            }
                                                                                         }
-                                                                                    }
-                                                                                </FooterTemplate>
-                                                                            </RadzenDataGridColumn>
-                                                                            <RadzenDataGridColumn TItem="EquipmentModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
-                                                                                <Template Context="data">
-                                                                                    <RadzenButton Click="@(() => UpdateEquipment(material.Id, data))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
-                                                                                    <RadzenButton Click="@(() => RemoveItem(material.Id, data.Id, "equipment"))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" class="my-1 ms-1">
-                                                                                    </RadzenButton>
-                                                                                </Template>
-                                                                            </RadzenDataGridColumn>
+                                                                                    </FooterTemplate>
+                                                                                </RadzenDataGridColumn>
+                                                                                <RadzenDataGridColumn TItem="EquipmentModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                                                                    <Template Context="data">
+                                                                                        <RadzenButton Click="@(() => UpdateEquipment(material.Id, data))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
+                                                                                        <RadzenButton Click="@(() => RemoveItem(material.Id, data.Id, "equipment"))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" class="my-1 ms-1">
+                                                                                        </RadzenButton>
+                                                                                    </Template>
+                                                                                </RadzenDataGridColumn>
+                                                                            }
                                                                         }
-                                                                    }
                                                                     </Columns>
                                                                 </RadzenDataGrid>
                                                             </RadzenTabsItem>
@@ -185,33 +187,33 @@
                                                                 <RadzenDataGrid AllowPaging="true" AllowSorting="true" GridLines="DataGridGridLines.Both" PageSize="10" Data="@material.labor" TItem="LaborModel" @ref="laborGrid">
                                                                     <Columns>
 
-                                                                    @{
-                                                                        if (material.labor != null)
-                                                                        {
-                                                                            <RadzenDataGridColumn Width="60px" TItem="LaborModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
-                                                                                <Template Context="data">
-                                                                                    @(material.labor.IndexOf(data) + 1)
-                                                                                </Template>
-                                                                            </RadzenDataGridColumn>
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="item" Title="Labor" />
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="description" Title="Description" />
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="unit" Title="Unit" Width="110px" TextAlign="TextAlign.Center" />
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="unitcost" Title="Rate" TextAlign="TextAlign.Center" Width="130px">
-                                                                                <Template Context="detail">
-                                                                                    <div style="text-align: right">
-                                                                                        @String.Format("{0:n2}", detail.unitcost)
-                                                                                    </div>
-                                                                                </Template>
-                                                                            </RadzenDataGridColumn>
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Width="110px" />
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="days" Title="Days" TextAlign="TextAlign.Center" Width="110px" />
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Property="amount" Title="Amount" Width="220px" TextAlign="TextAlign.Center">
-                                                                                <Template Context="detail">
+                                                                        @{
+                                                                            if (material.labor != null)
+                                                                            {
+                                                                                <RadzenDataGridColumn Width="60px" TItem="LaborModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                                                                                    <Template Context="data">
+                                                                                        @(material.labor.IndexOf(data) + 1)
+                                                                                    </Template>
+                                                                                </RadzenDataGridColumn>
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="item" Title="Labor" />
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="description" Title="Description" />
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="unit" Title="Unit" Width="110px" TextAlign="TextAlign.Center" />
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="unitcost" Title="Rate" TextAlign="TextAlign.Center" Width="130px">
+                                                                                    <Template Context="detail">
+                                                                                        <div style="text-align: right">
+                                                                                            @String.Format("{0:n2}", detail.unitcost)
+                                                                                        </div>
+                                                                                    </Template>
+                                                                                </RadzenDataGridColumn>
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="quantity" Title="Quantity" TextAlign="TextAlign.Center" Width="110px" />
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="days" Title="Days" TextAlign="TextAlign.Center" Width="110px" />
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Property="amount" Title="Amount" Width="220px" TextAlign="TextAlign.Center">
+                                                                                    <Template Context="detail">
                                                                                         <div style="text-align: right">
                                                                                             @String.Format("{0:n2}", detail.amount)
-                                                                                        </div> 
-                                                                                </Template>
-                                                                                <FooterTemplate>
+                                                                                        </div>
+                                                                                    </Template>
+                                                                                    <FooterTemplate>
                                                                                         @{
                                                                                             if (material.labor != null)
                                                                                             {
@@ -220,25 +222,25 @@
                                                                                                 </div>
                                                                                             }
                                                                                         }
-                                                                                </FooterTemplate>
-                                                                            </RadzenDataGridColumn>
-                                                                            <RadzenDataGridColumn TItem="LaborModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
-                                                                                <Template Context="data">
-                                                                                    <RadzenButton Click="@(() => UpdateLabor(material.Id, data))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
-                                                                                    <RadzenButton Click="@(() => RemoveItem(material.Id, data.Id, "labor"))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" class="my-1 ms-1">
-                                                                                    </RadzenButton>
-                                                                                </Template>
-                                                                            </RadzenDataGridColumn>
+                                                                                    </FooterTemplate>
+                                                                                </RadzenDataGridColumn>
+                                                                                <RadzenDataGridColumn TItem="LaborModel" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                                                                    <Template Context="data">
+                                                                                        <RadzenButton Click="@(() => UpdateLabor(material.Id, data))" Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Small" />
+                                                                                        <RadzenButton Click="@(() => RemoveItem(material.Id, data.Id, "labor"))" ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Small" class="my-1 ms-1">
+                                                                                        </RadzenButton>
+                                                                                    </Template>
+                                                                                </RadzenDataGridColumn>
+                                                                            }
                                                                         }
-                                                                    }  
                                                                     </Columns>
                                                                 </RadzenDataGrid>
                                                             </RadzenTabsItem>
                                                         </Tabs>
                                                     </RadzenTabs>
-                                                    </RadzenCard>
-                                                    
-                                                </Template>
+                                                </RadzenCard>
+
+                                            </Template>
 
                                             <Columns>
                                                 <RadzenDataGridColumn Width="60px" TItem="WorkItemModel" Title="No." Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
@@ -247,12 +249,12 @@
                                                     </Template>
                                                 </RadzenDataGridColumn>
                                                 <RadzenDataGridColumn TItem="WorkItemModel" Property="itemno" Title="Item No." Frozen="false" Width="100px" />
-                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="description" Title="Description" >
+                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="description" Title="Description">
                                                     <FooterTemplate>
                                                         Total Amount
                                                     </FooterTemplate>
                                                 </RadzenDataGridColumn>
-                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="totalmaterials" TextAlign="TextAlign.Center" Title="Materials" HeaderCssClass="text-align:center" Width="150px" FormatString="{0:n2}" >
+                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="totalmaterials" TextAlign="TextAlign.Center" Title="Materials" HeaderCssClass="text-align:center" Width="150px" FormatString="{0:n2}">
                                                     <Template Context="data">
                                                         <div style="text-align:right">
                                                             @string.Format("{0:n2}", data.totalmaterials)
@@ -269,7 +271,7 @@
                                                         </div>
                                                     </FooterTemplate>
                                                 </RadzenDataGridColumn>
-                                                 <RadzenDataGridColumn TItem="WorkItemModel" Property="totalequipment" TextAlign="TextAlign.Center" Title="Equipment" HeaderCssClass="text-align:center" Width="150px" FormatString="{0:n2}" >
+                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="totalequipment" TextAlign="TextAlign.Center" Title="Equipment" HeaderCssClass="text-align:center" Width="150px" FormatString="{0:n2}">
                                                     <Template Context="data">
                                                         <div style="text-align:right">
                                                             @string.Format("{0:n2}", data.totalequipment)
@@ -286,7 +288,7 @@
                                                         </div>
                                                     </FooterTemplate>
                                                 </RadzenDataGridColumn>
-                                                 <RadzenDataGridColumn TItem="WorkItemModel" Property="totallabor" TextAlign="TextAlign.Center" Title="Labor" HeaderCssClass="text-align:center" Width="150px" FormatString="{0:n2}" >
+                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="totallabor" TextAlign="TextAlign.Center" Title="Labor" HeaderCssClass="text-align:center" Width="150px" FormatString="{0:n2}">
                                                     <Template Context="data">
                                                         <div style="text-align:right">
                                                             @string.Format("{0:n2}", data.totallabor)
@@ -303,7 +305,7 @@
                                                         </div>
                                                     </FooterTemplate>
                                                 </RadzenDataGridColumn>
-                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="totalamount" TextAlign="TextAlign.Center" Title="Amount" HeaderCssClass="text-align:center" Width="100px" FormatString="{0:n2}" >
+                                                <RadzenDataGridColumn TItem="WorkItemModel" Property="totalamount" TextAlign="TextAlign.Center" Title="Amount" HeaderCssClass="text-align:center" Width="100px" FormatString="{0:n2}">
                                                     <Template Context="data">
                                                         <div style="text-align:right">
                                                             @string.Format("{0:n2}", data.totalamount)
@@ -320,7 +322,7 @@
                                                         </div>
                                                     </FooterTemplate>
                                                 </RadzenDataGridColumn>
-                                                 <RadzenDataGridColumn TItem="WorkItemModel" Context="order" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
+                                                <RadzenDataGridColumn TItem="WorkItemModel" Context="order" Filterable="false" Width="80px" Sortable="false" TextAlign="TextAlign.Center" Frozen="true" FrozenPosition="FrozenColumnPosition.Right">
                                                     <Template Context="data">
                                                         <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="print" Variant="Variant.Flat" Shade="Shade.Lighter" Click="@(() => PrintWorkItemsDetails(data.Id))" Size="ButtonSize.Small" class="my-1 ms-1">
                                                         </RadzenButton>
@@ -341,42 +343,42 @@
                                 </RadzenTabsItem>
                                 <RadzenTabsItem Icon="shopping_cart" Text="Purchae Request">
                                     <CascadingValue Value="@prview" Name="PRViewKey">
-                                         @{
+                                        @{
                                             if (!prview.openpr)
                                             {
-                                                <ProjectPR projectname="@project.projectname" projectid="@project.Id" projectview="true" OnDetailsView="@OnDetailsViewFromChild"  />
+                                                <ProjectPR projectname="@project.projectname" projectid="@project.Id" projectview="true" OnDetailsView="@OnDetailsViewFromChild" />
                                             }
                                             else
                                             {
-                                                <PRDetails projectview="true" prid="@prview.prid" OnDetailsView="@OnDetailsViewFromChild"  />
+                                                <PRDetails projectview="true" prid="@prview.prid" OnDetailsView="@OnDetailsViewFromChild" />
                                             }
                                         }
                                     </CascadingValue>
                                 </RadzenTabsItem>
                                 <RadzenTabsItem Icon="inventory_2" Text="Purchase Order">
                                     <CascadingValue Value="@poview" Name="POViewKey">
-                                         @{
+                                        @{
                                             if (!poview.openpo)
                                             {
-                                                <POList projectid="@project.Id" projectviewpo="true" OnDetailsViewPO="@OnDetailsViewPOFromChild"  />
+                                                <POList projectid="@project.Id" projectviewpo="true" OnDetailsViewPO="@OnDetailsViewPOFromChild" />
                                             }
                                             else
                                             {
-                                                <PODetails projectviewpo="true" poid="@poview.poid" OnDetailsViewPO="@OnDetailsViewPOFromChild"  />
+                                                <PODetails prid="@poview.prid" projectviewpo="true" poid="@poview.poid" OnDetailsViewPO="@OnDetailsViewPOFromChild" />
                                             }
                                         }
                                     </CascadingValue>
                                 </RadzenTabsItem>
-                                  <RadzenTabsItem Icon="receipt" Text="Voucher">
+                                <RadzenTabsItem Icon="receipt" Text="Voucher">
                                     <CascadingValue Value="@cvview" Name="CVViewKey">
-                                         @{
+                                        @{
                                             if (!cvview.opencv)
                                             {
-                                                <VoucherList projectid="@project.Id" projectviewcv="true" OnDetailsViewCV="@OnDetailsViewCVFromChild"  />
+                                                <VoucherList projectid="@project.Id" projectviewcv="true" OnDetailsViewCV="@OnDetailsViewCVFromChild" />
                                             }
                                             else
                                             {
-                                                <CVDetails projectviewcv="true" poid="@cvview.cvid" OnDetailsViewCV="@OnDetailsViewCVFromChild"  />
+                                                <CVDetails projectviewcv="true" poid="@cvview.cvid" OnDetailsViewCV="@OnDetailsViewCVFromChild" />
                                             }
                                         }
                                     </CascadingValue>
@@ -384,34 +386,34 @@
                             </Tabs>
                         </RadzenTabs>
 
-                        
+
                     </RadzenRow>
                 </RadzenStack>
             </RadzenCard>
 
             @* <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white p-3">
-                <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceEvenly" Gap="0.5rem">
-                    
-                    <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white  col-md-6 col-lg-6">
-                        <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
-                            <RadzenText>Work Item Details</RadzenText>
-                            <RadzenTabs RenderMode="TabRenderMode.Client">
-                                <Tabs>
-                                    <RadzenTabsItem Icon="" Text="Materials">
-                                        Materials
-                                    </RadzenTabsItem>
-                                    <RadzenTabsItem Text="Equipment">
-                                        Equipment
-                                    </RadzenTabsItem>
-                                    <RadzenTabsItem Text="Labor">
-                                        Labor
-                                    </RadzenTabsItem>
-                                </Tabs>
-                            </RadzenTabs>
-                        </RadzenStack>
-                    </RadzenCard> 
-                </RadzenStack>
-            </RadzenCard> *@
+                    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceEvenly" Gap="0.5rem">
+
+                        <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white  col-md-6 col-lg-6">
+                            <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
+                                <RadzenText>Work Item Details</RadzenText>
+                                <RadzenTabs RenderMode="TabRenderMode.Client">
+                                    <Tabs>
+                                        <RadzenTabsItem Icon="" Text="Materials">
+                                            Materials
+                                        </RadzenTabsItem>
+                                        <RadzenTabsItem Text="Equipment">
+                                            Equipment
+                                        </RadzenTabsItem>
+                                        <RadzenTabsItem Text="Labor">
+                                            Labor
+                                        </RadzenTabsItem>
+                                    </Tabs>
+                                </RadzenTabs>
+                            </RadzenStack>
+                        </RadzenCard>
+                    </RadzenStack>
+                </RadzenCard> *@
         </div>
     }
 }

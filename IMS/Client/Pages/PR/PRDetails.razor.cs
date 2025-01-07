@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using Radzen;
 using IMS.Client.Shared;
 using Radzen.Blazor;
+using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Components;
 
 
@@ -76,7 +77,11 @@ namespace IMS.Client.Pages.PR
 
             string itemcount = (pr.items == null ? "0" : "1");   
             var result = await DialogService.OpenAsync<EditQuantity>("Edit Quantity ",
-                   new Dictionary<string, object>() { { "id", pr.Id }, {"prItemGrid", prItemsGrid}, {"prItem", prItem}, {"projectid", pr.projectid}},
+                   new Dictionary<string, object>()
+                   {
+                       { "id", pr.Id }, {"prItemGrid", prItemsGrid}, {"prItem", prItem}, {"projectid", pr.projectid},
+                       {"charges", pr.charges}, {"workitemid", pr.workitemid}
+                   },
                    new DialogOptions() { Width = "500px", Resizable = false, Draggable = true });
             
             if (result != null)
@@ -141,6 +146,16 @@ namespace IMS.Client.Pages.PR
         async Task LoadData(LoadDataArgs args)
         {
             StateHasChanged();
+        }
+
+        async void PrintPR(string prid)
+        {
+            string report = "printpr";
+
+            if (pr.charges == "Admin" || pr.charges == "Motorpool")
+                report = "printpr1";
+            
+            await JSRuntime.InvokeVoidAsync("open", "api/reports/" + report + "?prid=" + prid, "_blank");  
         }
 
         async void ButtonBackClick()

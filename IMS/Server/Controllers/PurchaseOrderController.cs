@@ -29,7 +29,7 @@ public class PurchaseOrderController : Controller
     }
     
     [HttpGet("getpos")]
-    public async Task<List<POModel>> GetPOs(string projectid)
+    public async Task<List<POModel>> GetPOs(string projectid = "")
     {
         return await _db.GetPOs(projectid);
     }
@@ -45,9 +45,9 @@ public class PurchaseOrderController : Controller
     }
 
     [HttpGet("getpo")]
-    public async Task<POModel> GetPO(string poid)
+    public async Task<POModel> GetPO(string poid, string prid)
     {
-        return await _db.GetPO(poid);
+        return await _db.GetPO(poid, prid);
     }
 
     [HttpGet("getpritems")]
@@ -111,4 +111,5 @@ public class PurchaseOrderController : Controller
         POModel po = Newtonsoft.Json.JsonConvert.DeserializeObject<POModel>(paramList[0].ToString());
         return await _db.EditPO(po);
     }
+
 }

@@ -4,23 +4,39 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'hotreloadprofile' " />
   <ItemGroup>
+    <PackageReference Include="FreeSpire.Doc" Version="12.2.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.61" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.3" />
     <PackageReference Include="MongoDB.Driver" Version="2.24.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="AspNetCore.Identity.Mongo" Version="8.3.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="23.2.7" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="23.2.7" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="23.2.7" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.1" />
     <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.4.1" />
-    <PackageReference Include="Telerik.Reporting.Services.AspNetCore" Version="16.1.22.622" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.3" />
+    <PackageReference Include="SkiaSharp" Version="2.88.7" />
   </ItemGroup>
+
+  <!-- <ItemGroup>
+    <Reference Include="Telerik.Reporting">
+      <HintPath>Dll\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.AspNetCore">
+      <HintPath>Dll\Telerik.Reporting.Services.AspNetCore.dll</HintPath>
+    </Reference>
+  </ItemGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\Client\IMS.Client.csproj" />
@@ -35,15 +51,17 @@
     <None Remove="Classes\" />
     <None Remove="Models\" />
     <None Remove="Models\Identity\" />
-    <None Remove="Reports\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Controllers\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Classes\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Identity\" />
-    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
   </ItemGroup>
 </Project>

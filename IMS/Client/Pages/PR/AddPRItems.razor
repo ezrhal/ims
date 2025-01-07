@@ -9,41 +9,78 @@
         <RadzenColumn Size="12" SizeSM="12">
             <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
 
-                <RadzenDataGrid Data="@balancematerials" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                @{
+                    if (pr.charges == "Project")
+                    {
+                        <RadzenDataGrid Data="@balancematerials" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
                             TItem="BalanceMaterialModel" Density="Density.Compact" Context="workitem" LoadData="@LoadData" @ref="grid"
                             SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItems">
 
-                    <Columns>
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
-                            <HeaderTemplate>
-                                <RadzenCheckBox TriState="false" TValue="bool?"
-                                                Value="@(selectedItems == null || selectedItems?.Any() != true ? false : !balancematerials.All(i => selectedItems.Contains(i)) ? null : balancematerials.Any(i => selectedItems.Contains(i)))"
-                                                Change="@(args => selectedItems = args == true ? balancematerials.ToList() : null)" />
-                            </HeaderTemplate>
-                            <Template Context="data">
-                                <RadzenCheckBox TriState="false" Value="@(selectedItems != null && selectedItems.Contains(data))"
-                                                TValue="bool" Change=@(args => grid.SelectRow(data)) />
-                            </Template>
+                            <Columns>
+                                <RadzenDataGridColumn TItem="BalanceMaterialModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                                    <HeaderTemplate>
+                                        <RadzenCheckBox TriState="false" TValue="bool?"
+                                                        Value="@(selectedItems == null || selectedItems?.Any() != true ? false : !balancematerials.All(i => selectedItems.Contains(i)) ? null : balancematerials.Any(i => selectedItems.Contains(i)))"
+                                                        Change="@(args => selectedItems = args == true ? balancematerials.ToList() : null)"/>
+                                    </HeaderTemplate>
+                                    <Template Context="data">
+                                        <RadzenCheckBox TriState="false" Value="@(selectedItems != null && selectedItems.Contains(data))"
+                                                        TValue="bool" Change=@(args => grid.SelectRow(data))/>
+                                    </Template>
 
-                        </RadzenDataGridColumn>
-                       
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="item" Title="Item" Frozen="false" Width="400px">
-                            <Template Context="data">
-                                <div>@data.item @data.description</div>
-                            </Template>
-                        </RadzenDataGridColumn>
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="quantity" Title="Qty" TextAlign="TextAlign.Center" Frozen="false" Width="100px" />
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="prquantity" Title="Toal PR" TextAlign="TextAlign.Center" Frozen="false" Width="100px" />
-                        <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="balancequantity" Title="Balance" TextAlign="TextAlign.Center" Frozen="false" Width="100px" />
-                        @*<RadzenDataGridColumn TItem="BalanceMaterialModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Frozen="false" Width="120px">
+                                </RadzenDataGridColumn>
+
+                                <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="item" Title="Item" Frozen="false" Width="400px">
+                                    <Template Context="data">
+                                        <div>@data.item @data.description</div>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="quantity" Title="Qty" TextAlign="TextAlign.Center" Frozen="false" Width="100px"/>
+                                <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="prquantity" Title="Toal PR" TextAlign="TextAlign.Center" Frozen="false" Width="100px"/>
+                                <RadzenDataGridColumn TItem="BalanceMaterialModel" Property="balancequantity" Title="Balance" TextAlign="TextAlign.Center" Frozen="false" Width="100px"/>
+                                @*<RadzenDataGridColumn TItem="BalanceMaterialModel" Property="unitcost" Title="Unit Cost" TextAlign="TextAlign.Center" Frozen="false" Width="120px">
             <Template Context="detail">
                 <div style="text-align: right">
                     @String.Format("{0:n2}", detail.unitcost)
                 </div>
             </Template>
         </RadzenDataGridColumn>*@
-                    </Columns>
-                </RadzenDataGrid>  
+                            </Columns>
+                        </RadzenDataGrid>
+                    }
+                    else
+                    {
+                        <RadzenDataGrid Data="@itemsList" GridLines="DataGridGridLines.Both" AllowColumnResize="true" AllowSorting="true" PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Right" PagerPosition="PagerPosition.Bottom"
+                            TItem="ItemModel" Density="Density.Compact" Context="workitem" LoadData="@LoadData" @ref="gridItems"
+                            SelectionMode="DataGridSelectionMode.Multiple" AllowRowSelectOnRowClick="false" @bind-Value="@selectedItemsList">
+
+                            <Columns>
+                                <RadzenDataGridColumn TItem="ItemModel" Width="50px" Sortable="false" Filterable="false" TextAlign="TextAlign.Center">
+                                    <HeaderTemplate>
+                                        <RadzenCheckBox TriState="false" TValue="bool?"
+                                                        Value="@(selectedItemsList == null || selectedItemsList?.Any() != true ? false : !itemsList.All(i => selectedItemsList.Contains(i)) ? null : itemsList.Any(i => selectedItemsList.Contains(i)))"
+                                                        Change="@(args => selectedItemsList = args == true ? itemsList.ToList() : null)"/>
+                                    </HeaderTemplate>
+                                    <Template Context="data">
+                                        <RadzenCheckBox TriState="false" Value="@(selectedItemsList != null && selectedItemsList.Contains(data))"
+                                                        TValue="bool" Change=@(args => gridItems.SelectRow(data))/>
+                                    </Template>
+
+                                </RadzenDataGridColumn>
+
+                                <RadzenDataGridColumn TItem="ItemModel" Property="item" Title="Item" Frozen="false" Width="400px">
+                                    <Template Context="data">
+                                        <div>@data.item @data.description</div>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="ItemModel" Property="unit" Title="Unit" TextAlign="TextAlign.Center" Frozen="false" Width="100px"/>
+                                <RadzenDataGridColumn TItem="ItemModel" Property="unitcost" Title="Unitcost" TextAlign="TextAlign.Center" Frozen="false" Width="100px"/>
+                               
+                            </Columns>
+                        </RadzenDataGrid>
+                    }
+                }
+                
 
                 @*<RadzenDropDown Data=@items TextProperty="item" ValueProperty="itemid" TValue="string" @bind-Value="@prItems.itemid" Class="rz-background-color-white" Placeholder="Select Item" Name="item"
                 Change="@SelectItem" />

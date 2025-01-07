@@ -3,6 +3,9 @@
 <PWAUpdater />
 <RadzenComponents />
 
+@inject NavigationManager NavigationManager
+@inject ILocalStorageService _localStorage
+
 <style>
 
     .bdy {
@@ -53,9 +56,15 @@
         {
             <RadzenLayout Style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body'">
                 <RadzenHeader>
-                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
-                        <RadzenSidebarToggle Click="@ToggleMenu" />
-                        <RadzenLabel Text="Construction Management System" />
+                    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween" AlignItems="AlignItems.Center" Gap="0">
+                        <RadzenColumn>
+                            <RadzenSidebarToggle Click="@ToggleMenu"/>
+                            <RadzenLabel Text="Construction Management System"/>
+                        </RadzenColumn>
+                        <RadzenColumn style="margin-right: 5px">
+                            <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="logout" Variant="Variant.Flat" Shade="Shade.Lighter"
+                                          Click="@Logout" Size="ButtonSize.Medium" class="my-1 ms-1" />
+                        </RadzenColumn>
                     </RadzenStack>
                 </RadzenHeader>
                 <RadzenSidebar @bind-Expanded="@sidebar2Expanded">
@@ -98,8 +107,6 @@
             </RadzenLayout>
         }
     }
-
-    
     
 <MediaQuery Media="@Breakpoints.OnlyMedium" @bind-Matches="IsMedium" />
 <MediaQuery Media="@Breakpoints.SmallDown" @bind-Matches="IsSmall" />
@@ -120,7 +127,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Console.WriteLine(sidebar2Expanded);
+        
     }
 
     void ToggleMenu()
@@ -134,5 +141,13 @@
             sidebar2Expanded = true;
         }
         Console.WriteLine(sidebar2Expanded);
+    }
+
+    async Task Logout()
+    {
+        await _localStorage.RemoveItemAsync("authToken");
+        await _localStorage.RemoveItemAsync("userLogin");
+        
+        NavigationManager.NavigateTo("/login");
     }
 }

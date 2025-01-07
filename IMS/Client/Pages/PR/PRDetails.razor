@@ -5,6 +5,7 @@
 @using IMS.Shared.Models
 @inject NotificationService NotificationService
 @inject NavigationManager navigationManager
+@inject IJSRuntime JSRuntime
 
 @{
     if (!projectview)
@@ -28,14 +29,20 @@
         <div class="col-md-12 col-lg-12">
             <RadzenCard Variant="Variant.Outlined" Class="rz-background-color-white col-md-12 col-lg-12 p-4" >
                 <RadzenRow Orientation="Orientation.Horizontal">
-                    <RadzenColumn Size="1" Style="flex-basis: 25px !important">
-                        <RadzenButton Icon="arrow_back_ios_new" ButtonStyle="ButtonStyle.Info" Size="ButtonSize.Small" Click="@ButtonBackClick" />
-                    </RadzenColumn>
+                    @{
+                        if (projectview)
+                        {
+                            <RadzenColumn Size="1" Style="flex-basis: 25px !important">
+                                <RadzenButton Icon="arrow_back_ios_new" ButtonStyle="ButtonStyle.Info" Size="ButtonSize.Small" Click="@ButtonBackClick"/>
+                            </RadzenColumn>
+                        }
+                    }
+                   
                     <RadzenColumn>
-                        <RadzenText class="mb-3"><h5>Purchase Request Details</h5></RadzenText> 
+                        <RadzenText class="mb-3"><h5>Purchase Request Details</h5></RadzenText>
                     </RadzenColumn>
-                    
-                    
+
+
                 </RadzenRow>
                 <RadzenStack Orientation="Orientation.Vertical" Gap="0.5rem">
                     <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start">
@@ -50,15 +57,21 @@
 
                                 </RadzenColumn>
                             </RadzenRow>
-                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
-                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
-                                    <RadzenLabel Text="Work Item" />
-                                </RadzenColumn>
-                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
-                                    <RadzenTextBox style="width:100%" value="@pr.workitem" />
+                            @{
+                                if (pr.workitemid != "")
+                                {
+                                    <RadzenRow AlignItems="AlignItems.Start" Style="width:100%" class="mb-2">
+                                        <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                            <RadzenLabel Text="Work Item" />
+                                        </RadzenColumn>
+                                        <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                            <RadzenTextBox style="width:100%" value="@pr.workitem" />
 
-                                </RadzenColumn>
-                            </RadzenRow>
+                                        </RadzenColumn>
+                                    </RadzenRow>
+                                }
+                            }
+                            
                             <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;" class="mb-2">
                                 <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
                                     <RadzenLabel Text="Date" />
@@ -75,19 +88,29 @@
                                     <RadzenTextBox style="width:100%" value="@string.Format("₱ {0:n2}", pr.amount)" />
                                 </RadzenColumn>
                             </RadzenRow>
-                            @{
-                                if (pr.submitted == 0)
-                                {
-                                    <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
-                                        <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
-                                            <RadzenLabel Text="" />
-                                        </RadzenColumn>
-                                        <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
-                                            <RadzenButton Icon="arrow_outward" Text="Submit" Click="@(() => SubmitPR(pr.Id))" />
-                                        </RadzenColumn>
-                                    </RadzenRow>
-                                }
-                            }
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    @{
+                                        if (pr.submitted != 1)
+                                        {
+                                            <RadzenButton Icon="arrow_outward" Text="Submit" Click="@(() => SubmitPR(pr.Id))"/>
+                                        }
+                                    }
+                                                                       
+                                    <RadzenButton Icon="print" Text="Print" Click="@(() => PrintPR(pr.Id))"/>
+                                </RadzenColumn>
+                            </RadzenRow>
+                            <RadzenRow AlignItems="AlignItems.Start" Style="width:100%;">
+                                <RadzenColumn Size="12" SizeMD="3" SizeLG="3">
+                                    <RadzenLabel Text="" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9" SizeLG="9">
+                                    
+                                </RadzenColumn>
+                            </RadzenRow>
 
                         </RadzenCard>
                        
