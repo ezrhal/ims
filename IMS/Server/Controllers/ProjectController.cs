@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IMS.Server.Services;
 using IMS.Shared.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 
@@ -23,6 +24,7 @@ namespace IMS.Server.Controllers
             _db = db;
         }
 
+        [Authorize]
         [HttpGet("getprojects")]
         public Task<List<ProjectModel>> GetProjects(int typeid)
         {

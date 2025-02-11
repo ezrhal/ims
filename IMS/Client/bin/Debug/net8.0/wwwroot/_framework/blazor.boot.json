@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "IMS.Client",
   "resources": {
-    "hash": "sha256-RJYA8xi17slKqhR+nTpyiBKghIRpW0uYBMQCeKDQjYo=",
+    "hash": "sha256-tHvy7zrSqfG4TYxRBkE5Det7P7DTS0apD0XhUZLlsbk=",
     "jsModuleNative": {
       "dotnet.native.8.0.3.htr3w2ryyy.js": "sha256-D4sYBYmDfH/YekgYRgX959/2RG6k28sJSHmcsn+iikk="
     },
@@ -229,12 +229,12 @@
       "mscorlib.wasm": "sha256-/xjZuJwCmantx5vGyH5ZZ8keySSTeu+YHKQRJbZzcuM=",
       "netstandard.wasm": "sha256-vuFKmCGJbyv85DrzI6S1ZvCikuhIllH6hqbXIL+fUAA=",
       "System.Private.CoreLib.wasm": "sha256-SZkozEDkHEFN0VaDmhl2HOenGaqTOmHqEGkraz3Aejc=",
-      "IMS.Shared.wasm": "sha256-SaeqVsQOrXjAv9WhjovEiwJkXfg5cAl9KEYt2DMiNxk=",
-      "IMS.Client.wasm": "sha256-eW2rHT9DintTZrak3B5Nu5EfSVPOhPzrXBUei4gx2YI="
+      "IMS.Shared.wasm": "sha256-L8koCxj2fM5CEGB0vpD4Q3HQ5eyXpPRwZp43sUu53sk=",
+      "IMS.Client.wasm": "sha256-JpTNvEcwuFAiyVq9473bszwUP0IkhAsQwulA9137Cws="
     },
     "pdb": {
-      "IMS.Shared.pdb": "sha256-1JXAw2W+YsLya+Y8Pj7c35bmE1zaF/Qwa1chJdqbFVU=",
-      "IMS.Client.pdb": "sha256-4caht2ocoBsgdkvYr5dpjXOPcp4cRuAP/J3DZKaufKA="
+      "IMS.Shared.pdb": "sha256-CaVOIqohDrCSlR4QM1vgof2bB/zAck5nqnIVeAne+rg=",
+      "IMS.Client.pdb": "sha256-LENBdlxH/pFPNQDA6qWe3ToC/+j1ZKdLv/RIz8kYbeA="
     }
   },
   "cacheBootResources": true,

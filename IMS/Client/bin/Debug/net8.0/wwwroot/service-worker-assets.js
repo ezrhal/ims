@@ -1141,23 +1141,23 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-SaeqVsQOrXjAv9WhjovEiwJkXfg5cAl9KEYt2DMiNxk=",
+      "hash": "sha256-L8koCxj2fM5CEGB0vpD4Q3HQ5eyXpPRwZp43sUu53sk=",
       "url": "_framework\/IMS.Shared.wasm"
     },
     {
-      "hash": "sha256-1JXAw2W+YsLya+Y8Pj7c35bmE1zaF\/Qwa1chJdqbFVU=",
+      "hash": "sha256-CaVOIqohDrCSlR4QM1vgof2bB\/zAck5nqnIVeAne+rg=",
       "url": "_framework\/IMS.Shared.pdb"
     },
     {
-      "hash": "sha256-eW2rHT9DintTZrak3B5Nu5EfSVPOhPzrXBUei4gx2YI=",
+      "hash": "sha256-JpTNvEcwuFAiyVq9473bszwUP0IkhAsQwulA9137Cws=",
       "url": "_framework\/IMS.Client.wasm"
     },
     {
-      "hash": "sha256-4caht2ocoBsgdkvYr5dpjXOPcp4cRuAP\/J3DZKaufKA=",
+      "hash": "sha256-LENBdlxH\/pFPNQDA6qWe3ToC\/+j1ZKdLv\/RIz8kYbeA=",
       "url": "_framework\/IMS.Client.pdb"
     },
     {
-      "hash": "sha256-D9D77XZKiP6wlJWLrPdgVCx88xqBmjQ+AtRm\/NOF48o=",
+      "hash": "sha256-YHj7+s85CvCpujnkGa48oJZv\/sXZWh2yhKYWlXIFH1Y=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1405,5 +1405,5 @@
       "url": "_content\/Toolbelt.Blazor.PWA.Updater\/Toolbelt.Blazor.PWA.Updater.bundle.scp.css"
     }
   ],
-  "version": "HMsJPkbF"
+  "version": "qx5zGzsZ"
 };

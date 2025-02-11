@@ -662,6 +662,37 @@ namespace IMS.Server.Controllers
                     wordDocument.Dispose();
                 }
                 
+                // using (MemoryStream stream = new MemoryStream())
+                // {
+                //     doc.SaveToStream(stream, FileFormat.Docx);
+                //     stream.Position = 0;
+                //     WordDocument wordDocument = new WordDocument(stream, Syncfusion.DocIO.FormatType.Automatic);
+                //     using (DocIORenderer renderer = new DocIORenderer())
+                //     {
+                //         // Convert the Word document to a PDF
+                //         using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+                //         {
+                //             // Create an output stream for the PDF
+                //             using (MemoryStream outputStream = new MemoryStream())
+                //             {
+                //                 // Save the PDF to the output stream
+                //                 pdfDocument.Save(outputStream);
+                //
+                //                 // Reset the position of the output stream
+                //                 outputStream.Position = 0;
+                //
+                //                 // Set the response content type and headers
+                //                 Response.ContentType = "application/pdf";
+                //                 Response.Headers["Content-Length"] = outputStream.Length.ToString();
+                //
+                //                 // Write the PDF data to the response body
+                //                 await Response.Body.WriteAsync(outputStream.ToArray());
+                //             }
+                //         }
+                //     }
+                //     wordDocument.Dispose();
+                // }
+                
                 
                 
                 //doc.SaveToFile(path + "/Output/" + "workitem1.docx");
@@ -746,22 +777,53 @@ namespace IMS.Server.Controllers
                 using (MemoryStream stream = new MemoryStream())
                 {
                     doc.SaveToStream(stream, FileFormat.Docx);
+                    stream.Position = 0;
                     WordDocument wordDocument = new WordDocument(stream, Syncfusion.DocIO.FormatType.Automatic);
-                    DocIORenderer render = new DocIORenderer();
+                    using (DocIORenderer renderer = new DocIORenderer())
+                    {
+                        // Convert the Word document to a PDF
+                        using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+                        {
+                            // Create an output stream for the PDF
+                            using (MemoryStream outputStream = new MemoryStream())
+                            {
+                                // Save the PDF to the output stream
+                                pdfDocument.Save(outputStream);
 
-                    PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+                                // Reset the position of the output stream
+                                outputStream.Position = 0;
 
-                    render.Dispose();
+                                // Set the response content type and headers
+                                Response.ContentType = "application/pdf";
+                                Response.Headers["Content-Length"] = outputStream.Length.ToString();
+
+                                // Write the PDF data to the response body
+                                await Response.Body.WriteAsync(outputStream.ToArray());
+                            }
+                        }
+                    }
                     wordDocument.Dispose();
-
-                    MemoryStream outputStream = new MemoryStream();
-                    pdfDocument.Save(outputStream);
-                    pdfDocument.Close();
-
-                    Response.ContentType = "application/pdf";
-                    Response.Headers.Add("content-length", outputStream.GetBuffer().Length.ToString());
-                    Response.BodyWriter.Write(outputStream.GetBuffer());
                 }
+                
+                // using (MemoryStream stream = new MemoryStream())
+                // {
+                //     doc.SaveToStream(stream, FileFormat.Docx);
+                //     WordDocument wordDocument = new WordDocument(stream, Syncfusion.DocIO.FormatType.Automatic);
+                //     DocIORenderer render = new DocIORenderer();
+                //
+                //     PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
+                //
+                //     render.Dispose();
+                //     wordDocument.Dispose();
+                //
+                //     MemoryStream outputStream = new MemoryStream();
+                //     pdfDocument.Save(outputStream);
+                //     pdfDocument.Close();
+                //
+                //     Response.ContentType = "application/pdf";
+                //     Response.Headers.Add("content-length", outputStream.GetBuffer().Length.ToString());
+                //     Response.BodyWriter.Write(outputStream.GetBuffer());
+                // }
                 
                 
                 

@@ -43,6 +43,13 @@ namespace IMS.Client.Pages.Project
             //    Console.WriteLine("User is NOT authenticated.");
             //}
 
+            string token = await _localStorage.GetItemAsync<string>("authToken");
+
+            Console.Write(token);
+            
+            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            //var projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("project/getprojects");
             projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("project/getprojects");
             //projects = await httpClient.GetFromJsonAsync<List<ProjectModel>>("https://imsgetprojects.azurewebsites.net/api/getprojects?code=NJIDeaOp9zYZsf2XUq2lBGbzb2me69IjV2T26JRozL9AAzFuflQhyA==");
             
